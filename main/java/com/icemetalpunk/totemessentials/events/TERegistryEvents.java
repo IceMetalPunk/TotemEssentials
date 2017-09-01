@@ -5,13 +5,7 @@ import com.icemetalpunk.totemessentials.TotemEssentials;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.world.storage.loot.LootEntryItem;
-import net.minecraft.world.storage.loot.LootPool;
-import net.minecraft.world.storage.loot.LootTable;
-import net.minecraft.world.storage.loot.conditions.LootCondition;
-import net.minecraft.world.storage.loot.functions.LootFunction;
 import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -38,14 +32,14 @@ public class TERegistryEvents {
 		TotemEssentials.proxy.sounds.registerAll(ev);
 	}
 
-	@SubscribeEvent
-	public void lootLoad(LootTableLoadEvent evt) {
-		if (evt.getName().toString().equals("minecraft:entities/evocation_illager")) {
-			LootTable table = evt.getTable();
-			LootPool pool = table.getPool("pool0");
-			pool.removeEntry("minecraft:totem_of_undying");
-			pool.addEntry(new LootEntryItem((Item) TotemEssentials.proxy.items.get("totem_shell"), 1, 1,
-					new LootFunction[0], new LootCondition[0], "totemessentials:totem_shell"));
-		}
-	}
+	/*
+	 * @SubscribeEvent public void lootLoad(LootTableLoadEvent evt) { if
+	 * (evt.getName().toString().equals("minecraft:entities/evocation_illager"))
+	 * { LootTable table = evt.getTable(); LootPool pool =
+	 * table.getPool("pool0"); pool.removeEntry("minecraft:totem_of_undying");
+	 * pool.addEntry(new LootEntryItem((Item)
+	 * TotemEssentials.proxy.items.get("totem_shell"), 1, 1, new
+	 * LootFunction[0], new LootCondition[0], "totemessentials:totem_shell")); }
+	 * }
+	 */
 }
