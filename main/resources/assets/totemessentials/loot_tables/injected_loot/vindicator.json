@@ -1,0 +1,19 @@
+{
+    "pools": [
+        {
+            "name": "injected_loot",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "totemessentials:essence_reaper",
+                    "weight": 40
+                },
+                {
+                    "type": "empty",
+                    "weight": 60
+                }
+            ]
+        }
+    ]
+}

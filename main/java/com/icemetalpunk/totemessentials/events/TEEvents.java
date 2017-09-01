@@ -57,7 +57,7 @@ public class TEEvents {
 		}
 	}
 
-	// Basic mob drop altering (for non-loot-table things)
+	// Basic mob drop replacement (for non-loot-table things)
 	@SubscribeEvent
 	public void onLivingDrops(LivingDropsEvent ev) {
 		List<EntityItem> dropList = ev.getDrops();
