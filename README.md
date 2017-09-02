@@ -1,6 +1,6 @@
 # _Totem Essentials_
 
-Totem Essentials is a Minecraft mod that expands on vanilla's "Totem of Undying" with an entire totem creafting system. You reap mobs for their Essence, then use those to craft different types of Totems with different properties.
+Totem Essentials is a Minecraft mod that expands on vanilla's "Totem of Undying" with an entire totem crafting system. You reap mobs for their Essence, then use those to craft different types of Totems with different properties.
 
 ## Totem Shell
 Instead of dropping a Totem of Undying, the Woodland Mansion's Evoker ("Evocation Illager") will now drop a Totem Shell. This is the blank slate, the basis of Totem Essentials, the crafting ingredient you will combine with various Essences to craft your new Totems.
