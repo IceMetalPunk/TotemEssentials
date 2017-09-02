@@ -109,6 +109,24 @@ public class TEEvents {
 		}
 	}
 
+	// FIXME: Make Illusioners spawn in Mansions; DOESN'T WORK.
+	@SubscribeEvent
+	public void alterSpawns(WorldEvent.PotentialSpawns ev) {
+		World world = ev.getWorld();
+		BlockPos pos = ev.getPos();
+		IChunkProvider prov = world.getChunkProvider();
+		// System.out.println("Get potential spawns!");
+		if (ev.getType() == EnumCreatureType.MONSTER && prov instanceof ChunkProviderServer) {
+			ChunkProviderServer serverProv = (ChunkProviderServer) prov;
+			// System.out.println("Is Monster & Server Provider");
+			if (serverProv.isInsideStructure(world, "Mansion", pos)) {
+				// System.out.println("Mansion at " + pos);
+				ev.getList().clear();
+				ev.getList().add(new SpawnListEntry(EntityIllusionIllager.class, 500, 5, 5));
+			}
+		}
+		// Reference: ChunkGeneratorOverworld#getPossibleCreatures
+	}
 
 	// Basic mob drop replacement (for non-loot-table things)
 	@SubscribeEvent
