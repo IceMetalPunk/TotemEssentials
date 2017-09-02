@@ -4,7 +4,7 @@ public class ItemReapingTotem extends ItemTotem {
 
 	public ItemReapingTotem(String name) {
 		super(name);
-		this.setMaxDamage(30); // 30 uses
+		this.setMaxDamage(8); // 8 uses
 	}
 
 }
