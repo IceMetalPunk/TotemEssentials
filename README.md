@@ -11,6 +11,8 @@ Vindicators ("Vindication Illagers") will naturally drop Reaper Essence 40% of t
 
 A Totem of Reaping is crafted by surrounding a Totem Shell with 8 Reaper Essence. It has 8 durability; whenever you kill a mob that can drop Essence with a Totem of Reaping in your inventory, you've "reaped" that mob. It will drop its Essence and the Totem will take 1 damage. This means each Totem of Reaping lets you reap up to 8 mobs (although it can be enchanted with Unbreaking and Mending to extend its use).
 
+Reaped mobs will drop 1 Essence, plus 1 extra Essence for each level of Looting your weapon has. No matter your level of looting or the number of Essence dropped, the Totem will always take only 1 damage per mob reaped.
+
 ### Vexatious Essence / Totem of Phasing
 Vexatious Essence is reaped from, you guessed it, Vexes. If you craft a Totem Shell surrounded by 8 Vexatious Essence, you'll get a Totem of Phasing.
 
