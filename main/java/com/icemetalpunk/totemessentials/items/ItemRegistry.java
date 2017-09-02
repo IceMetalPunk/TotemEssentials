@@ -3,7 +3,9 @@ package com.icemetalpunk.totemessentials.items;
 import java.util.HashMap;
 
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceReaper;
+import com.icemetalpunk.totemessentials.items.essences.ItemEssenceVexatious;
 import com.icemetalpunk.totemessentials.items.totems.ItemPhasingTotem;
+import com.icemetalpunk.totemessentials.items.totems.ItemReapingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemTotemShell;
 
 import net.minecraft.item.Item;
@@ -15,18 +17,20 @@ public class ItemRegistry {
 	static {
 		// Totems
 		registry.put("phasing_totem", new ItemPhasingTotem("phasing_totem"));
+		registry.put("reaping_totem", new ItemReapingTotem("reaping_totem"));
 		registry.put("totem_shell", new ItemTotemShell("totem_shell"));
 
 		// Essences
 		registry.put("essence_reaper", new ItemEssenceReaper("essence_reaper"));
+		registry.put("essence_vexatious", new ItemEssenceVexatious("essence_vexatious"));
 	}
 
 	public void put(String name, ITEItem val) {
 		registry.put(name, val);
 	}
 
-	public ITEItem get(String name) {
-		return registry.get(name);
+	public Item get(String name) {
+		return (Item) registry.get(name);
 	}
 
 	public void registerAll(RegistryEvent.Register<Item> ev) {

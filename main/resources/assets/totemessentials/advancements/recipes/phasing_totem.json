@@ -1,0 +1,33 @@
+{
+  "parent": "totemessentials:recipes/root",
+  "rewards": {
+    "recipes": [
+      "totemessentials:phasing_totem"
+    ]
+  },
+  "criteria": {
+    "has_shell": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "totemessentials:totem_shell",
+            "data": 0
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "totemessentials:phasing_totem"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_shell",
+      "has_the_recipe"
+    ]
+  ]
+}
