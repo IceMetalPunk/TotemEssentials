@@ -6,11 +6,14 @@ item.reaping_totem.name=Totem of Reaping
 
 item.essence_reaper.name=Reaper Essence
 item.essence_vexatious.name=Vexatious Essence
+item.essence_undying.name=Undying Essence
 
 # JEI Integration
 jei.item.totem_shell=The blank slate of totems, a Totem Shell drops from Evokers in Woodland Mansions and can be crafted into many useful types of totems with Essence.
 jei.item.phasing_totem=While holding this, you are no longer affected by gravity and you can phase through blocks. The longer you're in a solid block, the more damage this takes; careful you don't lose it while inside a block or you'll suffocate!
 jei.item.reaping_totem=If this is in your inventory when you kill certain mobs, they'll drop their Essence and damage this totem. Different Essences can be crafted into different, useful totems, so reap often!
+jei.item.undying_totem=This vanilla Totem will save you from death! Once. If you're holding it when you die. And you don't fall into the void. And lava will still hurt...
 
 jei.item.essence_reaper=Reaper Essence drops from Vindicators, and can be used to create a Totem of Reaping. You'll need that if you want to collect any other type of Essence!
 jei.item.essence_vexatious=Vexatious Essence can be reaped from Vexes, funnily enough. Totem magic can harness the Vex's phasing abilities for your own use.
+jei.item.essence_undying=Undying Essence, reaped from Zombies, can be crafted into a Totem of Undying. You already know what that does, don't you?

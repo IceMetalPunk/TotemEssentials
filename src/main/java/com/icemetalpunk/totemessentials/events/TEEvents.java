@@ -7,26 +7,18 @@ import com.icemetalpunk.totemessentials.TotemEssentials;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityEvoker;
-import net.minecraft.entity.monster.EntityIllusionIllager;
 import net.minecraft.entity.monster.EntityVex;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome.SpawnListEntry;
-import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.ChunkProviderServer;
-import net.minecraft.world.gen.structure.WoodlandMansion;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
@@ -43,6 +35,7 @@ public class TEEvents {
 
 		// Populate essence drop map
 		essenceMap.put(EntityVex.class, TotemEssentials.proxy.items.get("essence_vexatious"));
+		essenceMap.put(EntityZombie.class, TotemEssentials.proxy.items.get("essence_undying"));
 	}
 
 	// Phasing if holding the Phasing Totem
@@ -108,7 +101,6 @@ public class TEEvents {
 			}
 		}
 	}
-
 
 	// Basic mob drop replacement (for non-loot-table things)
 	@SubscribeEvent
