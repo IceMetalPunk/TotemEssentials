@@ -23,7 +23,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome.SpawnListEntry;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderServer;
-import net.minecraft.world.gen.structure.WoodlandMansion;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.world.WorldEvent;
@@ -34,6 +33,8 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 public class TEEvents {
 	private HashMap<Class<? extends Entity>, HashMap<Item, ItemStack>> dropReplacements = new HashMap<Class<? extends Entity>, HashMap<Item, ItemStack>>();
 	private HashMap<Class<? extends Entity>, Item> essenceMap = new HashMap<Class<? extends Entity>, Item>();
+
+	public final SpawnListEntry illusionerSpawn = new SpawnListEntry(EntityIllusionIllager.class, 500, 5, 5);
 
 	public TEEvents() {
 		// Populate drop replacements map
@@ -122,7 +123,7 @@ public class TEEvents {
 			if (serverProv.isInsideStructure(world, "Mansion", pos)) {
 				// System.out.println("Mansion at " + pos);
 				ev.getList().clear();
-				ev.getList().add(new SpawnListEntry(EntityIllusionIllager.class, 500, 5, 5));
+				ev.getList().add(illusionerSpawn);
 			}
 		}
 		// Reference: ChunkGeneratorOverworld#getPossibleCreatures
