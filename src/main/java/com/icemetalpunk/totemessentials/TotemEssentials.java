@@ -5,7 +5,6 @@ import com.icemetalpunk.totemessentials.events.TERegistryEvents;
 import com.icemetalpunk.totemessentials.proxies.TECommonProxy;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -28,7 +27,7 @@ public class TotemEssentials {
 
 		@Override
 		public ItemStack getTabIconItem() {
-			return new ItemStack(Items.TOTEM_OF_UNDYING);
+			return new ItemStack(proxy.items.get("totem_shell"));
 		}
 
 	};

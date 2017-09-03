@@ -1,5 +1,6 @@
 package com.icemetalpunk.totemessentials.events;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,13 +12,17 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityEvoker;
 import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -36,6 +41,7 @@ public class TEEvents {
 		// Populate essence drop map
 		essenceMap.put(EntityVex.class, TotemEssentials.proxy.items.get("essence_vexatious"));
 		essenceMap.put(EntityZombie.class, TotemEssentials.proxy.items.get("essence_undying"));
+		essenceMap.put(EntityCow.class, TotemEssentials.proxy.items.get("essence_lactic"));
 	}
 
 	// Phasing if holding the Phasing Totem
@@ -67,6 +73,34 @@ public class TEEvents {
 		}
 	}
 
+	// Helper method to get a matching stack from a player's inventory,
+	// regardless of which part of the inventory it's in.
+	public ItemStack getStackInPlayerInv(EntityPlayer player, ItemStack compareTo) {
+		InventoryPlayer inv = player.inventory;
+		ItemStack stack = ItemStack.EMPTY;
+		int slotID = inv.getSlotFor(compareTo); // Doesn't include offhand!
+		if (slotID < 0) {
+			ItemStack inOffhand = player.getHeldItemOffhand();
+			if (inOffhand.getItem() == compareTo.getItem()
+					&& (!inOffhand.getHasSubtypes() || inOffhand.getMetadata() == compareTo.getMetadata())
+					&& ItemStack.areItemStackTagsEqual(inOffhand, compareTo)) {
+				stack = inOffhand;
+			} else {
+				for (ItemStack armorStack : player.getArmorInventoryList()) {
+					if (armorStack.getItem() == compareTo.getItem()
+							&& (!armorStack.getHasSubtypes() || armorStack.getMetadata() == compareTo.getMetadata())
+							&& ItemStack.areItemStackTagsEqual(armorStack, compareTo)) {
+						stack = armorStack;
+						break;
+					}
+				}
+			}
+		} else {
+			stack = inv.getStackInSlot(slotID);
+		}
+		return stack;
+	}
+
 	// Reaping if the Totem of Reaping is in your inventory when killing a
 	// compatible mob
 	@SubscribeEvent
@@ -77,20 +111,8 @@ public class TEEvents {
 
 		if (killer instanceof EntityPlayer && essenceMap.containsKey(mob.getClass())) {
 			EntityPlayer player = (EntityPlayer) killer;
-			InventoryPlayer inv = player.inventory;
-			ItemStack stack = ItemStack.EMPTY;
 			ItemStack reaper = new ItemStack(TotemEssentials.proxy.items.get("reaping_totem"), 1);
-			int slotID = inv.getSlotFor(reaper); // Doesn't include offhand!
-			if (slotID < 0) {
-				ItemStack inOffhand = player.getHeldItemOffhand();
-				if (inOffhand.getItem() == reaper.getItem()
-						&& (!inOffhand.getHasSubtypes() || inOffhand.getMetadata() == reaper.getMetadata())
-						&& ItemStack.areItemStackTagsEqual(inOffhand, reaper)) {
-					stack = inOffhand;
-				}
-			} else {
-				stack = inv.getStackInSlot(slotID);
-			}
+			ItemStack stack = getStackInPlayerInv(player, reaper);
 			if (stack != ItemStack.EMPTY) {
 				stack.damageItem(1, player);
 				int looting = ev.getLootingLevel();
@@ -111,6 +133,37 @@ public class TEEvents {
 			for (EntityItem item : dropList) {
 				if (replacements.containsKey(item.getItem().getItem())) {
 					item.setItem(replacements.get(item.getItem().getItem()).copy());
+				}
+			}
+		}
+	}
+
+	@SubscribeEvent
+	public void cureNegativeEffects(LivingEvent.LivingUpdateEvent ev) {
+		EntityLivingBase ent = ev.getEntityLiving();
+		// Copy the effects to a new list to avoid Concurrent Modification
+		// exceptions!
+		List<PotionEffect> effects = new ArrayList<PotionEffect>(ent.getActivePotionEffects());
+		if (ent instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) ent;
+
+			// If they have a Totem of Curing in their inventory...
+			ItemStack curingTotem = new ItemStack(TotemEssentials.proxy.items.get("curing_totem"), 1);
+			ItemStack match = getStackInPlayerInv(player, curingTotem);
+			if (match != ItemStack.EMPTY) {
+				for (PotionEffect effect : effects) {
+
+					// Clear bad effects and damage the totem, stopping if it
+					// breaks.
+					Potion actualPotion = effect.getPotion();
+					if (actualPotion.isBadEffect()) {
+						int level = effect.getAmplifier();
+						match.damageItem(level + 1, player);
+						player.removeActivePotionEffect(actualPotion);
+						if (match.isEmpty()) {
+							break;
+						}
+					}
 				}
 			}
 		}
