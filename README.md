@@ -40,7 +40,7 @@ Whenever you deal damage to a mob while you have a Totem of Vampirism in your in
 ### Traveling Essence / Totem of Traveling
 Ender pearls are great, but they can only take you so far. Skip to the next level of teleportation by reaping enough Endermen of their Traveling Essence to make a Totem of Traveling!
 
-Sneak + Use the Totem of Traveling to bind it to your current coordinates. After that, you can simply use it normally to teleport back to that spot from anywhere in the world.
+Sneak + Use the Totem of Traveling to bind it to your current coordinates. After that, you can simply use it normally to teleport back to that spot from anywhere in the world. Note that you can't teleport cross-dimensionally; but you can see what coordinates and dimension the Totem is bound to in its mouse-over tooltip.
 
 It takes 1 damage per use, plus 1 damage for every 10 blocks you travel. If it doesn't have enough durability left to make the full trip, you will teleport somewhere between your current location and your destination... better hope it's not in lava!
 
