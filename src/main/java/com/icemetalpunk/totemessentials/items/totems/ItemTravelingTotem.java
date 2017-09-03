@@ -1,9 +1,12 @@
 package com.icemetalpunk.totemessentials.items.totems;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
 import javax.annotation.Nullable;
+
+import org.apache.commons.lang3.text.WordUtils;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -19,15 +22,25 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldProvider;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemTravelingTotem extends ItemTotemBase {
 
+	protected HashMap<Integer, String> dimensionNames = new HashMap<Integer, String>();
+
 	public ItemTravelingTotem(String name) {
 		super(name);
 		this.setMaxDamage(250); // 250 durability - 1 damage per 10 blocks =
 								// 2500 blocks total
+
+		for (int dimID : DimensionManager.getStaticDimensionIDs()) {
+			WorldProvider provider = DimensionManager.createProviderFor(dimID);
+			dimensionNames.put(dimID, formatDimensionName(provider.getDimensionType().getName()));
+		}
+
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -35,10 +48,26 @@ public class ItemTravelingTotem extends ItemTotemBase {
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Destination")) {
 			int[] destTag = stack.getTagCompound().getIntArray("Destination");
-			tooltip.add(I18n.format("item.traveling_totem.bound", new Object[] { destTag[0], destTag[1], destTag[2] }));
+			String dimensionName = " - Unknown Dimension";
+			if (destTag.length > 3) {
+				if (dimensionNames.containsKey(Integer.valueOf(destTag[3]))) {
+					dimensionName = " - " + dimensionNames.get(Integer.valueOf(destTag[3]));
+				}
+			}
+			tooltip.add(I18n.format("item.traveling_totem.bound",
+					new Object[] { destTag[0], destTag[1], destTag[2], dimensionName }));
 		} else {
 			tooltip.add(I18n.format("item.traveling_totem.unbound", new Object[0]));
 		}
+	}
+
+	public String formatDimensionName(String name) {
+		if (name.startsWith("the_")) {
+			name = name.replaceFirst("the_", "");
+		}
+		name = name.replaceAll("_", " ");
+		name = WordUtils.capitalizeFully(name);
+		return name;
 	}
 
 	@Override
@@ -59,7 +88,8 @@ public class ItemTravelingTotem extends ItemTotemBase {
 		}
 
 		if (playerIn.isSneaking()) {
-			nbt.setIntArray("Destination", new int[] { pos.getX(), pos.getY(), pos.getZ() });
+			nbt.setIntArray("Destination",
+					new int[] { pos.getX(), pos.getY(), pos.getZ(), worldIn.provider.getDimension() });
 			stack.setTagCompound(nbt);
 
 			// TODO: Notify the player that it's been set in a better way.
@@ -69,6 +99,15 @@ public class ItemTravelingTotem extends ItemTotemBase {
 		} else if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Destination")) {
 
 			int[] destTag = nbt.getIntArray("Destination");
+
+			if (destTag.length > 3 && destTag[3] != worldIn.provider.getDimension()) {
+				String dim1 = dimensionNames.get(destTag[3]);
+				String dim2 = dimensionNames.get(worldIn.provider.getDimension());
+				playerIn.sendMessage(new TextComponentTranslation("item.traveling_totem.wrong_dimension",
+						new Object[] { dim1, dim2 }));
+				return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
+			}
+
 			BlockPos destination = new BlockPos(destTag[0], destTag[1], destTag[2]);
 			double dist = pos.getDistance(destination.getX(), destination.getY(), destination.getZ());
 
