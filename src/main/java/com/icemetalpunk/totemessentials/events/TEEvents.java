@@ -12,6 +12,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityEvoker;
 import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.player.EntityPlayer;
@@ -45,6 +46,7 @@ public class TEEvents {
 		essenceMap.put(EntityZombie.class, TotemEssentials.proxy.items.get("essence_undying"));
 		essenceMap.put(EntityCow.class, TotemEssentials.proxy.items.get("essence_lactic"));
 		essenceMap.put(EntityChicken.class, TotemEssentials.proxy.items.get("essence_featherfoot"));
+		essenceMap.put(EntityBat.class, TotemEssentials.proxy.items.get("essence_vampiric"));
 	}
 
 	// Phasing if holding the Phasing Totem
@@ -194,6 +196,43 @@ public class TEEvents {
 					match.damageItem(intAmount, player);
 					ev.setCanceled(true);
 				}
+			}
+		}
+	}
+
+	// Totem of Vampirism handler
+	@SubscribeEvent
+	public void onAttack(LivingHurtEvent ev) {
+		DamageSource source = ev.getSource();
+		Entity hitter = source.getTrueSource();
+		EntityLivingBase victim = ev.getEntityLiving();
+
+		float damagedAmount = ev.getAmount();
+		damagedAmount = Math.min(damagedAmount, victim.getHealth());
+		int intAmount = (int) Math.ceil(damagedAmount);
+
+		float healAmount = damagedAmount;
+		if (hitter instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) hitter;
+			ItemStack vampireTotem = new ItemStack(TotemEssentials.proxy.items.get("vampire_totem"));
+			ItemStack match = getStackInPlayerInv(player, vampireTotem);
+			if (match != ItemStack.EMPTY) {
+				int totalDurability = match.getMaxDamage();
+				int currentDamage = match.getItemDamage();
+				if (currentDamage + intAmount >= totalDurability + 1) {
+					healAmount = totalDurability - currentDamage + 1;
+				}
+
+				float maxHealth = player.getMaxHealth();
+				float currentHealth = player.getHealth();
+				player.heal(healAmount);
+
+				if (currentHealth + healAmount > maxHealth) {
+					match.damageItem((int) Math.ceil(maxHealth - currentHealth), player);
+				} else {
+					match.damageItem((int) Math.ceil(healAmount), player);
+				}
+
 			}
 		}
 	}

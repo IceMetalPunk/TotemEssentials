@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group":"totemessentials:vampire_totem",
+  "pattern": [
+    "EEE",
+	"ESE",
+	"EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "totemessentials:essence_vampiric",
+	  "data":0
+    },
+	"S": {
+		"item": "totemessentials:totem_shell",
+		"data": 0
+	}
+  },
+  "result": {
+    "item": "totemessentials:vampire_totem",
+	"data": 0
+  }
+}
