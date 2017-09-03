@@ -32,4 +32,9 @@ Then I'd be lying. You can't float, but if you reap enough chickens for 8 Feathe
 
 It's like Feather Fallling on steroids, if it took up an extra inventory slot...
 
+### Vampiric Essence / Totem of Vampirism
+Bats. They are completely useless, right? Nope! Reap them for their Vampiric Essence, which you can use to craft a Totem of Vampirism.
+
+Whenever you deal damage to a mob while you have a Totem of Vampirism in your inventory, you'll heal equal to the amount of damage you dealt. Healing this way deals the same amount of damage, rounded up, to the totem.
+
 #### More to come...
