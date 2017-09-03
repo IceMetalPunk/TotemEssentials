@@ -18,4 +18,11 @@ Vexatious Essence is reaped from, you guessed it, Vexes. If you craft a Totem Sh
 
 As long as you're holding a Totem of Phasing _in your main hand_, you'll be unaffected by gravity and able to move through solid blocks. You also won't be able to jump, though. Each tick (1/20 of a second) you're inside a solid block, the Totem of Phasing will take 1 damage. Of course, if it breaks while you're inside an opaque block, you'll immediately start suffocating, so be careful!
 
+### Lactic Essence / Totem of Curing
+If you milk a cow, you get milk. If you reap a cow, you get Lactic Essence. Craft 8 Lactic Essence around a Totem Shell to make a Totem of Curing.
+
+If you would receive a negative potion effect with a Totem of Curing in your inventory, it'll be cured immediately. Doing so does damage the Totem, though, at a rate of 1 damage per effect cleared per level. So removing a Wither I effect would cost 1 damage, but removing Poison II would cost 2 damage; and removing them both would cost a total of 3 damage.
+
+The Totem of Curing has 10 durability, by the way. That's probably important to know.
+
 #### More to come...
