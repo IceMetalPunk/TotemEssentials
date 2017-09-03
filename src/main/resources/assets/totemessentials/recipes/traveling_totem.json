@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group":"totemessentials:traveling_totem",
+  "pattern": [
+    "EEE",
+	"ESE",
+	"EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "totemessentials:essence_traveling",
+	  "data":0
+    },
+	"S": {
+		"item": "totemessentials:totem_shell",
+		"data": 0
+	}
+  },
+  "result": {
+    "item": "totemessentials:traveling_totem",
+	"data": 0
+  }
+}

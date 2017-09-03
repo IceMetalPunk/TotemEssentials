@@ -1,6 +1,6 @@
 package com.icemetalpunk.totemessentials.items.totems;
 
-public class ItemPhasingTotem extends ItemTotem {
+public class ItemPhasingTotem extends ItemTotemBase {
 
 	public ItemPhasingTotem(String name) {
 		super(name);

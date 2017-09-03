@@ -1,6 +1,6 @@
 package com.icemetalpunk.totemessentials.items.totems;
 
-public class ItemReapingTotem extends ItemTotem {
+public class ItemReapingTotem extends ItemTotemBase {
 
 	public ItemReapingTotem(String name) {
 		super(name);

@@ -3,6 +3,7 @@ package com.icemetalpunk.totemessentials.events;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -15,14 +16,21 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityEvoker;
 import net.minecraft.entity.monster.EntityIllusionIllager;
 import net.minecraft.entity.monster.EntityVex;
+import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.entity.passive.EntityBat;
+import net.minecraft.entity.passive.EntityChicken;
+import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -36,7 +44,9 @@ import net.minecraft.world.gen.structure.StructureComponent;
 import net.minecraft.world.gen.structure.StructureStart;
 import net.minecraft.world.gen.structure.WoodlandMansion;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -57,6 +67,11 @@ public class TEEvents {
 
 		// Populate essence drop map
 		essenceMap.put(EntityVex.class, TotemEssentials.proxy.items.get("essence_vexatious"));
+		essenceMap.put(EntityZombie.class, TotemEssentials.proxy.items.get("essence_undying"));
+		essenceMap.put(EntityCow.class, TotemEssentials.proxy.items.get("essence_lactic"));
+		essenceMap.put(EntityChicken.class, TotemEssentials.proxy.items.get("essence_featherfoot"));
+		essenceMap.put(EntityBat.class, TotemEssentials.proxy.items.get("essence_vampiric"));
+		essenceMap.put(EntityEnderman.class, TotemEssentials.proxy.items.get("essence_traveling"));
 	}
 
 	// Phasing if holding the Phasing Totem
@@ -88,6 +103,34 @@ public class TEEvents {
 		}
 	}
 
+	// Helper method to get a matching stack from a player's inventory,
+	// regardless of which part of the inventory it's in.
+	public ItemStack getStackInPlayerInv(EntityPlayer player, ItemStack compareTo) {
+		InventoryPlayer inv = player.inventory;
+		ItemStack stack = ItemStack.EMPTY;
+		int slotID = inv.getSlotFor(compareTo); // Doesn't include offhand!
+		if (slotID < 0) {
+			ItemStack inOffhand = player.getHeldItemOffhand();
+			if (inOffhand.getItem() == compareTo.getItem()
+					&& (!inOffhand.getHasSubtypes() || inOffhand.getMetadata() == compareTo.getMetadata())
+					&& ItemStack.areItemStackTagsEqual(inOffhand, compareTo)) {
+				stack = inOffhand;
+			} else {
+				for (ItemStack armorStack : player.getArmorInventoryList()) {
+					if (armorStack.getItem() == compareTo.getItem()
+							&& (!armorStack.getHasSubtypes() || armorStack.getMetadata() == compareTo.getMetadata())
+							&& ItemStack.areItemStackTagsEqual(armorStack, compareTo)) {
+						stack = armorStack;
+						break;
+					}
+				}
+			}
+		} else {
+			stack = inv.getStackInSlot(slotID);
+		}
+		return stack;
+	}
+
 	// Reaping if the Totem of Reaping is in your inventory when killing a
 	// compatible mob
 	@SubscribeEvent
@@ -98,20 +141,8 @@ public class TEEvents {
 
 		if (killer instanceof EntityPlayer && essenceMap.containsKey(mob.getClass())) {
 			EntityPlayer player = (EntityPlayer) killer;
-			InventoryPlayer inv = player.inventory;
-			ItemStack stack = ItemStack.EMPTY;
 			ItemStack reaper = new ItemStack(TotemEssentials.proxy.items.get("reaping_totem"), 1);
-			int slotID = inv.getSlotFor(reaper); // Doesn't include offhand!
-			if (slotID < 0) {
-				ItemStack inOffhand = player.getHeldItemOffhand();
-				if (inOffhand.getItem() == reaper.getItem()
-						&& (!inOffhand.getHasSubtypes() || inOffhand.getMetadata() == reaper.getMetadata())
-						&& ItemStack.areItemStackTagsEqual(inOffhand, reaper)) {
-					stack = inOffhand;
-				}
-			} else {
-				stack = inv.getStackInSlot(slotID);
-			}
+			ItemStack stack = getStackInPlayerInv(player, reaper);
 			if (stack != ItemStack.EMPTY) {
 				stack.damageItem(1, player);
 				int looting = ev.getLootingLevel();
@@ -213,6 +244,100 @@ public class TEEvents {
 				if (replacements.containsKey(item.getItem().getItem())) {
 					item.setItem(replacements.get(item.getItem().getItem()).copy());
 				}
+			}
+		}
+	}
+
+	// Totem of Curing handler
+	@SubscribeEvent
+	public void cureNegativeEffects(LivingEvent.LivingUpdateEvent ev) {
+		EntityLivingBase ent = ev.getEntityLiving();
+		// Copy the effects to a new list to avoid Concurrent Modification
+		// exceptions!
+		List<PotionEffect> effects = new ArrayList<PotionEffect>(ent.getActivePotionEffects());
+		if (ent instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) ent;
+
+			// If they have a Totem of Curing in their inventory...
+			ItemStack curingTotem = new ItemStack(TotemEssentials.proxy.items.get("curing_totem"), 1);
+			ItemStack match = getStackInPlayerInv(player, curingTotem);
+			if (match != ItemStack.EMPTY) {
+				for (PotionEffect effect : effects) {
+
+					// Clear bad effects and damage the totem, stopping if it
+					// breaks.
+					Potion actualPotion = effect.getPotion();
+					if (actualPotion.isBadEffect()) {
+						int level = effect.getAmplifier();
+						match.damageItem(level + 1, player);
+						player.removeActivePotionEffect(actualPotion);
+						if (match.isEmpty()) {
+							break;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Totem of Featherfoot handler
+	@SubscribeEvent
+	public void onFallDamage(LivingHurtEvent ev) {
+		DamageSource source = ev.getSource();
+		EntityLivingBase ent = ev.getEntityLiving();
+		int intAmount = (int) Math.ceil(ev.getAmount());
+		if (source.damageType == "fall" && ent instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) ent;
+			ItemStack featherfootTotem = new ItemStack(TotemEssentials.proxy.items.get("featherfoot_totem"));
+			ItemStack match = getStackInPlayerInv(player, featherfootTotem);
+			if (match != ItemStack.EMPTY) {
+				int totalDurability = match.getMaxDamage();
+				int currentDamage = match.getItemDamage();
+				if (currentDamage + intAmount >= totalDurability + 1) {
+					match.damageItem(totalDurability - currentDamage + 1, player);
+					intAmount -= totalDurability - currentDamage;
+					ev.setAmount(intAmount);
+				} else {
+					match.damageItem(intAmount, player);
+					ev.setCanceled(true);
+				}
+			}
+		}
+	}
+
+	// Totem of Vampirism handler
+	@SubscribeEvent
+	public void onAttack(LivingHurtEvent ev) {
+		DamageSource source = ev.getSource();
+		Entity hitter = source.getTrueSource();
+		EntityLivingBase victim = ev.getEntityLiving();
+
+		float damagedAmount = ev.getAmount();
+		damagedAmount = Math.min(damagedAmount, victim.getHealth());
+		int intAmount = (int) Math.ceil(damagedAmount);
+
+		float healAmount = damagedAmount;
+		if (hitter instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) hitter;
+			ItemStack vampireTotem = new ItemStack(TotemEssentials.proxy.items.get("vampire_totem"));
+			ItemStack match = getStackInPlayerInv(player, vampireTotem);
+			if (match != ItemStack.EMPTY) {
+				int totalDurability = match.getMaxDamage();
+				int currentDamage = match.getItemDamage();
+				if (currentDamage + intAmount >= totalDurability + 1) {
+					healAmount = totalDurability - currentDamage + 1;
+				}
+
+				float maxHealth = player.getMaxHealth();
+				float currentHealth = player.getHealth();
+				player.heal(healAmount);
+
+				if (currentHealth + healAmount > maxHealth) {
+					match.damageItem((int) Math.ceil(maxHealth - currentHealth), player);
+				} else {
+					match.damageItem((int) Math.ceil(healAmount), player);
+				}
+
 			}
 		}
 	}

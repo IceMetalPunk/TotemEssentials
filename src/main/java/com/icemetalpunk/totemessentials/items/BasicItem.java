@@ -1,18 +1,17 @@
-package com.icemetalpunk.totemessentials.items.totems;
+package com.icemetalpunk.totemessentials.items;
 
-import com.icemetalpunk.totemessentials.TotemEssentials;
-import com.icemetalpunk.totemessentials.items.ITEItem;
+import com.icemetalpunk.totemessentials.ModeledObject;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 
-public class ItemTotem extends Item implements ITEItem {
+public class BasicItem extends Item implements ModeledObject {
 
-	public ItemTotem(String name) {
+	public BasicItem(String modID, String name, CreativeTabs tab) {
 		super();
-		this.setRegistryName(TotemEssentials.MODID, name).setUnlocalizedName(name).setCreativeTab(TotemEssentials.tab);
-		this.setMaxStackSize(1);
+		this.setRegistryName(modID, name).setUnlocalizedName(name).setCreativeTab(tab);
 	}
 
 	@Override
