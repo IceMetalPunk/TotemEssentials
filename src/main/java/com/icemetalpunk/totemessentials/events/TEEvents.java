@@ -12,6 +12,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityEvoker;
 import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -24,6 +25,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
@@ -42,6 +44,7 @@ public class TEEvents {
 		essenceMap.put(EntityVex.class, TotemEssentials.proxy.items.get("essence_vexatious"));
 		essenceMap.put(EntityZombie.class, TotemEssentials.proxy.items.get("essence_undying"));
 		essenceMap.put(EntityCow.class, TotemEssentials.proxy.items.get("essence_lactic"));
+		essenceMap.put(EntityChicken.class, TotemEssentials.proxy.items.get("essence_featherfoot"));
 	}
 
 	// Phasing if holding the Phasing Totem
@@ -138,6 +141,7 @@ public class TEEvents {
 		}
 	}
 
+	// Totem of Curing handler
 	@SubscribeEvent
 	public void cureNegativeEffects(LivingEvent.LivingUpdateEvent ev) {
 		EntityLivingBase ent = ev.getEntityLiving();
@@ -164,6 +168,31 @@ public class TEEvents {
 							break;
 						}
 					}
+				}
+			}
+		}
+	}
+
+	// Totem of Featherfoot handler
+	@SubscribeEvent
+	public void onFallDamage(LivingHurtEvent ev) {
+		DamageSource source = ev.getSource();
+		EntityLivingBase ent = ev.getEntityLiving();
+		int intAmount = (int) Math.ceil(ev.getAmount());
+		if (source.damageType == "fall" && ent instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) ent;
+			ItemStack featherfootTotem = new ItemStack(TotemEssentials.proxy.items.get("featherfoot_totem"));
+			ItemStack match = getStackInPlayerInv(player, featherfootTotem);
+			if (match != ItemStack.EMPTY) {
+				int totalDurability = match.getMaxDamage();
+				int currentDamage = match.getItemDamage();
+				if (currentDamage + intAmount >= totalDurability + 1) {
+					match.damageItem(totalDurability - currentDamage + 1, player);
+					intAmount -= totalDurability - currentDamage;
+					ev.setAmount(intAmount);
+				} else {
+					match.damageItem(intAmount, player);
+					ev.setCanceled(true);
 				}
 			}
 		}

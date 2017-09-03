@@ -3,11 +3,13 @@ package com.icemetalpunk.totemessentials.items;
 import java.util.HashMap;
 
 import com.icemetalpunk.totemessentials.ModeledObject;
+import com.icemetalpunk.totemessentials.items.essences.ItemEssenceFeatherfoot;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceLactic;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceReaper;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceUndying;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceVexatious;
 import com.icemetalpunk.totemessentials.items.totems.ItemCuringTotem;
+import com.icemetalpunk.totemessentials.items.totems.ItemFeatherfootTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemPhasingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemReapingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemTotemShell;
@@ -24,12 +26,14 @@ public class ItemRegistry {
 		registry.put("phasing_totem", new ItemPhasingTotem("phasing_totem"));
 		registry.put("reaping_totem", new ItemReapingTotem("reaping_totem"));
 		registry.put("curing_totem", new ItemCuringTotem("curing_totem"));
+		registry.put("featherfoot_totem", new ItemFeatherfootTotem("featherfoot_totem"));
 
 		// Essences
 		registry.put("essence_reaper", new ItemEssenceReaper("essence_reaper"));
 		registry.put("essence_vexatious", new ItemEssenceVexatious("essence_vexatious"));
 		registry.put("essence_undying", new ItemEssenceUndying("essence_undying"));
 		registry.put("essence_lactic", new ItemEssenceLactic("essence_lactic"));
+		registry.put("essence_featherfoot", new ItemEssenceFeatherfoot("essence_featherfoot"));
 	}
 
 	public void put(String name, ModeledObject val) {
