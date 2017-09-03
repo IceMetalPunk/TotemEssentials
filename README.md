@@ -25,4 +25,11 @@ If you would receive a negative potion effect with a Totem of Curing in your inv
 
 The Totem of Curing has 10 durability, by the way. That's probably important to know.
 
+### Featherfoot Essence / Totem of Featherfoot
+Chickens float, so why can't you? What if I told you that you could?
+
+Then I'd be lying. You can't float, but if you reap enough chickens for 8 Featherfoot Essence, you can craft up a Totem of Featherfoot. As long as this is in your inventory, it'll absorb all fall damage you would otherwise take, until it breaks.
+
+It's like Feather Fallling on steroids, if it took up an extra inventory slot...
+
 #### More to come...
