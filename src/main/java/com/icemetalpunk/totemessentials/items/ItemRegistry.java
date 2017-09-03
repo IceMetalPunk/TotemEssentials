@@ -2,6 +2,7 @@ package com.icemetalpunk.totemessentials.items;
 
 import java.util.HashMap;
 
+import com.icemetalpunk.totemessentials.ModeledObject;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceReaper;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceUndying;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceVexatious;
@@ -13,7 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 
 public class ItemRegistry {
-	public static HashMap<String, ITEItem> registry = new HashMap<String, ITEItem>();
+	public static HashMap<String, ModeledObject> registry = new HashMap<String, ModeledObject>();
 
 	static {
 		// Totems
@@ -27,7 +28,7 @@ public class ItemRegistry {
 		registry.put("essence_undying", new ItemEssenceUndying("essence_undying"));
 	}
 
-	public void put(String name, ITEItem val) {
+	public void put(String name, ModeledObject val) {
 		registry.put(name, val);
 	}
 
@@ -36,13 +37,13 @@ public class ItemRegistry {
 	}
 
 	public void registerAll(RegistryEvent.Register<Item> ev) {
-		for (ITEItem item : registry.values()) {
+		for (ModeledObject item : registry.values()) {
 			ev.getRegistry().register((Item) item);
 		}
 	}
 
 	public void registerModels() {
-		for (ITEItem item : registry.values()) {
+		for (ModeledObject item : registry.values()) {
 			item.registerModel();
 		}
 	}

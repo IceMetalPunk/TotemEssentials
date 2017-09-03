@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 
 public class BlockRegistry {
-	public static final HashMap<String, ITEBlock> registry = new HashMap<String, ITEBlock>();
+	public static final HashMap<String, BasicBlock> registry = new HashMap<String, BasicBlock>();
 
 	static {
 	}
@@ -16,14 +16,14 @@ public class BlockRegistry {
 	}
 
 	public void registerAll(RegistryEvent.Register<Block> ev) {
-		for (ITEBlock block : registry.values()) {
+		for (BasicBlock block : registry.values()) {
 			block.getItemBlock().setRegistryName(((Block) block).getRegistryName());
 			ev.getRegistry().register((Block) block);
 		}
 	}
 
 	public void registerItemBlocks(RegistryEvent.Register<Item> ev) {
-		for (ITEBlock block : registry.values()) {
+		for (BasicBlock block : registry.values()) {
 			ev.getRegistry().register(block.getItemBlock());
 		}
 	}
@@ -33,7 +33,7 @@ public class BlockRegistry {
 	}
 
 	public void registerModels() {
-		for (ITEBlock block : registry.values()) {
+		for (BasicBlock block : registry.values()) {
 			block.registerModel();
 		}
 	}
