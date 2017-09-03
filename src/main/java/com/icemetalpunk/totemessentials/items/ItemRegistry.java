@@ -6,6 +6,7 @@ import com.icemetalpunk.totemessentials.ModeledObject;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceFeatherfoot;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceLactic;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceReaper;
+import com.icemetalpunk.totemessentials.items.essences.ItemEssenceTraveling;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceUndying;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceVampiric;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceVexatious;
@@ -14,6 +15,7 @@ import com.icemetalpunk.totemessentials.items.totems.ItemFeatherfootTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemPhasingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemReapingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemTotemShell;
+import com.icemetalpunk.totemessentials.items.totems.ItemTravelingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemVampireTotem;
 
 import net.minecraft.item.Item;
@@ -30,6 +32,7 @@ public class ItemRegistry {
 		registry.put("curing_totem", new ItemCuringTotem("curing_totem"));
 		registry.put("featherfoot_totem", new ItemFeatherfootTotem("featherfoot_totem"));
 		registry.put("vampire_totem", new ItemVampireTotem("vampire_totem"));
+		registry.put("traveling_totem", new ItemTravelingTotem("traveling_totem"));
 
 		// Essences
 		registry.put("essence_reaper", new ItemEssenceReaper("essence_reaper"));
@@ -38,6 +41,7 @@ public class ItemRegistry {
 		registry.put("essence_lactic", new ItemEssenceLactic("essence_lactic"));
 		registry.put("essence_featherfoot", new ItemEssenceFeatherfoot("essence_featherfoot"));
 		registry.put("essence_vampiric", new ItemEssenceVampiric("essence_vampiric"));
+		registry.put("essence_traveling", new ItemEssenceTraveling("essence_traveling"));
 	}
 
 	public void put(String name, ModeledObject val) {

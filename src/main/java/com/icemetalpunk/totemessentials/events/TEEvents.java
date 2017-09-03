@@ -9,6 +9,7 @@ import com.icemetalpunk.totemessentials.TotemEssentials;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityEvoker;
 import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.monster.EntityZombie;
@@ -47,6 +48,7 @@ public class TEEvents {
 		essenceMap.put(EntityCow.class, TotemEssentials.proxy.items.get("essence_lactic"));
 		essenceMap.put(EntityChicken.class, TotemEssentials.proxy.items.get("essence_featherfoot"));
 		essenceMap.put(EntityBat.class, TotemEssentials.proxy.items.get("essence_vampiric"));
+		essenceMap.put(EntityEnderman.class, TotemEssentials.proxy.items.get("essence_traveling"));
 	}
 
 	// Phasing if holding the Phasing Totem
