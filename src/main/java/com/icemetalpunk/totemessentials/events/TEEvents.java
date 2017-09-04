@@ -72,6 +72,7 @@ public class TEEvents {
 		essenceMap.put(EntityChicken.class, TotemEssentials.proxy.items.get("essence_featherfoot"));
 		essenceMap.put(EntityBat.class, TotemEssentials.proxy.items.get("essence_vampiric"));
 		essenceMap.put(EntityEnderman.class, TotemEssentials.proxy.items.get("essence_traveling"));
+		essenceMap.put(EntityIllusionIllager.class, TotemEssentials.proxy.items.get("essence_replication"));
 	}
 
 	// Phasing if holding the Phasing Totem

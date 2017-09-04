@@ -6,6 +6,7 @@ import com.icemetalpunk.totemessentials.ModeledObject;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceFeatherfoot;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceLactic;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceReaper;
+import com.icemetalpunk.totemessentials.items.essences.ItemEssenceReplication;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceTraveling;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceUndying;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceVampiric;
@@ -14,6 +15,7 @@ import com.icemetalpunk.totemessentials.items.totems.ItemCuringTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemFeatherfootTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemPhasingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemReapingTotem;
+import com.icemetalpunk.totemessentials.items.totems.ItemReplicationTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemTotemShell;
 import com.icemetalpunk.totemessentials.items.totems.ItemTravelingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemVampireTotem;
@@ -33,6 +35,7 @@ public class ItemRegistry {
 		registry.put("featherfoot_totem", new ItemFeatherfootTotem("featherfoot_totem"));
 		registry.put("vampire_totem", new ItemVampireTotem("vampire_totem"));
 		registry.put("traveling_totem", new ItemTravelingTotem("traveling_totem"));
+		registry.put("replication_totem", new ItemReplicationTotem("replication_totem"));
 
 		// Essences
 		registry.put("essence_reaper", new ItemEssenceReaper("essence_reaper"));
@@ -42,6 +45,7 @@ public class ItemRegistry {
 		registry.put("essence_featherfoot", new ItemEssenceFeatherfoot("essence_featherfoot"));
 		registry.put("essence_vampiric", new ItemEssenceVampiric("essence_vampiric"));
 		registry.put("essence_traveling", new ItemEssenceTraveling("essence_traveling"));
+		registry.put("essence_replication", new ItemEssenceReplication("essence_replication"));
 	}
 
 	public void put(String name, ModeledObject val) {
