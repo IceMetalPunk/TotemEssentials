@@ -2,6 +2,8 @@
 
 Totem Essentials is a Minecraft mod that expands on vanilla's "Totem of Undying" with an entire totem crafting system. You reap mobs for their Essence, then use those to craft different types of Totems with different properties.
 
+All recipes are unlocked in your recipe book when you obtain your first Totem Shell.
+
 ## Totem Shell
 Instead of dropping a Totem of Undying, the Woodland Mansion's Evoker ("Evocation Illager") will now drop a Totem Shell. This is the blank slate, the basis of Totem Essentials, the crafting ingredient you will combine with various Essences to craft your new Totems.
 
@@ -44,4 +46,24 @@ Sneak + Use the Totem of Traveling to bind it to your current coordinates. After
 
 It takes 1 damage per use, plus 1 damage for every 10 blocks you travel. If it doesn't have enough durability left to make the full trip, you will teleport somewhere between your current location and your destination... better hope it's not in lava!
 
+### Replication Essence / Totem of Replication
+Now that Illusioners spawn naturally in Woodland Mansions (what's that? YES, THEY DO!), maybe you can reap them for some of their Replication Essence to learn the magicians' secrets!
+
+Hit any mob with a Totem of Replication to bind it to that mob type. Then you can use the Totem on a block to spawn the mob there. It takes 1 damage for every mob spawned, and starts with 50 durability.
+
 #### More to come...
+
+## Progression Strategy
+Hey, don't let me tell you how to play the game. It's your game, you have fun with it your own way!
+
+But if you want to know how I, as the mod author, intended the progression to go, here's how:
+
+Step 1: Find a Woodland Mansion, collect as much Reaping Essence as you can from Vindicators (preferably with Looting), and then kill an Evoker for your first Totem Shell.
+
+Step 2: Craft your first Totem Shell into a Totem of Reaping, then reap as many Illusioners as you can.
+
+Step 3: Kill a second Evoker, and use its Totem Shell to make a Totem of Replication.
+
+Step 4: Smack an Evoker with the Totem of Replication. Now you can spawn in tons of Evokers to get tons of Totem Shells and keep your Totem Essentials journey going!
+
+Suggestion: You may want to replicate some Vindicators, too, so you don't lose your Totem of Reaping when it breaks :)
