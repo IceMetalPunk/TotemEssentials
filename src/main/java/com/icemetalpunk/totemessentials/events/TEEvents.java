@@ -372,8 +372,8 @@ public class TEEvents {
 
 			// Here's where the motion is...
 			fireproofItem.motionX = item.motionX;
-			fireproofItem.motionY = item.motionX;
-			fireproofItem.motionZ = item.motionX;
+			fireproofItem.motionY = item.motionY;
+			fireproofItem.motionZ = item.motionZ;
 			world.removeEntity(item);
 			world.spawnEntity(fireproofItem);
 		}
