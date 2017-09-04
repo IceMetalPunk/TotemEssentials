@@ -60,6 +60,14 @@ public class TEEvents {
 
 	public final SpawnListEntry illusionerSpawn = new SpawnListEntry(EntityIllusionIllager.class, 100, 1, 1);
 
+	// Woodland Mansion Generator is private; need to reflect into it?
+	private static final Field mansionField = ReflectionHelper.findField(ChunkGeneratorOverworld.class,
+			"woodlandMansionGenerator", "field_191060_C");
+	private static final Method initializeMansionMethod = ReflectionHelper.findMethod(MapGenStructure.class,
+			"initializeStructureData", "func_143027_a", World.class);
+	private static final Field structMapField = ReflectionHelper.findField(MapGenStructure.class, "structureMap",
+			"field_75053_d");
+
 	public TEEvents() {
 		// Populate drop replacements map
 		HashMap<Item, ItemStack> tempMap = new HashMap<Item, ItemStack>();
@@ -164,14 +172,9 @@ public class TEEvents {
 		if (chunkGen instanceof ChunkGeneratorOverworld) {
 			ChunkGeneratorOverworld overworldGen = (ChunkGeneratorOverworld) chunkGen;
 
-			// Woodland Mansion Generator is private; need to reflect into it?
-			Field mansionField = ReflectionHelper.findField(ChunkGeneratorOverworld.class, "woodlandMansionGenerator",
-					"field_191060_C", "C");
 			try {
 				WoodlandMansion mansionGen = (WoodlandMansion) mansionField.get(overworldGen);
-				Method initializeMethod = ReflectionHelper.findMethod(MapGenStructure.class, "initializeStructureData",
-						"func_143027_a", World.class);
-				initializeMethod.invoke(mansionGen, world);
+				initializeMansionMethod.invoke(mansionGen, world);
 				return getMansionAtIgnoreFlag(mansionGen, pos) != null;
 
 			} catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException e) {
@@ -183,10 +186,9 @@ public class TEEvents {
 	}
 
 	private StructureStart getMansionAtIgnoreFlag(MapGenStructure gen, BlockPos pos) {
-		Field mapField = ReflectionHelper.findField(MapGenStructure.class, "structureMap", "field_75053_d", "c");
 
 		try {
-			Long2ObjectMap<StructureStart> map = (Long2ObjectMap<StructureStart>) mapField.get(gen);
+			Long2ObjectMap<StructureStart> map = (Long2ObjectMap<StructureStart>) structMapField.get(gen);
 
 			ObjectIterator objectiterator = map.values().iterator();
 			label31: while (objectiterator.hasNext()) {
