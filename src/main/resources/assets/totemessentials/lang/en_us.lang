@@ -8,6 +8,7 @@ item.featherfoot_totem.name=Totem of Featherfoot
 item.vampire_totem.name=Totem of Vampirism
 item.traveling_totem.name=Totem of Traveling
 item.replication_totem.name=Totem of Replication
+item.exchange_totem.name=Totem of Exchange
 
 item.essence_reaper.name=Reaper Essence
 item.essence_vexatious.name=Vexatious Essence
@@ -17,6 +18,7 @@ item.essence_featherfoot.name=Featherfoot Essence
 item.essence_vampiric.name=Vampiric Essence
 item.essence_traveling.name=Traveling Essence
 item.essence_replication.name=Replication Essence
+item.essence_exchange.name=Exchange Essence
 
 item.traveling_totem.set=Set destination to (%s, %s, %s)
 item.traveling_totem.unset=You can't teleport until you set a destination first. Sneak + Use to set the destination.
@@ -38,6 +40,7 @@ jei.item.featherfoot_totem=Who needs fall damage? Not you, if you have a Totem o
 jei.item.vampire_totem=No need to suck any blood, as long as you shed it. With a Totem of Vampirism in your inventory, all damage you deal to mobs and players will heal you if needed. Every half-heart healed deals 1 damage to the Totem.
 jei.item.traveling_totem=Sneak + Use to set the destination coordinates. Use normally to teleport there. Takes 1 damage for every 10 blocks you travel; if it breaks in the middle of teleporting, you'll get stuck partway through! Hope you don't teleport into lava...
 jei.item.replication_totem=Hit a mob with this Totem to bind it to that mob type. Then use the Totem on a block to spawn that mob type. Takes 1 damage per spawn.
+jei.item.exchange_totem=Use this Totem on any ore block, and it'll change into a random ore! Sometimes you might get the same ore back (such is the nature of randomness), but other times, you may trade up or down!
 
 jei.item.essence_reaper=Reaper Essence drops from Vindicators, and can be used to create a Totem of Reaping. You'll need that if you want to collect any other type of Essence!
 jei.item.essence_vexatious=Vexatious Essence can be reaped from Vexes, funnily enough. Totem magic can harness the Vex's phasing abilities for your own use.
@@ -47,3 +50,4 @@ jei.item.essence_featherfoot=Featherfoot Essence, reaped from chickens, can be u
 jei.item.essence_vampiric=Bats are useless, right? No! They're secretly vampires, so they can be reaped for their Vampiric Essence.
 jei.item.essence_traveling=Ender Pearls are so limited. Try some Endermen Essence -- er, Traveling Essence -- to make a Totem of Traveling. This Totem better -- MUCH better!
 jei.item.essence_replication=Illusioners like to hide out in Woodland Mansions these days. Maybe a bit of reaping them for their Replication Essence can help you unlock the magicians' secrets?
+jei.item.essence_exchange=Villagers exchange emeralds for other things, right? Well, why shouldn't you be able to reap that essence and use it to trade ores in the world for different ones? Capitalism FTW.

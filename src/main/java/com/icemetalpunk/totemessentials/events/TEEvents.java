@@ -24,6 +24,7 @@ import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
@@ -73,6 +74,7 @@ public class TEEvents {
 		essenceMap.put(EntityBat.class, TotemEssentials.proxy.items.get("essence_vampiric"));
 		essenceMap.put(EntityEnderman.class, TotemEssentials.proxy.items.get("essence_traveling"));
 		essenceMap.put(EntityIllusionIllager.class, TotemEssentials.proxy.items.get("essence_replication"));
+		essenceMap.put(EntityVillager.class, TotemEssentials.proxy.items.get("essence_exchange"));
 	}
 
 	// Phasing if holding the Phasing Totem
@@ -216,23 +218,19 @@ public class TEEvents {
 		return null;
 	}
 
-	// FIXME: Make Illusioners spawn in Mansions; DOESN'T WORK.
+	// Illusioners spawn in Woodland Mansions.
 	@SubscribeEvent
 	public void alterSpawns(WorldEvent.PotentialSpawns ev) {
 		World world = ev.getWorld();
 		BlockPos pos = ev.getPos();
 		IChunkProvider prov = world.getChunkProvider();
-		// System.out.println("Get potential spawns!");
 		if (ev.getType() == EnumCreatureType.MONSTER && prov instanceof ChunkProviderServer) {
 			ChunkProviderServer serverProv = (ChunkProviderServer) prov;
-			// System.out.println("Is Monster & Server Provider");
 			if (isInMansion(serverProv, world, pos)) {
-				// System.out.println("Mansion at " + pos);
 				ev.getList().clear();
 				ev.getList().add(illusionerSpawn);
 			}
 		}
-		// Reference: ChunkGeneratorOverworld#getPossibleCreatures
 	}
 
 	// Basic mob drop replacement (for non-loot-table things)
