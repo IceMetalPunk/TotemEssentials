@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.icemetalpunk.totemessentials.TotemEssentials;
+import com.icemetalpunk.totemessentials.items.EntityItemFireproof;
 
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.objects.ObjectIterator;
@@ -43,6 +44,7 @@ import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.StructureComponent;
 import net.minecraft.world.gen.structure.StructureStart;
 import net.minecraft.world.gen.structure.WoodlandMansion;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
@@ -340,6 +342,40 @@ public class TEEvents {
 				}
 
 			}
+		}
+	}
+
+	// FIXME: Attempting fireproof items
+	@SubscribeEvent
+	public void onItemCreate(EntityJoinWorldEvent ev) {
+		Entity ent = ev.getEntity();
+		World world = ev.getWorld();
+		if (ent instanceof EntityItem && !(ent instanceof EntityItemFireproof)) {
+			EntityItem item = (EntityItem) ent;
+			EntityItemFireproof fireproofItem = new EntityItemFireproof(world, item.posX, item.posY, item.posZ,
+					item.getItem());
+
+			// Age and pickup delay must be set so you don't immediately pick up
+			// thrown items, but they're private values, so we use Reflection
+			// for it.
+			Field ageField = ReflectionHelper.findField(EntityItem.class, "age", "field_70292_b", "d");
+			Field delayField = ReflectionHelper.findField(EntityItem.class, "delayBeforeCanPickup", "field_145804_b",
+					"e");
+			int age = item.getAge();
+			try {
+				int delay = delayField.getInt(item);
+				delayField.setInt(fireproofItem, delay);
+				ageField.setInt(fireproofItem, age);
+			} catch (IllegalArgumentException | IllegalAccessException e) {
+				e.printStackTrace();
+			}
+
+			// Here's where the motion is...
+			fireproofItem.motionX = item.motionX;
+			fireproofItem.motionY = item.motionX;
+			fireproofItem.motionZ = item.motionX;
+			world.removeEntity(item);
+			world.spawnEntity(fireproofItem);
 		}
 	}
 }

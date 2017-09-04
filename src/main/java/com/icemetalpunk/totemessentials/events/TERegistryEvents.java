@@ -3,6 +3,7 @@ package com.icemetalpunk.totemessentials.events;
 import java.util.HashMap;
 
 import com.icemetalpunk.totemessentials.TotemEssentials;
+import com.icemetalpunk.totemessentials.items.EntityItemFireproof;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -17,15 +18,20 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 public class TERegistryEvents {
 
 	/* Loot table additions: for loot that's not simply a replacement */
 	public HashMap<String, ResourceLocation> lootAdditions = new HashMap<String, ResourceLocation>();
+	protected int entityID = 0;
 
 	public TERegistryEvents() {
 		lootAdditions.put("minecraft:entities/vindication_illager",
 				new ResourceLocation(TotemEssentials.MODID, "injected_loot/vindicator"));
+
+		EntityRegistry.registerModEntity(new ResourceLocation(TotemEssentials.MODID, "fireproof_item"),
+				EntityItemFireproof.class, "fireproof_item", entityID++, TotemEssentials.instance, 5, 1, true);
 	}
 
 	@SubscribeEvent
