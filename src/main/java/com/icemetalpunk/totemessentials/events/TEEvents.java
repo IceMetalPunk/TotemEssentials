@@ -31,6 +31,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -69,6 +70,11 @@ public class TEEvents {
 			"initializeStructureData", "func_143027_a", World.class);
 	private static final Field structMapField = ReflectionHelper.findField(MapGenStructure.class, "structureMap",
 			"field_75053_d");
+
+	// Reflection for EntityItem, for fireproof items.
+	private static Field itemAgeField = ReflectionHelper.findField(EntityItem.class, "age", "field_70292_b", "d");
+	private static Field itemDelayField = ReflectionHelper.findField(EntityItem.class, "delayBeforeCanPickup",
+			"field_145804_b", "e");
 
 	public TEEvents() {
 		// Populate drop replacements map
@@ -352,30 +358,39 @@ public class TEEvents {
 		World world = ev.getWorld();
 		if (ent instanceof EntityItem && !(ent instanceof EntityItemFireproof)) {
 			EntityItem item = (EntityItem) ent;
-			EntityItemFireproof fireproofItem = new EntityItemFireproof(world, item.posX, item.posY, item.posZ,
-					item.getItem());
+			ItemStack stack = item.getItem();
 
-			// Age and pickup delay must be set so you don't immediately pick up
-			// thrown items, but they're private values, so we use Reflection
-			// for it.
-			Field ageField = ReflectionHelper.findField(EntityItem.class, "age", "field_70292_b", "d");
-			Field delayField = ReflectionHelper.findField(EntityItem.class, "delayBeforeCanPickup", "field_145804_b",
-					"e");
-			int age = item.getAge();
-			try {
-				int delay = delayField.getInt(item);
-				delayField.setInt(fireproofItem, delay);
-				ageField.setInt(fireproofItem, age);
-			} catch (IllegalArgumentException | IllegalAccessException e) {
-				e.printStackTrace();
+			if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Fireproof")
+					&& stack.getTagCompound().getBoolean("Fireproof") == true) {
+				ItemStack newStack = stack.copy();
+				NBTTagCompound tag = newStack.getTagCompound();
+				tag.removeTag("Fireproof");
+				newStack.setTagCompound(tag);
+
+				EntityItemFireproof fireproofItem = new EntityItemFireproof(world, item.posX, item.posY, item.posZ,
+						newStack);
+
+				// Age and pickup delay must be set so you don't immediately
+				// pick up
+				// thrown items, but they're private values, so we use
+				// Reflection
+				// for it.
+				int age = item.getAge();
+				try {
+					int delay = itemDelayField.getInt(item);
+					itemDelayField.setInt(fireproofItem, delay);
+					itemAgeField.setInt(fireproofItem, age);
+				} catch (IllegalArgumentException | IllegalAccessException e) {
+					e.printStackTrace();
+				}
+
+				// Here's where the motion is...
+				fireproofItem.motionX = item.motionX;
+				fireproofItem.motionY = item.motionY;
+				fireproofItem.motionZ = item.motionZ;
+				world.removeEntity(item);
+				world.spawnEntity(fireproofItem);
 			}
-
-			// Here's where the motion is...
-			fireproofItem.motionX = item.motionX;
-			fireproofItem.motionY = item.motionY;
-			fireproofItem.motionZ = item.motionZ;
-			world.removeEntity(item);
-			world.spawnEntity(fireproofItem);
 		}
 	}
 }
