@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 import com.icemetalpunk.totemessentials.TotemEssentials;
 import com.icemetalpunk.totemessentials.items.EntityItemFireproof;
@@ -20,6 +21,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityEvoker;
 import net.minecraft.entity.monster.EntityIllusionIllager;
+import net.minecraft.entity.monster.EntityMagmaCube;
 import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityBat;
@@ -31,7 +33,6 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -46,11 +47,11 @@ import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.StructureComponent;
 import net.minecraft.world.gen.structure.StructureStart;
 import net.minecraft.world.gen.structure.WoodlandMansion;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.PlayerDropsEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -91,6 +92,7 @@ public class TEEvents {
 		essenceMap.put(EntityEnderman.class, TotemEssentials.proxy.items.get("essence_traveling"));
 		essenceMap.put(EntityIllusionIllager.class, TotemEssentials.proxy.items.get("essence_replication"));
 		essenceMap.put(EntityVillager.class, TotemEssentials.proxy.items.get("essence_exchange"));
+		essenceMap.put(EntityMagmaCube.class, TotemEssentials.proxy.items.get("essence_fireglaze"));
 	}
 
 	// Phasing if holding the Phasing Totem
@@ -351,46 +353,58 @@ public class TEEvents {
 		}
 	}
 
-	// FIXME: Attempting fireproof items
+	// Fireproof items for Totem of Fireglaze
 	@SubscribeEvent
-	public void onItemCreate(EntityJoinWorldEvent ev) {
-		Entity ent = ev.getEntity();
-		World world = ev.getWorld();
-		if (ent instanceof EntityItem && !(ent instanceof EntityItemFireproof)) {
-			EntityItem item = (EntityItem) ent;
+	public void onDeathDrops(PlayerDropsEvent ev) {
+
+		// Check for totem in drops list.
+		boolean hasTotem = false;
+		World world = ev.getEntity().getEntityWorld();
+		List<EntityItem> drops = ev.getDrops();
+		ListIterator<EntityItem> itr = drops.listIterator();
+		while (itr.hasNext()) {
+			EntityItem item = itr.next();
 			ItemStack stack = item.getItem();
-
-			if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Fireproof")
-					&& stack.getTagCompound().getBoolean("Fireproof") == true) {
-				ItemStack newStack = stack.copy();
-				NBTTagCompound tag = newStack.getTagCompound();
-				tag.removeTag("Fireproof");
-				newStack.setTagCompound(tag);
-
-				EntityItemFireproof fireproofItem = new EntityItemFireproof(world, item.posX, item.posY, item.posZ,
-						newStack);
-
-				// Age and pickup delay must be set so you don't immediately
-				// pick up
-				// thrown items, but they're private values, so we use
-				// Reflection
-				// for it.
-				int age = item.getAge();
-				try {
-					int delay = itemDelayField.getInt(item);
-					itemDelayField.setInt(fireproofItem, delay);
-					itemAgeField.setInt(fireproofItem, age);
-				} catch (IllegalArgumentException | IllegalAccessException e) {
-					e.printStackTrace();
+			if (stack.getItem() == TotemEssentials.proxy.items.get("fireglaze_totem")) {
+				hasTotem = true;
+				stack.setItemDamage(stack.getItemDamage() + 1);
+				if (stack.getItemDamage() >= stack.getItem().getMaxDamage(stack)) {
+					stack.shrink(1);
+					itr.remove();
 				}
+				break;
+			}
+		}
 
-				// Here's where the motion is...
-				fireproofItem.motionX = item.motionX;
-				fireproofItem.motionY = item.motionY;
-				fireproofItem.motionZ = item.motionZ;
-				world.removeEntity(item);
-				world.spawnEntity(fireproofItem);
-				ev.setCanceled(true);
+		if (hasTotem) {
+
+			// Go through drops, replacing them all with fireproof versions with
+			// otherwise identical properties.
+			itr = drops.listIterator();
+			while (itr.hasNext()) {
+				EntityItem item = itr.next();
+				if (!(item instanceof EntityItemFireproof)) {
+					ItemStack newStack = item.getItem().copy();
+
+					EntityItemFireproof fireproofItem = new EntityItemFireproof(world, item.posX, item.posY, item.posZ,
+							newStack);
+
+					int age = item.getAge();
+					try {
+						int delay = itemDelayField.getInt(item);
+						itemDelayField.setInt(fireproofItem, delay);
+						itemAgeField.setInt(fireproofItem, age);
+					} catch (IllegalArgumentException | IllegalAccessException e) {
+						e.printStackTrace();
+					}
+
+					fireproofItem.motionX = item.motionX;
+					fireproofItem.motionY = item.motionY;
+					fireproofItem.motionZ = item.motionZ;
+
+					itr.set(fireproofItem);
+
+				}
 			}
 		}
 	}
