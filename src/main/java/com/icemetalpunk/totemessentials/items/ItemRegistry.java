@@ -3,6 +3,7 @@ package com.icemetalpunk.totemessentials.items;
 import java.util.HashMap;
 
 import com.icemetalpunk.totemessentials.ModeledObject;
+import com.icemetalpunk.totemessentials.items.essences.ItemEssenceExchange;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceFeatherfoot;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceLactic;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceReaper;
@@ -12,6 +13,7 @@ import com.icemetalpunk.totemessentials.items.essences.ItemEssenceUndying;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceVampiric;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceVexatious;
 import com.icemetalpunk.totemessentials.items.totems.ItemCuringTotem;
+import com.icemetalpunk.totemessentials.items.totems.ItemExchangeTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemFeatherfootTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemPhasingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemReapingTotem;
@@ -36,6 +38,7 @@ public class ItemRegistry {
 		registry.put("vampire_totem", new ItemVampireTotem("vampire_totem"));
 		registry.put("traveling_totem", new ItemTravelingTotem("traveling_totem"));
 		registry.put("replication_totem", new ItemReplicationTotem("replication_totem"));
+		registry.put("exchange_totem", new ItemExchangeTotem("exchange_totem"));
 
 		// Essences
 		registry.put("essence_reaper", new ItemEssenceReaper("essence_reaper"));
@@ -46,6 +49,7 @@ public class ItemRegistry {
 		registry.put("essence_vampiric", new ItemEssenceVampiric("essence_vampiric"));
 		registry.put("essence_traveling", new ItemEssenceTraveling("essence_traveling"));
 		registry.put("essence_replication", new ItemEssenceReplication("essence_replication"));
+		registry.put("essence_exchange", new ItemEssenceExchange("essence_exchange"));
 	}
 
 	public void put(String name, ModeledObject val) {

@@ -51,6 +51,12 @@ Now that Illusioners spawn naturally in Woodland Mansions (what's that? YES, THE
 
 Hit any mob with a Totem of Replication to bind it to that mob type. Then you can use the Totem on a block to spawn the mob there. It takes 1 damage for every mob spawned, and starts with 50 durability.
 
+### Exchange Essence / Totem of Exchange
+
+Killing villagers is bad for trading. But how else will you reap their wonderful Exchange Essence?
+
+A Totem of Exchange can be used on any ore blocks in the world to convert them to another random ore. It should even work with modded ores, using the Ore Dictionary! Whether the new ore is better or worse than the old one is up to you to decide, but regardless, it'll take 1 damage for each exchange it makes. You get 50 swaps by default; better sharpen your bartering skills!
+
 #### More to come...
 
 ## Progression Strategy

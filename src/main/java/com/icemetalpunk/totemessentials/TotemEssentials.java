@@ -20,9 +20,9 @@ public class TotemEssentials {
 	public static final String MODID = "totemessentials";
 	public static final String VERSION = "0.1";
 
-	 @Instance
-	 public static TotemEssentials instance = new TotemEssentials();
-	
+	@Instance
+	public static TotemEssentials instance = new TotemEssentials();
+
 	@SidedProxy(clientSide = "com.icemetalpunk.totemessentials.proxies.TEClientProxy", serverSide = "com.icemetalpunk.totemessentials.proxies.TEServerProxy")
 	public static TECommonProxy proxy;
 
