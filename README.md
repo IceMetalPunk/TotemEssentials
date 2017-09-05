@@ -57,6 +57,14 @@ Killing villagers is bad for trading. But how else will you reap their wonderful
 
 A Totem of Exchange can be used on any ore blocks in the world to convert them to another random ore. It should even work with modded ores, using the Ore Dictionary! Whether the new ore is better or worse than the old one is up to you to decide, but regardless, it'll take 1 damage for each exchange it makes. You get 50 swaps by default; better sharpen your bartering skills!
 
+### Fireglaze Essence / Totem of Fireglaze
+
+Potions of Fire Resistance are great, but if you do happen to die around lava, you can kiss your items goodbye. But what if the fireproofing abilities of magma cream could be harnessed for your items, too?
+
+You can reap Magma Cubes for their Fireglaze Essence, which can be turned into a Totem of Fireglaze. If a Totem of Fireglaze drops from your inventory upon your death, all the items you've dropped will become fireproof until they are collected. You only get two uses out of this Totem, though, so use them wisely!
+
+(Oh, yes, and if you have multiple Totems of Fireglaze drop from your corpse, only one will take damage at a time, so thank magma for that!)
+
 #### More to come...
 
 ## Progression Strategy
