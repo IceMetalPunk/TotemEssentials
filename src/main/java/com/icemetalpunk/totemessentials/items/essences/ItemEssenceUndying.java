@@ -6,4 +6,7 @@ public class ItemEssenceUndying extends ItemEssenceBase {
 		super(name);
 	}
 
+	public ItemEssenceUndying(String name, boolean isEnsouled) {
+		super(name, isEnsouled);
+	}
 }

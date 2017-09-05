@@ -6,4 +6,8 @@ public class ItemEssenceVexatious extends ItemEssenceBase {
 		super(name);
 	}
 
+	public ItemEssenceVexatious(String name, boolean isEnsouled) {
+		super(name, isEnsouled);
+	}
+
 }

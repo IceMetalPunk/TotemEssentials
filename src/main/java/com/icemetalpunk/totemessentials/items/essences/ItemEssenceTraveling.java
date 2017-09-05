@@ -6,4 +6,7 @@ public class ItemEssenceTraveling extends ItemEssenceBase {
 		super(name);
 	}
 
+	public ItemEssenceTraveling(String name, boolean isEnsouled) {
+		super(name, isEnsouled);
+	}
 }

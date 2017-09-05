@@ -6,4 +6,8 @@ public class ItemEssenceExchange extends ItemEssenceBase {
 		super(name);
 	}
 
+	public ItemEssenceExchange(String name, boolean isEnsouled) {
+		super(name, isEnsouled);
+	}
+
 }

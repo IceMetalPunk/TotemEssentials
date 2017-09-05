@@ -6,4 +6,7 @@ public class ItemEssenceVampiric extends ItemEssenceBase {
 		super(name);
 	}
 
+	public ItemEssenceVampiric(String name, boolean isEnsouled) {
+		super(name, isEnsouled);
+	}
 }

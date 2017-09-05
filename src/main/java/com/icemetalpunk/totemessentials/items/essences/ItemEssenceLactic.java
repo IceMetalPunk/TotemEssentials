@@ -6,4 +6,7 @@ public class ItemEssenceLactic extends ItemEssenceBase {
 		super(name);
 	}
 
+	public ItemEssenceLactic(String name, boolean isEnsouled) {
+		super(name, isEnsouled);
+	}
 }

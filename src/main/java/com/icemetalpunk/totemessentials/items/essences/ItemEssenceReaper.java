@@ -6,4 +6,7 @@ public class ItemEssenceReaper extends ItemEssenceBase {
 		super(name);
 	}
 
+	public ItemEssenceReaper(String name, boolean isEnsouled) {
+		super(name, isEnsouled);
+	}
 }

@@ -6,4 +6,8 @@ public class ItemEssenceFireglaze extends ItemEssenceBase {
 		super(name);
 	}
 
+	public ItemEssenceFireglaze(String name, boolean isEnsouled) {
+		super(name, isEnsouled);
+	}
+
 }

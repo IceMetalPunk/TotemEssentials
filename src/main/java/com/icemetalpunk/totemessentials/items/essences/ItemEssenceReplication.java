@@ -6,4 +6,7 @@ public class ItemEssenceReplication extends ItemEssenceBase {
 		super(name);
 	}
 
+	public ItemEssenceReplication(String name, boolean isEnsouled) {
+		super(name, isEnsouled);
+	}
 }
