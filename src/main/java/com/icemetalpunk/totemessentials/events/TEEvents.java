@@ -390,6 +390,7 @@ public class TEEvents {
 				fireproofItem.motionZ = item.motionZ;
 				world.removeEntity(item);
 				world.spawnEntity(fireproofItem);
+				ev.setCanceled(true);
 			}
 		}
 	}
