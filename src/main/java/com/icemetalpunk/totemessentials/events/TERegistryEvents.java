@@ -31,7 +31,7 @@ public class TERegistryEvents {
 				new ResourceLocation(TotemEssentials.MODID, "injected_loot/vindicator"));
 
 		EntityRegistry.registerModEntity(new ResourceLocation(TotemEssentials.MODID, "fireproof_item"),
-				EntityItemFireproof.class, "fireproof_item", entityID++, TotemEssentials.instance, 5, 1, true);
+				EntityItemFireproof.class, "fireproof_item", entityID++, TotemEssentials.instance, 80, 3, true);
 	}
 
 	@SubscribeEvent
