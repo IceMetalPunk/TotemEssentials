@@ -81,3 +81,12 @@ Step 3: Kill a second Evoker, and use its Totem Shell to make a Totem of Replica
 Step 4: Smack an Evoker with the Totem of Replication. Now you can spawn in tons of Evokers to get tons of Totem Shells and keep your Totem Essentials journey going!
 
 Suggestion: You may want to replicate some Vindicators, too, so you don't lose your Totem of Reaping when it breaks :)
+
+## Advanced Totemancy
+Did you know that creating these Totems from Essence is a form of magic called Totemancy? And like all good types of magic, Totemancy has a scientific hierarchy of progress. That's a fancy way of saying, "there are Tier II Totems".
+
+Craft 4 of any Essence with 5 Soul Sand (make an X with the Soul Sand and fill the side gaps with Essence) to craft Ensouled Essence. Use 8 Ensouled Essence in a Totem's recipe instead of normal Essence, and you'll make the Ensouled Totem of its type.
+
+Ensouled Totems have more durability, and they each provide upgraded abilities compared to their Tier I counterparts.
+
+But since Ensouled Totems aren't implemented yet... you'll have to wait and see what they each do :)
