@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group":"minecraft:totem_of_undying",
+  "pattern": [
+    "EEE",
+	"ESE",
+	"EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "totemessentials:ensouled_essence_undying",
+	  "data":0
+    },
+	"S": {
+		"item": "totemessentials:totem_shell",
+		"data": 0
+	}
+  },
+  "result": {
+    "item": "minecraft:totem_of_undying",
+	"data": 0
+  }
+}
