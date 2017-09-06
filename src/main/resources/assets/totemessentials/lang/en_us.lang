@@ -1,5 +1,7 @@
 itemGroup.totemessentials=Totem Essentials
 
+# Totems
+
 item.totem_shell.name=Totem Shell
 item.phasing_totem.name=Totem of Phasing
 item.reaping_totem.name=Totem of Reaping
@@ -10,6 +12,8 @@ item.traveling_totem.name=Totem of Traveling
 item.replication_totem.name=Totem of Replication
 item.exchange_totem.name=Totem of Exchange
 item.fireglaze_totem.name=Totem of Fireglaze
+
+# Normal Essence
 
 item.essence_reaper.name=Reaper Essence
 item.essence_vexatious.name=Vexatious Essence
@@ -22,6 +26,21 @@ item.essence_replication.name=Replication Essence
 item.essence_exchange.name=Exchange Essence
 item.essence_fireglaze.name=Fireglaze Essence
 
+# Ensouled Essence
+
+item.ensouled_essence_reaper.name=Ensouled Reaper Essence
+item.ensouled_essence_vexatious.name=Ensouled Vexatious Essence
+item.ensouled_essence_undying.name=Ensouled Undying Essence
+item.ensouled_essence_lactic.name=Ensouled Lactic Essence
+item.ensouled_essence_featherfoot.name=Ensouled Featherfoot Essence
+item.ensouled_essence_vampiric.name=Ensouled Vampiric Essence
+item.ensouled_essence_traveling.name=Ensouled Traveling Essence
+item.ensouled_essence_replication.name=Ensouled Replication Essence
+item.ensouled_essence_exchange.name=Ensouled Exchange Essence
+item.ensouled_essence_fireglaze.name=Ensouled Fireglaze Essence
+
+# Totem Abilities
+
 item.traveling_totem.set=Set destination to (%s, %s, %s)
 item.traveling_totem.unset=You can't teleport until you set a destination first. Sneak + Use to set the destination.
 item.traveling_totem.bound=Bound to (%s, %s, %s)%s
@@ -33,6 +52,8 @@ item.replication_totem.set=Totem of Replication is now bound to %s
 item.replication_totem.unset=You must bind the Totem of Replication to a mob first!
 
 # JEI Integration
+jei.item_category.ensouled=The Ensouled version of %s. I wonder what other properties it might have?
+
 jei.item.totem_shell=The blank slate of totems, a Totem Shell drops from Evokers in Woodland Mansions and can be crafted into many useful types of totems with Essence.
 jei.item.phasing_totem=While holding this, you are no longer affected by gravity and you can phase through blocks. The longer you're in a solid block, the more damage this takes; careful you don't lose it while inside a block or you'll suffocate!
 jei.item.reaping_totem=If this is in your inventory when you kill certain mobs, they'll drop their Essence and damage this totem. Different Essences can be crafted into different, useful totems, so reap often!

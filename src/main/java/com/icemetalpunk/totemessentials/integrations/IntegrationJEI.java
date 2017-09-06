@@ -8,6 +8,7 @@ import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
 import net.minecraft.block.Block;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -32,8 +33,17 @@ public class IntegrationJEI implements IModPlugin {
 		}
 		for (String itemName : TotemEssentials.proxy.items.registry.keySet()) {
 			Item item = TotemEssentials.proxy.items.get(itemName);
-			registry.addDescription(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE),
-					"jei." + item.getUnlocalizedName());
+
+			String name = item.getUnlocalizedName();
+			if (name.startsWith("item.ensouled_")) {
+				String plainName = name.replaceFirst("item.ensouled_", "item.");
+				registry.addDescription(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE),
+						I18n.format("jei.item_category.ensouled",
+								new Object[] { I18n.format(plainName + ".name", new Object[0]) }));
+			} else {
+				registry.addDescription(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE),
+						"jei." + item.getUnlocalizedName());
+			}
 		}
 		for (ItemStack stack : vanillaDescriptions.keySet()) {
 			registry.addDescription(stack, "jei." + vanillaDescriptions.get(stack));
