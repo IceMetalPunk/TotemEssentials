@@ -3,9 +3,12 @@ package com.icemetalpunk.totemessentials.items.essences;
 import org.apache.commons.lang3.text.WordUtils;
 
 import com.icemetalpunk.totemessentials.IOreDicted;
+import com.icemetalpunk.totemessentials.events.TEEnsouledEvents;
 import com.icemetalpunk.totemessentials.items.ItemRegistry;
 import com.icemetalpunk.totemessentials.items.TEItem;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -25,9 +28,13 @@ public class ItemEssenceBase extends TEItem implements IOreDicted {
 		}
 		this.isEnsouled = isEnsouled;
 
+		// Register sand returns
+		if (this.isEnsouled) {
+			TEEnsouledEvents.ensouledReturns.put(this, new ItemStack(Item.getItemFromBlock(Blocks.SAND), 5));
+		}
 		// Automatically register an ensouled version of each essence from the
 		// normal versions.
-		if (!this.isEnsouled) {
+		else {
 			try {
 				ItemRegistry.registry.put("ensouled_" + name, this.getClass()
 						.getDeclaredConstructor(String.class, boolean.class).newInstance("ensouled_" + name, true));

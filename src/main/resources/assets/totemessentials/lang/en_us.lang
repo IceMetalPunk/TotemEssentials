@@ -13,6 +13,10 @@ item.replication_totem.name=Totem of Replication
 item.exchange_totem.name=Totem of Exchange
 item.fireglaze_totem.name=Totem of Fireglaze
 
+# Ensouled Totems
+
+item.ensouled_curing_totem.name=Ensouled Totem of Curing
+
 # Normal Essence
 
 item.essence_reaper.name=Reaper Essence

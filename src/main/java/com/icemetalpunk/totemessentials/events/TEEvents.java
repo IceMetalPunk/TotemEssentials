@@ -126,7 +126,7 @@ public class TEEvents {
 
 	// Helper method to get a matching stack from a player's inventory,
 	// regardless of which part of the inventory it's in.
-	public ItemStack getStackInPlayerInv(EntityPlayer player, ItemStack compareTo) {
+	public static ItemStack getStackInPlayerInv(EntityPlayer player, ItemStack compareTo) {
 		InventoryPlayer inv = player.inventory;
 		ItemStack stack = ItemStack.EMPTY;
 		int slotID = inv.getSlotFor(compareTo); // Doesn't include offhand!

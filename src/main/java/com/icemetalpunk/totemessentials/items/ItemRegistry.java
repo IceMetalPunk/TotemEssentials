@@ -24,6 +24,7 @@ import com.icemetalpunk.totemessentials.items.totems.ItemReplicationTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemTotemShell;
 import com.icemetalpunk.totemessentials.items.totems.ItemTravelingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemVampireTotem;
+import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledCuringTotem;
 
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
@@ -43,6 +44,9 @@ public class ItemRegistry {
 		registry.put("replication_totem", new ItemReplicationTotem("replication_totem"));
 		registry.put("exchange_totem", new ItemExchangeTotem("exchange_totem"));
 		registry.put("fireglaze_totem", new ItemFireglazeTotem("fireglaze_totem"));
+
+		// Ensouled Totems
+		registry.put("ensouled_curing_totem", new ItemEnsouledCuringTotem("ensouled_curing_totem"));
 
 		// Essences
 		registry.put("essence_reaper", new ItemEssenceReaper("essence_reaper"));

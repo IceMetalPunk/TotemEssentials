@@ -1,5 +1,6 @@
 package com.icemetalpunk.totemessentials;
 
+import com.icemetalpunk.totemessentials.events.TEEnsouledEvents;
 import com.icemetalpunk.totemessentials.events.TEEvents;
 import com.icemetalpunk.totemessentials.events.TERegistryEvents;
 import com.icemetalpunk.totemessentials.proxies.TECommonProxy;
@@ -41,6 +42,7 @@ public class TotemEssentials {
 		proxy.preInit(event);
 		MinecraftForge.EVENT_BUS.register(new TERegistryEvents());
 		MinecraftForge.EVENT_BUS.register(new TEEvents());
+		MinecraftForge.EVENT_BUS.register(new TEEnsouledEvents());
 	}
 
 	@EventHandler
