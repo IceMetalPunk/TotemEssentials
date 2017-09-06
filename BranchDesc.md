@@ -1,0 +1,1 @@
+Ensouled Totems are Tier II Totems crafted with Ensouled Essence (Essence + Soul Sand).
