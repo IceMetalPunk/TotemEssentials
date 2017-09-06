@@ -40,4 +40,6 @@ public class TEEnsouledEvents {
 			}
 		}
 	}
+	
+	// TODO: Ensould Curing Totem effects!
 }
