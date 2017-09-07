@@ -10,6 +10,7 @@ import com.icemetalpunk.totemessentials.items.essences.ItemEssenceFireglaze;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceLactic;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceReaper;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceReplication;
+import com.icemetalpunk.totemessentials.items.essences.ItemEssenceStorage;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceTraveling;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceUndying;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceVampiric;
@@ -21,6 +22,7 @@ import com.icemetalpunk.totemessentials.items.totems.ItemFireglazeTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemPhasingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemReapingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemReplicationTotem;
+import com.icemetalpunk.totemessentials.items.totems.ItemStorageTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemTotemShell;
 import com.icemetalpunk.totemessentials.items.totems.ItemTravelingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemVampireTotem;
@@ -44,6 +46,7 @@ public class ItemRegistry {
 		registry.put("replication_totem", new ItemReplicationTotem("replication_totem"));
 		registry.put("exchange_totem", new ItemExchangeTotem("exchange_totem"));
 		registry.put("fireglaze_totem", new ItemFireglazeTotem("fireglaze_totem"));
+		registry.put("storage_totem", new ItemStorageTotem("storage_totem"));
 
 		// Ensouled Totems
 		registry.put("ensouled_curing_totem", new ItemEnsouledCuringTotem("ensouled_curing_totem"));
@@ -59,6 +62,7 @@ public class ItemRegistry {
 		registry.put("essence_replication", new ItemEssenceReplication("essence_replication"));
 		registry.put("essence_exchange", new ItemEssenceExchange("essence_exchange"));
 		registry.put("essence_fireglaze", new ItemEssenceFireglaze("essence_fireglaze"));
+		registry.put("essence_storage", new ItemEssenceStorage("essence_storage"));
 	}
 
 	public void put(String name, ModeledObject val) {

@@ -65,6 +65,14 @@ You can reap Magma Cubes for their Fireglaze Essence, which can be turned into a
 
 (Oh, yes, and if you have multiple Totems of Fireglaze drop from your corpse, only one will take damage at a time, so thank magma for that!)
 
+### Storage Essence / Totem of Storage
+
+Shulker shells are super useful for blocks of storage, but inventory management can still be a bit tedious sometimes. Enter Storage Essence (reaped from Shulkers, obviously).
+
+Using a Totem of Storage swaps your bottom inventory row with your hotbar and vice-versa. If your Totem is in your hotbar, that slot won't be swapped, but all the rest will; if you're using the Totem from your offhand, then all your hotbar slots will be swapped. Useful!
+
+And unlike some other Totems I could mention (and have!), the Totem of Storage has no durability, so you can use one forever! If you don't lose it, that is.
+
 #### More to come...
 
 ## Progression Strategy
