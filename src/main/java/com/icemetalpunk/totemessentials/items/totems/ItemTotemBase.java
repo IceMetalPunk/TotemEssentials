@@ -18,6 +18,7 @@ public class ItemTotemBase extends TEItem implements IOreDicted {
 		} else {
 			this.totemType = name;
 		}
+		this.setMaxStackSize(1);
 	}
 
 	@Override

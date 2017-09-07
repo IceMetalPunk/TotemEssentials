@@ -12,6 +12,7 @@ item.traveling_totem.name=Totem of Traveling
 item.replication_totem.name=Totem of Replication
 item.exchange_totem.name=Totem of Exchange
 item.fireglaze_totem.name=Totem of Fireglaze
+item.storage_totem.name=Totem of Storage
 
 # Normal Essence
 
@@ -25,6 +26,7 @@ item.essence_traveling.name=Traveling Essence
 item.essence_replication.name=Replication Essence
 item.essence_exchange.name=Exchange Essence
 item.essence_fireglaze.name=Fireglaze Essence
+item.essence_storage.name=Storage Essence
 
 # Ensouled Essence
 
@@ -38,6 +40,7 @@ item.ensouled_essence_traveling.name=Ensouled Traveling Essence
 item.ensouled_essence_replication.name=Ensouled Replication Essence
 item.ensouled_essence_exchange.name=Ensouled Exchange Essence
 item.ensouled_essence_fireglaze.name=Ensouled Fireglaze Essence
+item.ensouled_essence_storage.name=Ensouled Storage Essence
 
 # Totem Abilities
 
@@ -56,7 +59,7 @@ jei.item_category.ensouled=The Ensouled version of %s. I wonder what other prope
 
 jei.item.totem_shell=The blank slate of totems, a Totem Shell drops from Evokers in Woodland Mansions and can be crafted into many useful types of totems with Essence.
 jei.item.phasing_totem=While holding this, you are no longer affected by gravity and you can phase through blocks. The longer you're in a solid block, the more damage this takes; careful you don't lose it while inside a block or you'll suffocate!
-jei.item.reaping_totem=If this is in your inventory when you kill certain mobs, they'll drop their Essence and damage this totem. Different Essences can be crafted into different, useful totems, so reap often!
+jei.item.reaping_totem=If this is in your inventory when you kill certain mobs, they'll drop their Essence and damage this Totem. Different Essences can be crafted into different, useful totems, so reap often!
 jei.item.undying_totem=This vanilla Totem will save you from death! Once. If you're holding it when you die. And you don't fall into the void. And lava will still hurt...
 jei.item.curing_totem=If you'd be affected by a negative potion effect while a Totem of Curing is in your inventory, it'll be immediately cleared! At the cost of durability. Higher level effects cost more durability to cure.
 jei.item.featherfoot_totem=Who needs fall damage? Not you, if you have a Totem of Featherfoot in your inventory! All fall damage will be redirected into the Totem's durability. Until it breaks, and then hopefully your shins won't, too.
@@ -65,6 +68,7 @@ jei.item.traveling_totem=Sneak + Use to set the destination coordinates. Use nor
 jei.item.replication_totem=Hit a mob with this Totem to bind it to that mob type. Then use the Totem on a block to spawn that mob type. Takes 1 damage per spawn.
 jei.item.exchange_totem=Use this Totem on any ore block, and it'll change into a random ore! Sometimes you might get the same ore back (such is the nature of randomness), but other times, you may trade up or down!
 jei.item.fireglaze_totem=If this drops from your inventory upon your death, it will take 1 damage, and all your dropped items will become fireproof until collected! It only gets two uses, though, and you may have to go hunting for the items with fire resistance potions...
+jei.item.storage_totem=When you use this Totem, you'll swap between your bottom-most main inventory row and your hotbar. Except for the slot this Totem is in, of course.
 
 jei.item.essence_reaper=Reaper Essence drops from Vindicators, and can be used to create a Totem of Reaping. You'll need that if you want to collect any other type of Essence!
 jei.item.essence_vexatious=Vexatious Essence can be reaped from Vexes, funnily enough. Totem magic can harness the Vex's phasing abilities for your own use.
@@ -76,3 +80,4 @@ jei.item.essence_traveling=Ender Pearls are so limited. Try some Endermen Essenc
 jei.item.essence_replication=Illusioners like to hide out in Woodland Mansions these days. Maybe a bit of reaping them for their Replication Essence can help you unlock the magicians' secrets?
 jei.item.essence_exchange=Villagers exchange emeralds for other things, right? Well, why shouldn't you be able to reap that essence and use it to trade ores in the world for different ones? Capitalism FTW.
 jei.item.essence_fireglaze=If Magma Cubes can drop magma cream, which can make you fireproof, what if you reaped that essence and applied it to a Totem? Maybe it could make your items fireproof, too? Hmm, now there's a thought!
+jei.item.essence_storage=Shulker shells can make useful shulker boxes. I wonder what their Storage Essence can make if you reap them?

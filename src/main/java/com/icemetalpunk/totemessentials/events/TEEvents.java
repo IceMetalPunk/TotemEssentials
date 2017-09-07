@@ -22,6 +22,7 @@ import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityEvoker;
 import net.minecraft.entity.monster.EntityIllusionIllager;
 import net.minecraft.entity.monster.EntityMagmaCube;
+import net.minecraft.entity.monster.EntityShulker;
 import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityBat;
@@ -93,6 +94,7 @@ public class TEEvents {
 		essenceMap.put(EntityIllusionIllager.class, TotemEssentials.proxy.items.get("essence_replication"));
 		essenceMap.put(EntityVillager.class, TotemEssentials.proxy.items.get("essence_exchange"));
 		essenceMap.put(EntityMagmaCube.class, TotemEssentials.proxy.items.get("essence_fireglaze"));
+		essenceMap.put(EntityShulker.class, TotemEssentials.proxy.items.get("essence_storage"));
 	}
 
 	// Phasing if holding the Phasing Totem
