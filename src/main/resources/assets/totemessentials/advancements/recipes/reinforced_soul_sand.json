@@ -1,0 +1,33 @@
+		{
+  "parent": "totemessentials:recipes/root",
+  "rewards": {
+    "recipes": [
+      "totemessentials:reinforced_soul_sand"
+    ]
+  },
+  "criteria": {
+    "has_shell": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:soul_sand",
+            "data": 0
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "totemessentials:reinforced_soul_sand"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_shell",
+      "has_the_recipe"
+    ]
+  ]
+}

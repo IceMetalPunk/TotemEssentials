@@ -10,6 +10,7 @@ public class BlockRegistry {
 	public static final HashMap<String, BasicBlock> registry = new HashMap<String, BasicBlock>();
 
 	static {
+		registry.put("reinforced_soul_sand", new BlockReinforcedSoulSand("reinforced_soul_sand"));
 	}
 
 	public BlockRegistry() {

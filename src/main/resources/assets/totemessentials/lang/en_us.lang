@@ -1,5 +1,8 @@
 itemGroup.totemessentials=Totem Essentials
 
+# Blocks
+tile.reinforced_soul_sand.name=Reinforced Soul Sand
+
 # Totems
 
 item.totem_shell.name=Totem Shell
@@ -60,6 +63,8 @@ item.replication_totem.unset=You must bind the Totem of Replication to a mob fir
 
 # JEI Integration
 jei.item_category.ensouled=The Ensouled version of %s. I wonder what other properties it might have?
+
+jei.tile.reinforced_soul_sand=This decorative block gives you all the lovely Soul Sand-inspired design you want with none of the slowness.
 
 jei.item.totem_shell=The blank slate of totems, a Totem Shell drops from Evokers in Woodland Mansions and can be crafted into many useful types of totems with Essence.
 jei.item.phasing_totem=While holding this, you are no longer affected by gravity and you can phase through blocks. The longer you're in a solid block, the more damage this takes; careful you don't lose it while inside a block or you'll suffocate!
