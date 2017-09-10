@@ -27,6 +27,7 @@ import com.icemetalpunk.totemessentials.items.totems.ItemTotemShell;
 import com.icemetalpunk.totemessentials.items.totems.ItemTravelingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemVampireTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledPhasingTotem;
+import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledReplicationTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledTravelingTotem;
 
 import net.minecraft.item.Item;
@@ -52,6 +53,7 @@ public class ItemRegistry {
 		// Ensouled Totems
 		registry.put("ensouled_phasing_totem", new ItemEnsouledPhasingTotem("ensouled_phasing_totem"));
 		registry.put("ensouled_traveling_totem", new ItemEnsouledTravelingTotem("ensouled_traveling_totem"));
+		registry.put("ensouled_replication_totem", new ItemEnsouledReplicationTotem("ensouled_replication_totem"));
 
 		// Essences
 		registry.put("essence_reaper", new ItemEssenceReaper("essence_reaper"));

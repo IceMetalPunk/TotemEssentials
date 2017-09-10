@@ -1,4 +1,4 @@
-package com.icemetalpunk.totemessentials.items.totems;
+package com.icemetalpunk.totemessentials.items.totems.ensouled;
 
 import java.util.List;
 
@@ -24,11 +24,11 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemReplicationTotem extends ItemTotemBase {
+public class ItemEnsouledReplicationTotem extends ItemEnsouledTotemBase {
 
-	public ItemReplicationTotem(String name) {
+	public ItemEnsouledReplicationTotem(String name) {
 		super(name);
-		this.setMaxDamage(50); // 50 spawns
+		this.setMaxDamage(75); // 75 spawns
 	}
 
 	public String getNameFromId(String id) {
@@ -41,7 +41,7 @@ public class ItemReplicationTotem extends ItemTotemBase {
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Binding")) {
-			String name = getNameFromId(stack.getTagCompound().getString("Binding"));
+			String name = getNameFromId(stack.getTagCompound().getCompoundTag("Binding").getString("id"));
 			tooltip.add(I18n.format("item.replication_totem.boundTo", new Object[] { name }));
 			Item p;
 		} else {
@@ -64,11 +64,15 @@ public class ItemReplicationTotem extends ItemTotemBase {
 			tag = new NBTTagCompound();
 		}
 
-		String id = target.serializeNBT().getString("id");
-		tag.setString("Binding", id);
+		NBTTagCompound tags = target.serializeNBT();
+		tags.removeTag("UUIDMost");
+		tags.removeTag("UUIDLeast");
+		tags.removeTag("UUID");
+		tags.removeTag("Pos");
+		tag.setTag("Binding", tags);
 		stack.setTagCompound(tag);
 
-		String name = getNameFromId(id);
+		String name = getNameFromId(tags.getString("id"));
 		player.sendMessage(new TextComponentTranslation("item.replication_totem.set", new Object[] { name }));
 
 		return false;
@@ -86,15 +90,20 @@ public class ItemReplicationTotem extends ItemTotemBase {
 		if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Binding")) {
 
 			NBTTagCompound nbt = stack.getTagCompound();
-			ResourceLocation id = new ResourceLocation(nbt.getString("Binding"));
+			ResourceLocation id = new ResourceLocation(nbt.getCompoundTag("Binding").getString("id"));
 			Entity mobSpawn = ForgeRegistries.ENTITIES.getValue(id).newInstance(worldIn);
 			if (mobSpawn instanceof EntityLiving) {
 				((EntityLiving) mobSpawn).onInitialSpawn(worldIn.getDifficultyForLocation(pos), null);
 			}
+
+			NBTTagCompound newNbt = nbt.getCompoundTag("Binding").copy();
+			mobSpawn.readFromNBT(newNbt);
 			pos = pos.offset(facing);
-			mobSpawn.setPosition(pos.getX() + 0.5, pos.getY() - (facing == EnumFacing.DOWN ? mobSpawn.height - 1 : 0),
-					pos.getZ() + 0.5);
+			mobSpawn.setPositionAndUpdate(pos.getX() + 0.5,
+					pos.getY() - (facing == EnumFacing.DOWN ? mobSpawn.height - 1 : 0), pos.getZ() + 0.5);
+
 			worldIn.spawnEntity(mobSpawn);
+
 			stack.damageItem(1, playerIn);
 
 		} else {
