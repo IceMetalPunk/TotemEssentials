@@ -93,8 +93,22 @@ Suggestion: You may want to replicate some Vindicators, too, so you don't lose y
 ## Advanced Totemancy
 Did you know that creating these Totems from Essence is a form of magic called Totemancy? And like all good types of magic, Totemancy has a scientific hierarchy of progress. That's a fancy way of saying, "there are Tier II Totems".
 
+### Ensouled Essence
 Craft 4 of any Essence with 5 Soul Sand (make an X with the Soul Sand and fill the side gaps with Essence) to craft Ensouled Essence. Use 8 Ensouled Essence in a Totem's recipe instead of normal Essence, and you'll make the Ensouled Totem of its type.
+
+You can also upgrade an existing Totem by placing it in the middle of your crafting grid, filling the top and bottom rows with the appropriate Ensouled Essence, and filling the left and right of the Totem with Reinforced Soul Sand.
+
+### Reinforced Soul Sand
+Oh, "what's reinforced soul sand?" you ask? Simple! Just craft 5 soul sand in an X shape and you'll get one piece of Reinforced Soul Sand. It looks similar to normal soul sand, but it has some special properties: it doesn't slow you down, it fills a full block space, and one second after you walk on it, it falls like sand! Placing blocks near it won't make it fall; something has to walk on it.
+
+More importantly for a Totemancer like you, reinforced soul sand can be used to Ensoul an already-crafted totem rather than starting from scratch with a new Totem Shell :)
+
+### Ensouled Totems
 
 Ensouled Totems have more durability, and they each provide upgraded abilities compared to their Tier I counterparts.
 
-But since Ensouled Totems aren't implemented yet... you'll have to wait and see what they each do :)
+#### Ensouled Totem of Phasing
+Like its non-ensouled counterpart, the Ensouled Totem of Phasing lets you phase through walls and be unaffected by gravity. Unlike the normal version, the Ensouled version of this Totem has twice as much durability and lets you fly as though you were in Creative Mode! (That is, your Jump Key = move up, your Sneak Key = move down).
+
+#### More to come... 
+...you'll have to wait and see what they each do :)
