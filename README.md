@@ -73,6 +73,11 @@ Using a Totem of Storage swaps your bottom inventory row with your hotbar and vi
 
 And unlike some other Totems I could mention (and have!), the Totem of Storage has no durability, so you can use one forever! If you don't lose it, that is.
 
+### Aiming Essence / Totem of Aiming
+Skeletons are always shooting at you with bows... maybe if you reap their Essence, you can use it to make a Totem that will help you aim?
+
+Indeed, you can! A Totem of Aiming makes all your arrows fly straight by removing their gravity. It takes 1 damage per arrow enhanced.
+
 #### More to come...
 
 ## Progression Strategy
