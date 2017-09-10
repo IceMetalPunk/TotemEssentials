@@ -117,5 +117,8 @@ Remember how the normal Totem of Traveling can't teleport you between dimensions
 Tired of your replicated mobs never turning out quite how you wanted them? Like, you wanted a crowd of blue sheep, but they keep coming out different colors? Look no further than the Ensouled Totem of Replication!
 An Ensouled Totem of Replication works like a regular one, except it copies all the NBT tags of the bound entity to the new one. Perfect copies each time! Plus, it can spawn 75 copies instead of the normal Totem's 50.
 
+#### Ensouled Totem of Vampirism
+Sucking blood is great for a vampire. You know what's not great? The sun. After healing twice as much as a normal Totem of Vampirism, the ensouled version will inflict your victim with the Sunburn effect, causing them to burn up in the sun. Like a zombie, with no hope for helmet protection.
+
 #### More to come... 
 ...you'll have to wait and see what they each do :)
