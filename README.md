@@ -113,5 +113,9 @@ Like its non-ensouled counterpart, the Ensouled Totem of Phasing lets you phase 
 #### Ensouled Totem of Traveling
 Remember how the normal Totem of Traveling can't teleport you between dimensions? Well, the Ensouled version can! It takes 10 extra damage when traveling across dimensions, but it has twice as much durability anyway. Zoom zoom.
 
+#### Ensouled Totem of Replication
+Tired of your replicated mobs never turning out quite how you wanted them? Like, you wanted a crowd of blue sheep, but they keep coming out different colors? Look no further than the Ensouled Totem of Replication!
+An Ensouled Totem of Replication works like a regular one, except it copies all the NBT tags of the bound entity to the new one. Perfect copies each time! Plus, it can spawn 75 copies instead of the normal Totem's 50.
+
 #### More to come... 
 ...you'll have to wait and see what they each do :)

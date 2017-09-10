@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -97,7 +98,11 @@ public class ItemEnsouledReplicationTotem extends ItemEnsouledTotemBase {
 			}
 
 			NBTTagCompound newNbt = nbt.getCompoundTag("Binding").copy();
-			mobSpawn.readFromNBT(newNbt);
+			if (mobSpawn instanceof EntityAgeable) {
+				((EntityAgeable) mobSpawn).readEntityFromNBT(newNbt);
+			} else {
+				mobSpawn.readFromNBT(newNbt);
+			}
 			pos = pos.offset(facing);
 			mobSpawn.setPositionAndUpdate(pos.getX() + 0.5,
 					pos.getY() - (facing == EnumFacing.DOWN ? mobSpawn.height - 1 : 0), pos.getZ() + 0.5);
