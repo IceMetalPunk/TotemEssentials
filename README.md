@@ -110,5 +110,8 @@ Ensouled Totems have more durability, and they each provide upgraded abilities c
 #### Ensouled Totem of Phasing
 Like its non-ensouled counterpart, the Ensouled Totem of Phasing lets you phase through walls and be unaffected by gravity. Unlike the normal version, the Ensouled version of this Totem has twice as much durability and lets you fly as though you were in Creative Mode! (That is, your Jump Key = move up, your Sneak Key = move down).
 
+#### Ensouled Totem of Traveling
+Remember how the normal Totem of Traveling can't teleport you between dimensions? Well, the Ensouled version can! It takes 10 extra damage when traveling across dimensions, but it has twice as much durability anyway. Zoom zoom.
+
 #### More to come... 
 ...you'll have to wait and see what they each do :)
