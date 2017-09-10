@@ -160,7 +160,7 @@ public class TEEnsouledEvents {
 		}
 	}
 
-	// Add glowing to entities you aim at with a bow if you have the Ensouled
+	// FIXME: Add glowing to entities you aim at with a bow if you have the Ensouled
 	// Totem of Aiming
 	@SubscribeEvent
 	public void onPlayerUsingBow(PlayerTickEvent ev) {
