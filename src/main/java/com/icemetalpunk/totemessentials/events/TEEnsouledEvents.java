@@ -4,11 +4,19 @@ import java.util.HashMap;
 
 import com.icemetalpunk.totemessentials.TotemEssentials;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -46,8 +54,7 @@ public class TEEnsouledEvents {
 		}
 	}
 
-	// TODO: Ensouled Phasing Totem effects!
-	// Phasing if holding the Phasing Totem
+	// Phasing if holding the Ensouled Phasing Totem
 	@SubscribeEvent
 	public void onLivingUpdate(LivingUpdateEvent ev) {
 		if (ev.getEntityLiving() instanceof EntityPlayer) {
@@ -97,6 +104,56 @@ public class TEEnsouledEvents {
 					}
 				}
 			}
+		}
+	}
+
+	// Ensouled Vampiric Totem
+	@SubscribeEvent
+	public void onAttack(LivingHurtEvent ev) {
+		DamageSource source = ev.getSource();
+		Entity hitter = source.getTrueSource();
+		EntityLivingBase victim = ev.getEntityLiving();
+
+		float damagedAmount = ev.getAmount();
+		damagedAmount = Math.min(damagedAmount, victim.getHealth());
+		int intAmount = (int) Math.ceil(damagedAmount);
+
+		float healAmount = damagedAmount;
+		if (hitter instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) hitter;
+			ItemStack vampireTotem = new ItemStack(TotemEssentials.proxy.items.get("ensouled_vampire_totem"));
+			ItemStack match = TEEvents.getStackInPlayerInv(player, vampireTotem);
+			if (match != ItemStack.EMPTY) {
+				int totalDurability = match.getMaxDamage();
+				int currentDamage = match.getItemDamage();
+				if (currentDamage + intAmount >= totalDurability + 1) {
+					healAmount = totalDurability - currentDamage + 1;
+				}
+
+				float maxHealth = player.getMaxHealth();
+				float currentHealth = player.getHealth();
+				player.heal(healAmount * 2.0f);
+				victim.addPotionEffect(new PotionEffect(TotemEssentials.proxy.potions.get("potion_solar"), 160));
+
+				if (currentHealth + healAmount > maxHealth) {
+					match.damageItem((int) Math.ceil(maxHealth - currentHealth), player);
+				} else {
+					match.damageItem((int) Math.ceil(healAmount), player);
+				}
+
+			}
+		}
+	}
+
+	// The "Solar" effect for the Ensouled Vampiric Totem
+	@SubscribeEvent
+	public void onPotionEffects(LivingEvent.LivingUpdateEvent ev) {
+		EntityLivingBase ent = ev.getEntityLiving();
+		World world = ent.getEntityWorld();
+		BlockPos pos = ent.getPosition();
+		if (world.isDaytime() && world.canSeeSky(pos)
+				&& ent.isPotionActive(TotemEssentials.proxy.potions.get("potion_solar"))) {
+			ent.setFire(1);
 		}
 	}
 }

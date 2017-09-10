@@ -7,6 +7,7 @@ import com.icemetalpunk.totemessentials.items.EntityItemFireproof;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.storage.loot.LootEntry;
@@ -54,6 +55,11 @@ public class TERegistryEvents {
 	@SubscribeEvent
 	public void soundHandler(RegistryEvent.Register<SoundEvent> ev) {
 		TotemEssentials.proxy.sounds.registerAll(ev);
+	}
+
+	@SubscribeEvent
+	public void potionHandler(RegistryEvent.Register<Potion> ev) {
+		TotemEssentials.proxy.potions.registerAll(ev);
 	}
 
 	/* Loot table additions: for loot that's not simply a replacement */

@@ -1,5 +1,8 @@
 itemGroup.totemessentials=Totem Essentials
 
+# Effects
+effect.potion_solar=Sunburn
+
 # Blocks
 tile.reinforced_soul_sand.name=Reinforced Soul Sand
 
@@ -22,6 +25,7 @@ item.storage_totem.name=Totem of Storage
 item.ensouled_phasing_totem.name=Ensouled Totem of Phasing
 item.ensouled_traveling_totem.name=Ensouled Totem of Traveling
 item.ensouled_replication_totem.name=Ensouled Totem of Replication
+item.ensouled_vampire_totem.name=Ensouled Totem of Vampirism
 
 # Normal Essence
 
@@ -84,6 +88,7 @@ jei.item.storage_totem=When you use this Totem, you'll swap between your bottom-
 jei.item.ensouled_phasing_totem=Just like the normal Totem of Phasing, except twice the durability. Oh, yeah, and it gives you creative-style flight when held, too. Did I forget to mention that?
 jei.item.ensouled_traveling_totem=Remember how the normal Totem of Traveling can't teleport you across dimensions? This one can. It takes 10 more damage to transport yourself between different dimensions, but it has twice as much durability anyway. Zoom zoom.
 jei.item.ensouled_replication_totem=You can replicate mobs just fine, but they're always a little different... not anymore! The Ensouled Totem of Replication perfectly recreates all the data about the mob you've bound it to. Exact copies every time.
+jei.item.ensouled_vampire_totem=Sucking blood is great for a vampire. You know what's not great? The sun. After healing twice as much as a normal Totem of Vampirism, the ensouled version will inflict your victim with the Sunburn effect, causing them to burn up in the sun, like a zombie.
 
 jei.item.essence_reaper=Reaper Essence drops from Vindicators, and can be used to create a Totem of Reaping. You'll need that if you want to collect any other type of Essence!
 jei.item.essence_vexatious=Vexatious Essence can be reaped from Vexes, funnily enough. Totem magic can harness the Vex's phasing abilities for your own use.
