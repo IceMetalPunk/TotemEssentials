@@ -120,5 +120,10 @@ An Ensouled Totem of Replication works like a regular one, except it copies all 
 #### Ensouled Totem of Vampirism
 Sucking blood is great for a vampire. You know what's not great? The sun. After healing twice as much as a normal Totem of Vampirism, the ensouled version will inflict your victim with the Sunburn effect, causing them to burn up in the sun. Like a zombie, with no hope for helmet protection.
 
+#### Ensouled Totem of Storage
+The normal Totem of Storage lets you swap between your hotbar and the bottom row of your inventory. LAME!
+
+At least, it's lame compared to the Ensouled Totem of Storage, which lets you cycle among all your inventory rows. It still won't cycle the column your Totem is in, though, so you can keep using it; try using it from your offhand to cycle the entire inventory! :)
+
 #### More to come... 
 ...you'll have to wait and see what they each do :)
