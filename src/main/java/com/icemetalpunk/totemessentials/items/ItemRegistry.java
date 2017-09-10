@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import com.icemetalpunk.totemessentials.IOreDicted;
 import com.icemetalpunk.totemessentials.ModeledObject;
+import com.icemetalpunk.totemessentials.items.essences.ItemEssenceAim;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceExchange;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceFeatherfoot;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceFireglaze;
@@ -15,6 +16,7 @@ import com.icemetalpunk.totemessentials.items.essences.ItemEssenceTraveling;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceUndying;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceVampiric;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceVexatious;
+import com.icemetalpunk.totemessentials.items.totems.ItemAimingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemCuringTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemExchangeTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemFeatherfootTotem;
@@ -46,6 +48,7 @@ public class ItemRegistry {
 		registry.put("exchange_totem", new ItemExchangeTotem("exchange_totem"));
 		registry.put("fireglaze_totem", new ItemFireglazeTotem("fireglaze_totem"));
 		registry.put("storage_totem", new ItemStorageTotem("storage_totem"));
+		registry.put("aiming_totem", new ItemAimingTotem("aiming_totem"));
 
 		// Essences
 		registry.put("essence_reaper", new ItemEssenceReaper("essence_reaper"));
@@ -59,6 +62,7 @@ public class ItemRegistry {
 		registry.put("essence_exchange", new ItemEssenceExchange("essence_exchange"));
 		registry.put("essence_fireglaze", new ItemEssenceFireglaze("essence_fireglaze"));
 		registry.put("essence_storage", new ItemEssenceStorage("essence_storage"));
+		registry.put("essence_aim", new ItemEssenceAim("essence_aim"));
 	}
 
 	public void put(String name, ModeledObject val) {
