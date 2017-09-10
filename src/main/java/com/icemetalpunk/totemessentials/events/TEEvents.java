@@ -31,6 +31,7 @@ import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -57,6 +58,7 @@ import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent.WorldTickEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 public class TEEvents {
@@ -423,5 +425,31 @@ public class TEEvents {
 				}
 			}
 		}
+	}
+
+	// Totem of Aiming
+	@SubscribeEvent
+	public void onArrowTick(WorldTickEvent ev) {
+		World world = ev.world;
+		TickEvent.Type type = ev.type;
+		TickEvent.Phase phase = ev.phase;
+
+		if (type == TickEvent.Type.WORLD && phase == TickEvent.Phase.START) {
+			for (Entity ent : world.loadedEntityList) {
+				if (ent instanceof EntityArrow) {
+					EntityArrow arrow = (EntityArrow) ent;
+					if (!arrow.hasNoGravity() && arrow.shootingEntity instanceof EntityPlayer) {
+						EntityPlayer shooter = (EntityPlayer) arrow.shootingEntity;
+						ItemStack totem = getStackInPlayerInv(shooter,
+								new ItemStack(TotemEssentials.proxy.items.get("aiming_totem"), 1));
+						if (totem != ItemStack.EMPTY) {
+							arrow.setNoGravity(true);
+							totem.damageItem(1, shooter);
+						}
+					}
+				}
+			}
+		}
+
 	}
 }
