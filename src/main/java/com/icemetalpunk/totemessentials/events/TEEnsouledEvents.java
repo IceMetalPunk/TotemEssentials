@@ -8,11 +8,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
@@ -154,6 +157,33 @@ public class TEEnsouledEvents {
 		if (world.isDaytime() && world.canSeeSky(pos)
 				&& ent.isPotionActive(TotemEssentials.proxy.potions.get("potion_solar"))) {
 			ent.setFire(1);
+		}
+	}
+
+	// Add glowing to entities you aim at with a bow if you have the Ensouled
+	// Totem of Aiming
+	@SubscribeEvent
+	public void onPlayerUsingBow(PlayerTickEvent ev) {
+		if (ev.phase == TickEvent.Phase.END) {
+			EntityPlayer player = ev.player;
+			ItemStack usingItem = player.getActiveItemStack();
+			int isInUse = player.getItemInUseCount();
+			ItemStack totem = TEEvents.getStackInPlayerInv(player,
+					new ItemStack(TotemEssentials.proxy.items.get("ensouled_aiming_totem"), 1));
+			if (totem != ItemStack.EMPTY && usingItem.getItem() instanceof ItemBow && isInUse > 0) {
+				// RayTraceResult trace =
+				// Minecraft.getMinecraft().objectMouseOver;
+				RayTraceResult trace = player.rayTrace(80.0d, 1.0f);
+				System.out.println("Type: " + trace.typeOfHit);
+				System.out.println("Entity: " + trace.entityHit);
+				System.out.println("Is Living?: " + (trace.entityHit instanceof EntityLivingBase));
+				if (trace.typeOfHit == RayTraceResult.Type.ENTITY && trace.entityHit != null
+						&& trace.entityHit instanceof EntityLivingBase) {
+					EntityLivingBase livingEnt = (EntityLivingBase) trace.entityHit;
+					livingEnt.addPotionEffect(new PotionEffect(MobEffects.GLOWING, 20));
+					System.out.println("Added glowing to " + livingEnt);
+				}
+			}
 		}
 	}
 }
