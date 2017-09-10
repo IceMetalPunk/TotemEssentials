@@ -19,7 +19,7 @@ item.storage_totem.name=Totem of Storage
 
 # Ensouled Totems
 
-item.ensouled_curing_totem.name=Ensouled Totem of Curing
+item.ensouled_phasing_totem.name=Ensouled Totem of Phasing
 
 # Normal Essence
 
@@ -78,6 +78,8 @@ jei.item.replication_totem=Hit a mob with this Totem to bind it to that mob type
 jei.item.exchange_totem=Use this Totem on any ore block, and it'll change into a random ore! Sometimes you might get the same ore back (such is the nature of randomness), but other times, you may trade up or down!
 jei.item.fireglaze_totem=If this drops from your inventory upon your death, it will take 1 damage, and all your dropped items will become fireproof until collected! It only gets two uses, though, and you may have to go hunting for the items with fire resistance potions...
 jei.item.storage_totem=When you use this Totem, you'll swap between your bottom-most main inventory row and your hotbar. Except for the slot this Totem is in, of course.
+
+jei.item.ensouled_phasing_totem=Just like the normal Totem of Phasing, except twice the durability. Oh, yeah, and it gives you creative-style flight when held, too. Did I forget to mention that?
 
 jei.item.essence_reaper=Reaper Essence drops from Vindicators, and can be used to create a Totem of Reaping. You'll need that if you want to collect any other type of Essence!
 jei.item.essence_vexatious=Vexatious Essence can be reaped from Vexes, funnily enough. Totem magic can harness the Vex's phasing abilities for your own use.

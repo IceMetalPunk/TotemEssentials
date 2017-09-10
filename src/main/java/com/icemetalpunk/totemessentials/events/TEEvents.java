@@ -102,7 +102,10 @@ public class TEEvents {
 	public void onLivingUpdate(LivingUpdateEvent ev) {
 		if (ev.getEntityLiving() instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) ev.getEntityLiving();
-			if (player.getHeldItemMainhand().getItem() == TotemEssentials.proxy.items.get("phasing_totem")) {
+			Item mainHand = player.getHeldItemMainhand().getItem();
+			Item offHand = player.getHeldItemOffhand().getItem();
+			Item totem = TotemEssentials.proxy.items.get("phasing_totem");
+			if (mainHand == totem || offHand == totem) {
 				player.setNoGravity(true);
 				player.onGround = false;
 				player.noClip = false;
@@ -119,8 +122,19 @@ public class TEEvents {
 	public void onPlayerPostTick(PlayerTickEvent ev) {
 		if (ev.phase == TickEvent.Phase.END) {
 			EntityPlayer player = ev.player;
-			if (player.getHeldItemMainhand().getItem() != TotemEssentials.proxy.items.get("phasing_totem")) {
-				player.noClip = false;
+			Item mainHand = player.getHeldItemMainhand().getItem();
+			Item offHand = player.getHeldItemOffhand().getItem();
+			Item totem = TotemEssentials.proxy.items.get("phasing_totem");
+			Item ensouledTotem = TotemEssentials.proxy.items.get("ensouled_phasing_totem");
+
+			// If you don't check for the non-ensouled totem of phasing, they
+			// interfere!
+			// And then this stops the noclip from the normal totem! :(
+			// So check for both here!
+			if (mainHand != totem && offHand != totem && mainHand != ensouledTotem && offHand != ensouledTotem) {
+				if (!player.isSpectator()) {
+					player.noClip = false;
+				}
 				player.setNoGravity(false);
 			}
 		}
