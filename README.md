@@ -136,5 +136,8 @@ Even with a straight shot from a Totem of Aim, it can be hard to see your target
 ### Ensouled Totem of Featherfoot
 Taking no fall damage is good. But taking no fall damage *and* floating to the ground like a chicken? Even better!
 
+### Ensouled Totem of Fireglaze
+Pour some magma (cream) on me! This Totem saves your items from burning when you die, *and* absorbs all fire damage you would take!
+
 #### More to come... 
 ...you'll have to wait and see what they each do :)

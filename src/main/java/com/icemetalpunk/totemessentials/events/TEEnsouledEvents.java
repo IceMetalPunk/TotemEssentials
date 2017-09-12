@@ -173,6 +173,9 @@ public class TEEnsouledEvents {
 				int durabilityLeft = totem.getMaxDamage() - totem.getItemDamage();
 				int damage = Math.min(durabilityLeft, intAmt);
 				totem.damageItem(damage, player);
+				if (totem.getItemDamage() >= totem.getMaxDamage()) {
+					totem.damageItem(1, player);
+				}
 			}
 		}
 	}

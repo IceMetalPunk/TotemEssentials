@@ -9,11 +9,11 @@ import net.minecraft.world.World;
 
 public class ItemEnsouledFireglazeTotem extends ItemEnsouledTotemBase {
 
-	public static final int DEATH_USE_DAMAGE = 1500;
+	public static final int DEATH_USE_DAMAGE = 15000;
 
 	public ItemEnsouledFireglazeTotem(String name) {
 		super(name);
-		this.setMaxDamage(6000); // 10000 durability
+		this.setMaxDamage(60000); // 60000 durability (about 5 minutes in lava)
 	}
 
 	@Override
