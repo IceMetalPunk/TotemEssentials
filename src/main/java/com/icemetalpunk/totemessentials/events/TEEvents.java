@@ -20,6 +20,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.EntityXPOrb;
+import net.minecraft.entity.monster.EntityElderGuardian;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityEvoker;
 import net.minecraft.entity.monster.EntityIllusionIllager;
@@ -57,6 +59,7 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerDropsEvent;
+import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -103,6 +106,7 @@ public class TEEvents {
 		essenceMap.put(EntitySkeleton.class, TotemEssentials.proxy.items.get("essence_aim"));
 		essenceMap.put(EntityStray.class, TotemEssentials.proxy.items.get("essence_aim"));
 		essenceMap.put(EntityPigZombie.class, TotemEssentials.proxy.items.get("essence_aggro"));
+		essenceMap.put(EntityElderGuardian.class, TotemEssentials.proxy.items.get("essence_wisdom"));
 	}
 
 	// Phasing if holding the Phasing Totem
@@ -443,6 +447,20 @@ public class TEEvents {
 					toDamage.damageItem(1, shooter);
 				}
 			}
+		}
+	}
+
+	// Totem of Wisdom XP doubling
+	@SubscribeEvent
+	public void onPickupXP(PlayerPickupXpEvent ev) {
+		EntityXPOrb orb = ev.getOrb();
+		EntityPlayer player = ev.getEntityPlayer();
+		ItemStack totem = getStackInPlayerInv(player, new ItemStack(TotemEssentials.proxy.items.get("wisdom_totem")));
+		if (totem != ItemStack.EMPTY) {
+			int amount = orb.getXpValue();
+			amount = Math.min(amount, totem.getMaxDamage() - totem.getItemDamage());
+			orb.xpValue += amount;
+			totem.damageItem(amount, player);
 		}
 	}
 

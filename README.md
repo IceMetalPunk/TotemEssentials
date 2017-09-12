@@ -83,6 +83,11 @@ Zombie Pigmen are known for getting extremely aggressive and attacking you for t
 
 The Totem of Aggression causes all mobs who target you within a 20 block radius to instead target another mob nearby. If there's only one mob, though, it'll still come after you... The Totem takes 1 damage for each mob it "turns".
 
+### Wisdom Essence / Totem of Wisdom
+Elder Guardians are elders, and we should respect our elders because they're wise. Or... we can reap the Elder Guardians of their Wisdom Essence. Up to you.
+
+Wisdom Essence can craft a Totem of Wisdom. With one of these in your inventory, all XP orbs you collect are doubled in value. The Totem takes 1 damage per extra XP you earn. Mmmm, experience.
+
 #### More to come...
 
 ## Progression Strategy

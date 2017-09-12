@@ -17,6 +17,7 @@ import com.icemetalpunk.totemessentials.items.essences.ItemEssenceTraveling;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceUndying;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceVampiric;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceVexatious;
+import com.icemetalpunk.totemessentials.items.essences.ItemEssenceWisdom;
 import com.icemetalpunk.totemessentials.items.totems.ItemAggressionTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemAimingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemCuringTotem;
@@ -30,6 +31,7 @@ import com.icemetalpunk.totemessentials.items.totems.ItemStorageTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemTotemShell;
 import com.icemetalpunk.totemessentials.items.totems.ItemTravelingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemVampireTotem;
+import com.icemetalpunk.totemessentials.items.totems.ItemWisdomTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledAggressionTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledAimingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledCuringTotem;
@@ -62,6 +64,7 @@ public class ItemRegistry {
 		registry.put("storage_totem", new ItemStorageTotem("storage_totem"));
 		registry.put("aiming_totem", new ItemAimingTotem("aiming_totem"));
 		registry.put("aggression_totem", new ItemAggressionTotem("aggression_totem"));
+		registry.put("wisdom_totem", new ItemWisdomTotem("wisdom_totem"));
 
 		// Ensouled Totems
 		registry.put("ensouled_phasing_totem", new ItemEnsouledPhasingTotem("ensouled_phasing_totem"));
@@ -89,6 +92,7 @@ public class ItemRegistry {
 		registry.put("essence_storage", new ItemEssenceStorage("essence_storage"));
 		registry.put("essence_aim", new ItemEssenceAim("essence_aim"));
 		registry.put("essence_aggro", new ItemEssenceAggression("essence_aggro"));
+		registry.put("essence_wisdom", new ItemEssenceWisdom("essence_wisdom"));
 	}
 
 	public void put(String name, ModeledObject val) {
