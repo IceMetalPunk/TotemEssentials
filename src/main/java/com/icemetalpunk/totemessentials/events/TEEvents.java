@@ -456,7 +456,9 @@ public class TEEvents {
 		EntityXPOrb orb = ev.getOrb();
 		EntityPlayer player = ev.getEntityPlayer();
 		ItemStack totem = getStackInPlayerInv(player, new ItemStack(TotemEssentials.proxy.items.get("wisdom_totem")));
-		if (totem != ItemStack.EMPTY) {
+		ItemStack ensouled = getStackInPlayerInv(player,
+				new ItemStack(TotemEssentials.proxy.items.get("ensouled_wisdom_totem")));
+		if (totem != ItemStack.EMPTY || ensouled != ItemStack.EMPTY) {
 			int amount = orb.getXpValue();
 			amount = Math.min(amount, totem.getMaxDamage() - totem.getItemDamage());
 			orb.xpValue += amount;

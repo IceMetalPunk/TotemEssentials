@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group":"totemessentials:ensouled_vampire_totem",
+  "group":"totemessentials:ensouled_wisdom_totem",
   "pattern": [
     "EEE",
 	"STS",
@@ -8,11 +8,11 @@
   ],
   "key": {
     "E": {
-      "item": "totemessentials:ensouled_essence_vampiric",
+      "item": "totemessentials:ensouled_essence_wisdom",
 	  "data":0
     },
 	"T": {
-		"item": "totemessentials:vampire_totem",
+		"item": "totemessentials:wisdom_totem",
 		"data": 0
 	},
 	"S": {
@@ -21,7 +21,7 @@
 	}
   },
   "result": {
-    "item": "totemessentials:ensouled_vampire_totem",
+    "item": "totemessentials:ensouled_wisdom_totem",
 	"data": 0
   }
 }

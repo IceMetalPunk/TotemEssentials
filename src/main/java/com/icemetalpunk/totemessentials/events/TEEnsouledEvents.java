@@ -1,14 +1,19 @@
 package com.icemetalpunk.totemessentials.events;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 
 import com.icemetalpunk.totemessentials.TotemEssentials;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledAggressionTotem;
+import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledWisdomTotem;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
@@ -18,8 +23,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
+import net.minecraftforge.event.entity.player.PlayerDropsEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent.Clone;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -31,6 +39,7 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
  */
 public class TEEnsouledEvents {
 	public static final HashMap<Item, ItemStack> ensouledReturns = new HashMap<Item, ItemStack>();
+	public static final HashSet<EntityPlayer> wisdomCloneMarker = new HashSet<EntityPlayer>();
 
 	public TEEnsouledEvents() {
 	}
@@ -184,30 +193,71 @@ public class TEEnsouledEvents {
 
 	// Ensouled Totem of Aggression
 	// Item#onUpdate happens too late/early!
-	
+
 	@SubscribeEvent
 	public void onAttackTarget(LivingSetAttackTargetEvent ev) {
 		EntityLivingBase target = ev.getTarget();
 		if (target instanceof EntityPlayer) {
-			ItemStack stack = TEEvents.getStackInPlayerInv((EntityPlayer)target,
+			ItemStack stack = TEEvents.getStackInPlayerInv((EntityPlayer) target,
 					new ItemStack(TotemEssentials.proxy.items.get("ensouled_aggression_totem")));
 			if (stack != ItemStack.EMPTY) {
-				ItemEnsouledAggressionTotem.performEffect(stack, ev.getEntity().world, (EntityPlayer)target);
+				ItemEnsouledAggressionTotem.performEffect(stack, ev.getEntity().world, (EntityPlayer) target);
 			}
 		}
 	}
-	
-	/*@SubscribeEvent
-	public void onPlayerStartTick(WorldTickEvent ev) {
-		if (ev.phase == TickEvent.Phase.END) {
-			List<EntityPlayerMP> players = ev.world.getPlayers(EntityPlayerMP.class, EntitySelectors.IS_ALIVE);
-			for (EntityPlayerMP player : players) {
-				ItemStack stack = TEEvents.getStackInPlayerInv(player,
-						new ItemStack(TotemEssentials.proxy.items.get("ensouled_aggression_totem")));
-				if (stack != ItemStack.EMPTY) {
-					ItemEnsouledAggressionTotem.performEffect(stack, ev.world, player);
+
+	// Ensouled Totem of Wisdom
+	@SubscribeEvent
+	public void onDrops(PlayerDropsEvent ev) {
+		EntityPlayer player = ev.getEntityPlayer();
+		List<EntityItem> drops = ev.getDrops();
+
+		if (player.experienceTotal > 0 && !player.getEntityWorld().getGameRules().getBoolean("keepInventory")) {
+			Iterator<EntityItem> itr = drops.iterator();
+			while (itr.hasNext()) {
+				EntityItem item = itr.next();
+				if (item.getItem().getItem() == TotemEssentials.proxy.items.get("ensouled_wisdom_totem")) {
+					item.getItem().damageItem(ItemEnsouledWisdomTotem.DAMAGE_ON_USE, player);
+					wisdomCloneMarker.add(player);
+					if (item.getItem().getItemDamage() >= item.getItem().getMaxDamage()) {
+						itr.remove();
+					}
+
+					break;
 				}
 			}
 		}
-	}*/
+	}
+
+	@SubscribeEvent
+	public void xpDrop(LivingExperienceDropEvent ev) {
+		EntityLivingBase living = ev.getEntityLiving();
+		if (living instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) living;
+			if (wisdomCloneMarker.contains(player)) {
+				ev.setDroppedExperience(0);
+			}
+		}
+
+	}
+
+	@SubscribeEvent
+	public void onClone(Clone ev) {
+		EntityPlayer original = ev.getOriginal();
+		EntityPlayer newPlayer = ev.getEntityPlayer();
+		boolean wasDeath = ev.isWasDeath();
+		boolean hasEnsouled = wisdomCloneMarker.contains(original);
+
+		if (hasEnsouled) {
+			wisdomCloneMarker.remove(original);
+			if (wasDeath) {
+				if (newPlayer.experienceTotal <= 0) {
+					newPlayer.addExperience(original.experienceTotal);
+					float f = newPlayer.experienceLevel > 30 ? 1.0F : (float) newPlayer.experienceLevel / 30.0F;
+					newPlayer.getEntityWorld().playSound(newPlayer, newPlayer.posX, newPlayer.posY, newPlayer.posZ,
+							SoundEvents.ENTITY_PLAYER_LEVELUP, newPlayer.getSoundCategory(), f * 0.75F, 1.0F);
+				}
+			}
+		}
+	}
 }

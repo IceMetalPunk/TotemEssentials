@@ -42,6 +42,7 @@ import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledReplic
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledStorageTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledTravelingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledVampireTotem;
+import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledWisdomTotem;
 
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
@@ -77,6 +78,7 @@ public class ItemRegistry {
 		registry.put("ensouled_fireglaze_totem", new ItemEnsouledFireglazeTotem("ensouled_fireglaze_totem"));
 		registry.put("ensouled_curing_totem", new ItemEnsouledCuringTotem("ensouled_curing_totem"));
 		registry.put("ensouled_aggression_totem", new ItemEnsouledAggressionTotem("ensouled_aggression_totem"));
+		registry.put("ensouled_wisdom_totem", new ItemEnsouledWisdomTotem("ensouled_wisdom_totem"));
 
 		// Essences
 		registry.put("essence_reaper", new ItemEssenceReaper("essence_reaper"));
