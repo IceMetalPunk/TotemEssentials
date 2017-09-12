@@ -102,7 +102,6 @@ public class ItemTravelingTotem extends ItemTotemBase {
 			Minecraft.getMinecraft().ingameGUI.displayTitle(msg, null, 10, 10, 10);
 			Minecraft.getMinecraft().ingameGUI.displayTitle(null,
 					"(" + pos.getX() + ", " + pos.getY() + ", " + pos.getZ() + ")" + dimensionName, 10, 10, 10);
-
 		} else if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Destination")) {
 
 			int[] destTag = nbt.getIntArray("Destination");

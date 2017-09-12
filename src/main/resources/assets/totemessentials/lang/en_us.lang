@@ -31,6 +31,7 @@ item.ensouled_storage_totem.name=Ensouled Totem of Storage
 item.ensouled_aiming_totem.name=Ensouled Totem of Aim
 item.ensouled_featherfoot_totem.name=Ensouled Totem of Featherfoot
 item.ensouled_fireglaze_totem.name=Ensouled Totem of Fireglaze
+item.ensouled_curing_totem.name=Ensouled Totem of Curing
 
 # Normal Essence
 
@@ -102,6 +103,7 @@ jei.item.ensouled_storage_totem=Instead of just swapping your hotbar with the bo
 jei.item.ensouled_aiming_totem=When you're too far away from your target, even a straight shot can be hard to make. So the Ensouled Totem of Aim also gives the Glowing effect to the mob you're looking at with your bow pulled back! (Within 100 blocks. Depending on render distance. Batteries not included.)
 jei.item.ensouled_featherfoot_totem=Not having fall damage? That's good. Floating slowly to the ground like a chicken *and* not having fall damage? Even better!
 jei.item.ensouled_fireglaze_totem=Pour some magma (cream) on me! This Totem saves your items from burning when you die, *and* absorbs all fire damage you would take!
+jei.item.ensouled_curing_totem=Keep this in your inventory, and it'll cure you of negative potion effects *and* double the duration of your positive potion effects. Plus, it has 30 durability and only takes 1 damage per effect per level.
 
 jei.item.essence_reaper=Reaper Essence drops from Vindicators, and can be used to create a Totem of Reaping. You'll need that if you want to collect any other type of Essence!
 jei.item.essence_vexatious=Vexatious Essence can be reaped from Vexes, funnily enough. Totem magic can harness the Vex's phasing abilities for your own use.

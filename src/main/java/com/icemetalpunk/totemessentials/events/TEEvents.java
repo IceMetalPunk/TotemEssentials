@@ -282,33 +282,7 @@ public class TEEvents {
 	// Totem of Curing handler
 	@SubscribeEvent
 	public void cureNegativeEffects(LivingEvent.LivingUpdateEvent ev) {
-		EntityLivingBase ent = ev.getEntityLiving();
-		// Copy the effects to a new list to avoid Concurrent Modification
-		// exceptions!
-		List<PotionEffect> effects = new ArrayList<PotionEffect>(ent.getActivePotionEffects());
-		if (ent instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) ent;
 
-			// If they have a Totem of Curing in their inventory...
-			ItemStack curingTotem = new ItemStack(TotemEssentials.proxy.items.get("curing_totem"), 1);
-			ItemStack match = getStackInPlayerInv(player, curingTotem);
-			if (match != ItemStack.EMPTY) {
-				for (PotionEffect effect : effects) {
-
-					// Clear bad effects and damage the totem, stopping if it
-					// breaks.
-					Potion actualPotion = effect.getPotion();
-					if (actualPotion.isBadEffect()) {
-						int level = effect.getAmplifier();
-						match.damageItem(level + 1, player);
-						player.removeActivePotionEffect(actualPotion);
-						if (match.isEmpty()) {
-							break;
-						}
-					}
-				}
-			}
-		}
 	}
 
 	// Totem of Featherfoot handler
