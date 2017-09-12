@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group":"totemessentials:ensouled_phasing_totem",
+  "group":"totemessentials:ensouled_fireglaze_totem",
   "pattern": [
     "EEE",
 	"ESE",
@@ -8,7 +8,7 @@
   ],
   "key": {
     "E": {
-      "item": "totemessentials:ensouled_essence_vexatious",
+      "item": "totemessentials:ensouled_essence_fireglaze",
 	  "data":0
     },
 	"S": {
@@ -17,7 +17,7 @@
 	}
   },
   "result": {
-    "item": "totemessentials:ensouled_phasing_totem",
+    "item": "totemessentials:ensouled_fireglaze_totem",
 	"data": 0
   }
 }

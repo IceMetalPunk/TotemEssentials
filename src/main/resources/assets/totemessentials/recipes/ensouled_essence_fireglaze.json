@@ -1,6 +1,6 @@
 		{
   "type": "minecraft:crafting_shaped",
-  "group":"totemessentials:ensouled_essence",
+  "group":"totemessentials:ensouled_essence_fireglaze",
   "pattern": [
     "SES",
 	"ESE",

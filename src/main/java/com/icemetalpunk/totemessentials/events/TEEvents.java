@@ -11,6 +11,8 @@ import java.util.ListIterator;
 
 import com.icemetalpunk.totemessentials.TotemEssentials;
 import com.icemetalpunk.totemessentials.items.EntityItemFireproof;
+import com.icemetalpunk.totemessentials.items.totems.ItemFireglazeTotem;
+import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledFireglazeTotem;
 
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.objects.ObjectIterator;
@@ -386,9 +388,15 @@ public class TEEvents {
 		while (itr.hasNext()) {
 			EntityItem item = itr.next();
 			ItemStack stack = item.getItem();
-			if (stack.getItem() == TotemEssentials.proxy.items.get("fireglaze_totem")) {
+			boolean isTotem = stack.getItem() == TotemEssentials.proxy.items.get("fireglaze_totem");
+			boolean isEnsouled = stack.getItem() == TotemEssentials.proxy.items.get("ensouled_fireglaze_totem");
+			if (isTotem || isEnsouled) {
 				hasTotem = true;
-				stack.setItemDamage(stack.getItemDamage() + 1);
+				if (isTotem) {
+					stack.setItemDamage(stack.getItemDamage() + ItemFireglazeTotem.DEATH_USE_DAMAGE);
+				} else {
+					stack.setItemDamage(stack.getItemDamage() + ItemEnsouledFireglazeTotem.DEATH_USE_DAMAGE);
+				}
 				if (stack.getItemDamage() >= stack.getItem().getMaxDamage(stack)) {
 					stack.shrink(1);
 					itr.remove();
@@ -440,7 +448,6 @@ public class TEEvents {
 		if (type == TickEvent.Type.WORLD && phase == TickEvent.Phase.START) {
 			for (Entity ent : world.loadedEntityList) {
 				if (ent instanceof EntityArrow) {
-					EntityChicken p;
 					EntityArrow arrow = (EntityArrow) ent;
 					if (!arrow.hasNoGravity() && arrow.shootingEntity instanceof EntityPlayer) {
 						EntityPlayer shooter = (EntityPlayer) arrow.shootingEntity;

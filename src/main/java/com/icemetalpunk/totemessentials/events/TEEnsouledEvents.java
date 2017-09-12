@@ -8,15 +8,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -157,6 +155,25 @@ public class TEEnsouledEvents {
 		if (world.isDaytime() && world.canSeeSky(pos)
 				&& ent.isPotionActive(TotemEssentials.proxy.potions.get("potion_solar"))) {
 			ent.setFire(1);
+		}
+	}
+
+	// Ensouled Totem of Fireglaze
+	@SubscribeEvent
+	public void onFireDamage(LivingAttackEvent ev) {
+		DamageSource source = ev.getSource();
+		EntityLivingBase ent = ev.getEntityLiving();
+		if (ent instanceof EntityPlayer && source.isFireDamage()) {
+			EntityPlayer player = (EntityPlayer) ent;
+			ItemStack totem = TEEvents.getStackInPlayerInv(player,
+					new ItemStack(TotemEssentials.proxy.items.get("ensouled_fireglaze_totem"), 1));
+			if (totem != null) {
+				float amount = ev.getAmount();
+				int intAmt = (int) Math.ceil(amount);
+				int durabilityLeft = totem.getMaxDamage() - totem.getItemDamage();
+				int damage = Math.min(durabilityLeft, intAmt);
+				totem.damageItem(damage, player);
+			}
 		}
 	}
 }
