@@ -8,6 +8,7 @@ import javax.annotation.Nullable;
 
 import org.apache.commons.lang3.text.WordUtils;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -88,13 +89,19 @@ public class ItemTravelingTotem extends ItemTotemBase {
 		}
 
 		if (playerIn.isSneaking()) {
+			String dimensionName = " - Unknown Dimension";
+			if (dimensionNames.containsKey(Integer.valueOf(worldIn.provider.getDimension()))) {
+				dimensionName = " - " + dimensionNames.get(Integer.valueOf(worldIn.provider.getDimension()));
+			}
+
 			nbt.setIntArray("Destination",
 					new int[] { pos.getX(), pos.getY(), pos.getZ(), worldIn.provider.getDimension() });
 			stack.setTagCompound(nbt);
 
-			// TODO: Notify the player that it's been set in a better way.
-			playerIn.sendMessage(new TextComponentTranslation("item.traveling_totem.set",
-					new Object[] { pos.getX(), pos.getY(), pos.getZ() }));
+			String msg = I18n.format("item.traveling_totem.set", new Object[0]);
+			Minecraft.getMinecraft().ingameGUI.displayTitle(msg, null, 10, 10, 10);
+			Minecraft.getMinecraft().ingameGUI.displayTitle(null,
+					"(" + pos.getX() + ", " + pos.getY() + ", " + pos.getZ() + ")" + dimensionName, 10, 10, 10);
 
 		} else if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Destination")) {
 

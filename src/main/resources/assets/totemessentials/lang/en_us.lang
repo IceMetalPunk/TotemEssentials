@@ -64,7 +64,8 @@ item.ensouled_essence_aim.name=Ensouled Aiming Essence
 
 # Totem Abilities
 
-item.traveling_totem.set=Set destination to (%s, %s, %s)%s
+# item.traveling_totem.set=Set destination to (%s, %s, %s)%s
+item.traveling_totem.set=Set Destination
 item.traveling_totem.unset=You can't teleport until you set a destination first. Sneak + Use to set the destination.
 item.traveling_totem.bound=Bound to (%s, %s, %s)%s
 item.traveling_totem.unbound=Unbound - Sneak + Use to set a destination.
