@@ -158,5 +158,8 @@ With the normal Totem of Aggression, mobs will attack each other, but there will
 
 In addition to the anger-inducing effects of the normal Totem of Aggression, if there's only one mob around, the Ensouled Totem of Aggression will calm it down so it won't attack you. Keeping it calm takes a lot of durability, though, so don't hang around too long!
 
+### Ensouled Totem of Wisdom
+What's the point in doubling the amount of XP you earn if you lose it all when you die? So don't lose it! Keep an Ensouled Totem of Wisdom on you, and in addition to double the XP, you'll also keep all your experience when you die! (For a cost of 500 durability...)
+
 #### More to come... 
 ...you'll have to wait and see what they each do :)
