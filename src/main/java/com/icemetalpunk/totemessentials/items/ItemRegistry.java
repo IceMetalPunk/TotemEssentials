@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import com.icemetalpunk.totemessentials.IOreDicted;
 import com.icemetalpunk.totemessentials.ModeledObject;
+import com.icemetalpunk.totemessentials.items.essences.ItemEssenceAggression;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceAim;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceExchange;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceFeatherfoot;
@@ -16,6 +17,7 @@ import com.icemetalpunk.totemessentials.items.essences.ItemEssenceTraveling;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceUndying;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceVampiric;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceVexatious;
+import com.icemetalpunk.totemessentials.items.totems.ItemAggressionTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemAimingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemCuringTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemExchangeTotem;
@@ -58,6 +60,7 @@ public class ItemRegistry {
 		registry.put("fireglaze_totem", new ItemFireglazeTotem("fireglaze_totem"));
 		registry.put("storage_totem", new ItemStorageTotem("storage_totem"));
 		registry.put("aiming_totem", new ItemAimingTotem("aiming_totem"));
+		registry.put("aggression_totem", new ItemAggressionTotem("aggression_totem"));
 
 		// Ensouled Totems
 		registry.put("ensouled_phasing_totem", new ItemEnsouledPhasingTotem("ensouled_phasing_totem"));
@@ -83,6 +86,7 @@ public class ItemRegistry {
 		registry.put("essence_fireglaze", new ItemEssenceFireglaze("essence_fireglaze"));
 		registry.put("essence_storage", new ItemEssenceStorage("essence_storage"));
 		registry.put("essence_aim", new ItemEssenceAim("essence_aim"));
+		registry.put("essence_aggro", new ItemEssenceAggression("essence_aggro"));
 	}
 
 	public void put(String name, ModeledObject val) {

@@ -20,6 +20,7 @@ item.exchange_totem.name=Totem of Exchange
 item.fireglaze_totem.name=Totem of Fireglaze
 item.storage_totem.name=Totem of Storage
 item.aiming_totem.name=Totem of Aim
+item.aggression_totem.name=Totem of Aggression
 
 # Ensouled Totems
 
@@ -47,6 +48,7 @@ item.essence_exchange.name=Exchange Essence
 item.essence_fireglaze.name=Fireglaze Essence
 item.essence_storage.name=Storage Essence
 item.essence_aim.name=Aiming Essence
+item.essence_aggro.name=Aggro Essence
 
 # Ensouled Essence
 
@@ -62,6 +64,7 @@ item.ensouled_essence_exchange.name=Ensouled Exchange Essence
 item.ensouled_essence_fireglaze.name=Ensouled Fireglaze Essence
 item.ensouled_essence_storage.name=Ensouled Storage Essence
 item.ensouled_essence_aim.name=Ensouled Aiming Essence
+item.ensouled_essence_aggro.name=Ensouled Aggro Essence
 
 # Totem Abilities
 
@@ -94,6 +97,7 @@ jei.item.exchange_totem=Use this Totem on any ore block, and it'll change into a
 jei.item.fireglaze_totem=If this drops from your inventory upon your death, it will take 1 damage, and all your dropped items will become fireproof until collected! It only gets two uses, though, and you may have to go hunting for the items with fire resistance potions...
 jei.item.storage_totem=When you use this Totem, you'll swap between your bottom-most main inventory row and your hotbar. Except for the slot this Totem is in, of course.
 jei.item.aiming_totem=Keep this Totem in your inventory, and all your arrows will fly true! That is, they won't be affected by gravity. Takes 1 damage per arrow enhanced.
+jei.item.aggression_totem=If you have this Totem in your inventory and a mob gets angry at you, they'll take out their aggression on another mob around instead. Only works within 20 blocks and when there's another mob for them to target. Takes 1 damage per mob "turned".
 
 jei.item.ensouled_phasing_totem=Just like the normal Totem of Phasing, except twice the durability. Oh, yeah, and it gives you creative-style flight when held, too. Did I forget to mention that?
 jei.item.ensouled_traveling_totem=Remember how the normal Totem of Traveling can't teleport you across dimensions? This one can. It takes 10 more damage to transport yourself between different dimensions, but it has twice as much durability anyway. Zoom zoom.
@@ -117,3 +121,4 @@ jei.item.essence_exchange=Villagers exchange emeralds for other things, right? W
 jei.item.essence_fireglaze=If Magma Cubes can drop magma cream, which can make you fireproof, what if you reaped that essence and applied it to a Totem? Maybe it could make your items fireproof, too? Hmm, now there's a thought!
 jei.item.essence_storage=Shulker shells can make useful shulker boxes. I wonder what their Storage Essence can make if you reap them?
 jei.item.essence_aim=Skeletons carry their bows around so often, you'd think they'd know how to aim! Maybe their essence can help you aim, too?
+jei.item.essence_aggro=Zombie Pigmen seem nice, until you annoy them; then they get all hyper-aggressive! That sucks, but imagine if their essence could distract other mobs with that kind of aggro...
