@@ -27,6 +27,7 @@ import net.minecraft.entity.monster.EntityMagmaCube;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.monster.EntityShulker;
 import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.monster.EntityStray;
 import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityBat;
@@ -100,6 +101,7 @@ public class TEEvents {
 		essenceMap.put(EntityMagmaCube.class, TotemEssentials.proxy.items.get("essence_fireglaze"));
 		essenceMap.put(EntityShulker.class, TotemEssentials.proxy.items.get("essence_storage"));
 		essenceMap.put(EntitySkeleton.class, TotemEssentials.proxy.items.get("essence_aim"));
+		essenceMap.put(EntityStray.class, TotemEssentials.proxy.items.get("essence_aim"));
 		essenceMap.put(EntityPigZombie.class, TotemEssentials.proxy.items.get("essence_aggro"));
 	}
 
