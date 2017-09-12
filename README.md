@@ -147,5 +147,11 @@ Pour some magma (cream) on me! This Totem saves your items from burning when you
 ### Ensouled Totem of Curing
 Keep this in your inventory, and it'll cure you of negative potion effects *and* double the duration of your positive potion effects. Plus, it has 30 durability and only takes 1 damage per effect per level. It's like the vitamins to your medicine.
 
+### Ensouled Totem of Aggression
+
+With the normal Totem of Aggression, mobs will attack each other, but there will be one winner. And that winner? It'll be mad at you. Enter the Ensouled Totem of Aggression!
+
+In addition to the anger-inducing effects of the normal Totem of Aggression, if there's only one mob around, the Ensouled Totem of Aggression will calm it down so it won't attack you. Keeping it calm takes a lot of durability, though, so don't hang around too long!
+
 #### More to come... 
 ...you'll have to wait and see what they each do :)
