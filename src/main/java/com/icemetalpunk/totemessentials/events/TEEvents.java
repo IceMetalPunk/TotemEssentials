@@ -3,12 +3,12 @@ package com.icemetalpunk.totemessentials.events;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+import com.google.common.base.Predicate;
 import com.icemetalpunk.totemessentials.TotemEssentials;
 import com.icemetalpunk.totemessentials.items.EntityItemFireproof;
 import com.icemetalpunk.totemessentials.items.totems.ItemFireglazeTotem;
@@ -37,8 +37,6 @@ import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -420,24 +418,26 @@ public class TEEvents {
 		TickEvent.Phase phase = ev.phase;
 
 		if (type == TickEvent.Type.WORLD && phase == TickEvent.Phase.START) {
-			for (Entity ent : world.loadedEntityList) {
-				if (ent instanceof EntityArrow) {
-					EntityArrow arrow = (EntityArrow) ent;
-					if (!arrow.hasNoGravity() && arrow.shootingEntity instanceof EntityPlayer) {
-						EntityPlayer shooter = (EntityPlayer) arrow.shootingEntity;
-						ItemStack totem = getStackInPlayerInv(shooter,
-								new ItemStack(TotemEssentials.proxy.items.get("aiming_totem"), 1));
-						ItemStack ensouled = getStackInPlayerInv(shooter,
-								new ItemStack(TotemEssentials.proxy.items.get("ensouled_aiming_totem"), 1));
-						ItemStack toDamage = (totem != ItemStack.EMPTY) ? totem : ensouled;
-						if (toDamage != ItemStack.EMPTY) {
-							arrow.setNoGravity(true);
-							toDamage.damageItem(1, shooter);
-						}
-					}
+			List<EntityArrow> arrows = world.getEntities(EntityArrow.class, new Predicate<EntityArrow>() {
+				@Override
+				public boolean apply(EntityArrow input) {
+					return (!input.hasNoGravity() && input.shootingEntity instanceof EntityPlayer);
+				}
+			});
+
+			for (EntityArrow arrow : arrows) {
+				EntityPlayer shooter = (EntityPlayer) arrow.shootingEntity;
+				ItemStack totem = getStackInPlayerInv(shooter,
+						new ItemStack(TotemEssentials.proxy.items.get("aiming_totem"), 1));
+				ItemStack ensouled = getStackInPlayerInv(shooter,
+						new ItemStack(TotemEssentials.proxy.items.get("ensouled_aiming_totem"), 1));
+				ItemStack toDamage = (totem != ItemStack.EMPTY) ? totem : ensouled;
+				if (toDamage != ItemStack.EMPTY) {
+					arrow.setNoGravity(true);
+					toDamage.damageItem(1, shooter);
 				}
 			}
 		}
-
 	}
+
 }
