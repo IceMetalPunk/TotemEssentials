@@ -73,7 +73,7 @@ Using a Totem of Storage swaps your bottom inventory row with your hotbar and vi
 
 And unlike some other Totems I could mention (and have!), the Totem of Storage has no durability, so you can use one forever! If you don't lose it, that is.
 
-### Aiming Essence / Totem of Aiming
+### Aim Essence / Totem of Aim
 Skeletons are always shooting at you with bows... maybe if you reap their Essence, you can use it to make a Totem that will help you aim?
 
 Indeed, you can! A Totem of Aiming makes all your arrows fly straight by removing their gravity. It takes 1 damage per arrow enhanced.
@@ -126,7 +126,10 @@ An Ensouled Totem of Replication works like a regular one, except it copies all 
 Sucking blood is great for a vampire. You know what's not great? The sun. After healing twice as much as a normal Totem of Vampirism, the ensouled version will inflict your victim with the Sunburn effect, causing them to burn up in the sun. Like a zombie, with no hope for helmet protection.
 
 #### Ensouled Totem of Storage
-The normal Totem of Storage lets you swap between your hotbar and the bottom row of your inventory. LAME!
+The normal Totem of Storage lets you swap between your hotbar and the bottom row of your inventory. LAME! The ensouled version allows you to cycle through all the rows of your inventory, including your hotbar, whenever you want. Super useful.
+
+#### Ensouled Totem of Aim
+Even with a straight shot from a Totem of Aim, it can be hard to see your target and hit it from far enough away. So the Ensouled Totem of Aim gives the Glowing effect to any mobs you look at while pulling back your bow. Within 100 blocks.
 
 At least, it's lame compared to the Ensouled Totem of Storage, which lets you cycle among all your inventory rows. It still won't cycle the column your Totem is in, though, so you can keep using it; try using it from your offhand to cycle the entire inventory! :)
 
