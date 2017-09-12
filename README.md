@@ -78,6 +78,11 @@ Skeletons are always shooting at you with bows... maybe if you reap their Essenc
 
 Indeed, you can! A Totem of Aiming makes all your arrows fly straight by removing their gravity. It takes 1 damage per arrow enhanced.
 
+### Aggro Essence / Totem of Aggression
+Zombie Pigmen are known for getting extremely aggressive and attacking you for the smallest slight. But if you reap them of their Essence, you can create a Totem of Aggression!
+
+The Totem of Aggression causes all mobs who target you within a 20 block radius to instead target another mob nearby. If there's only one mob, though, it'll still come after you... The Totem takes 1 damage for each mob it "turns".
+
 #### More to come...
 
 ## Progression Strategy

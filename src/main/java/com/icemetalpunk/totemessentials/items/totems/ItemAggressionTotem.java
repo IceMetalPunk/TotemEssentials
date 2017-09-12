@@ -46,11 +46,6 @@ public class ItemAggressionTotem extends ItemTotemBase {
 					}
 				});
 
-		// System.out.println(aabb.minX + ", " + aabb.minY + ", " + aabb.minZ +
-		// " -> " + aabb.maxX + ", " + aabb.maxY
-		// + ", " + aabb.maxZ);
-		// System.out.println("There are " + others.size() + " others.");
-
 		// Get possible turns
 		List<EntityMob> possibles = world.getEntitiesWithinAABB(EntityMob.class, aabb, new Predicate<EntityMob>() {
 			@Override
@@ -59,7 +54,7 @@ public class ItemAggressionTotem extends ItemTotemBase {
 			}
 		});
 
-		// If there are no other valid targets, this would cause an inifinite
+		// If there are no other valid targets, this would cause an infinite
 		// loop, so don't bother.
 		if (others.size() <= 1) {
 			return 0;
