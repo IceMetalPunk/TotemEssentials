@@ -159,46 +159,4 @@ public class TEEnsouledEvents {
 			ent.setFire(1);
 		}
 	}
-
-	// Ensouled Totem of Aiming: Highlight mobs when looked at with bow pulled
-	public static EntityLivingBase getEntityLookedAt(EntityPlayer player) {
-		World world = player.getEntityWorld();
-
-		EntityLivingBase highlightEnt = null;
-		double nearest = 100;
-
-		for (Entity ent : world.getLoadedEntityList()) {
-			if (ent instanceof EntityLivingBase && ent != player) {
-				Vec3d vec3d = player.getLook(1.0F).normalize();
-				Vec3d vec3d1 = new Vec3d(ent.posX - player.posX, ent.getEntityBoundingBox().minY
-						+ (double) ent.getEyeHeight() - (player.posY + (double) player.getEyeHeight()),
-						ent.posZ - player.posZ);
-				double d0 = vec3d1.lengthVector();
-				vec3d1 = vec3d1.normalize();
-				double d1 = vec3d.dotProduct(vec3d1);
-				if (d0 <= 160 && d0 < nearest && d1 > 1.0D - 0.025D / d0 && player.canEntityBeSeen(ent)) {
-					nearest = d0;
-					highlightEnt = (EntityLivingBase) ent;
-				}
-			}
-		}
-		return highlightEnt;
-	}
-
-	@SubscribeEvent
-	public void onPlayerUsingBow(PlayerTickEvent ev) {
-		if (ev.phase == TickEvent.Phase.END) {
-			EntityPlayer player = ev.player;
-			ItemStack usingItem = player.getActiveItemStack();
-			int isInUse = player.getItemInUseCount();
-			ItemStack totem = TEEvents.getStackInPlayerInv(player,
-					new ItemStack(TotemEssentials.proxy.items.get("ensouled_aiming_totem"), 1));
-			if (totem != ItemStack.EMPTY && usingItem.getItem() instanceof ItemBow && isInUse > 0) {
-				EntityLivingBase livingEnt = getEntityLookedAt(player);
-				if (livingEnt != null) {
-					livingEnt.addPotionEffect(new PotionEffect(MobEffects.GLOWING, 20));
-				}
-			}
-		}
-	}
 }

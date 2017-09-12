@@ -3,7 +3,7 @@
   "group":"totemessentials:ensouled_featherfoot_totem",
   "pattern": [
     "EEE",
-	"ESE",
+	"STS",
 	"EEE"
   ],
   "key": {
@@ -11,8 +11,12 @@
       "item": "totemessentials:ensouled_essence_featherfoot",
 	  "data":0
     },
+	"T": {
+		"item": "totemessentials:featherfoot_totem",
+		"data": 0
+	},
 	"S": {
-		"item": "totemessentials:totem_shell",
+		"item": "totemessentials:reinforced_soul_sand",
 		"data": 0
 	}
   },

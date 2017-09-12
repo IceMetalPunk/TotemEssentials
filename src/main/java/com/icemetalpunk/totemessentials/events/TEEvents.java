@@ -317,17 +317,20 @@ public class TEEvents {
 		int intAmount = (int) Math.ceil(ev.getAmount());
 		if (source.damageType == "fall" && ent instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) ent;
-			ItemStack featherfootTotem = new ItemStack(TotemEssentials.proxy.items.get("featherfoot_totem"));
-			ItemStack match = getStackInPlayerInv(player, featherfootTotem);
-			if (match != ItemStack.EMPTY) {
-				int totalDurability = match.getMaxDamage();
-				int currentDamage = match.getItemDamage();
+			ItemStack totem = getStackInPlayerInv(player,
+					new ItemStack(TotemEssentials.proxy.items.get("featherfoot_totem")));
+			ItemStack ensouled = getStackInPlayerInv(player,
+					new ItemStack(TotemEssentials.proxy.items.get("ensouled_featherfoot_totem")));
+			ItemStack toDamage = (totem != ItemStack.EMPTY) ? totem : ensouled;
+			if (toDamage != ItemStack.EMPTY) {
+				int totalDurability = toDamage.getMaxDamage();
+				int currentDamage = toDamage.getItemDamage();
 				if (currentDamage + intAmount >= totalDurability + 1) {
-					match.damageItem(totalDurability - currentDamage + 1, player);
+					toDamage.damageItem(totalDurability - currentDamage + 1, player);
 					intAmount -= totalDurability - currentDamage;
 					ev.setAmount(intAmount);
 				} else {
-					match.damageItem(intAmount, player);
+					toDamage.damageItem(intAmount, player);
 					ev.setCanceled(true);
 				}
 			}
@@ -437,6 +440,7 @@ public class TEEvents {
 		if (type == TickEvent.Type.WORLD && phase == TickEvent.Phase.START) {
 			for (Entity ent : world.loadedEntityList) {
 				if (ent instanceof EntityArrow) {
+					EntityChicken p;
 					EntityArrow arrow = (EntityArrow) ent;
 					if (!arrow.hasNoGravity() && arrow.shootingEntity instanceof EntityPlayer) {
 						EntityPlayer shooter = (EntityPlayer) arrow.shootingEntity;
@@ -444,12 +448,10 @@ public class TEEvents {
 								new ItemStack(TotemEssentials.proxy.items.get("aiming_totem"), 1));
 						ItemStack ensouled = getStackInPlayerInv(shooter,
 								new ItemStack(TotemEssentials.proxy.items.get("ensouled_aiming_totem"), 1));
-						if (totem != ItemStack.EMPTY) {
+						ItemStack toDamage = (totem != ItemStack.EMPTY) ? totem : ensouled;
+						if (toDamage != ItemStack.EMPTY) {
 							arrow.setNoGravity(true);
-							totem.damageItem(1, shooter);
-						} else if (ensouled != ItemStack.EMPTY) {
-							arrow.setNoGravity(true);
-							ensouled.damageItem(1, shooter);
+							toDamage.damageItem(1, shooter);
 						}
 					}
 				}
