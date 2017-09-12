@@ -5,8 +5,9 @@ import java.util.List;
 import com.google.common.base.Predicate;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -47,19 +48,20 @@ public class ItemAggressionTotem extends ItemTotemBase {
 				});
 
 		// Get possible turns
-		List<EntityMob> possibles = world.getEntitiesWithinAABB(EntityMob.class, aabb, new Predicate<EntityMob>() {
-			@Override
-			public boolean apply(EntityMob input) {
-				return (input != living && input.getAttackTarget() == living);
-			}
-		});
+		List<EntityLiving> possibles = world.getEntitiesWithinAABB(EntityLiving.class, aabb,
+				new Predicate<EntityLiving>() {
+					@Override
+					public boolean apply(EntityLiving input) {
+						return (input != living && input instanceof IMob && input.getAttackTarget() == living);
+					}
+				});
 
 		// If there are no other valid targets, this would cause an infinite
 		// loop, so don't bother.
 		if (others.size() <= 1) {
 			return 0;
 		}
-		for (EntityMob target : possibles) {
+		for (EntityLiving target : possibles) {
 			EntityLivingBase newTarget;
 			do {
 				newTarget = others.get(world.rand.nextInt(others.size()));
