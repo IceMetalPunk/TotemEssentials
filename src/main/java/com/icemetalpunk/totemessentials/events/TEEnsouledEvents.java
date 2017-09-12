@@ -3,6 +3,7 @@ package com.icemetalpunk.totemessentials.events;
 import java.util.HashMap;
 
 import com.icemetalpunk.totemessentials.TotemEssentials;
+import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledAggressionTotem;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,6 +19,7 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -94,13 +96,13 @@ public class TEEnsouledEvents {
 			boolean noEnsouled = (mainHand != totem && offHand != totem);
 			boolean noNormal = (mainHand != normalTotem && offHand != normalTotem);
 			if (noEnsouled) {
-				if (!player.isCreative()) {
-					player.capabilities.allowFlying = false;
-					player.capabilities.isFlying = false;
-				}
-				if (noNormal) {
-					player.setNoGravity(false);
-					if (!player.isSpectator()) {
+				if (!player.isSpectator()) {
+					if (!player.isCreative()) {
+						player.capabilities.allowFlying = false;
+						player.capabilities.isFlying = false;
+					}
+					if (noNormal) {
+						player.setNoGravity(false);
 						player.noClip = false;
 					}
 				}
@@ -179,4 +181,33 @@ public class TEEnsouledEvents {
 			}
 		}
 	}
+
+	// Ensouled Totem of Aggression
+	// Item#onUpdate happens too late/early!
+	
+	@SubscribeEvent
+	public void onAttackTarget(LivingSetAttackTargetEvent ev) {
+		EntityLivingBase target = ev.getTarget();
+		if (target instanceof EntityPlayer) {
+			ItemStack stack = TEEvents.getStackInPlayerInv((EntityPlayer)target,
+					new ItemStack(TotemEssentials.proxy.items.get("ensouled_aggression_totem")));
+			if (stack != ItemStack.EMPTY) {
+				ItemEnsouledAggressionTotem.performEffect(stack, ev.getEntity().world, (EntityPlayer)target);
+			}
+		}
+	}
+	
+	/*@SubscribeEvent
+	public void onPlayerStartTick(WorldTickEvent ev) {
+		if (ev.phase == TickEvent.Phase.END) {
+			List<EntityPlayerMP> players = ev.world.getPlayers(EntityPlayerMP.class, EntitySelectors.IS_ALIVE);
+			for (EntityPlayerMP player : players) {
+				ItemStack stack = TEEvents.getStackInPlayerInv(player,
+						new ItemStack(TotemEssentials.proxy.items.get("ensouled_aggression_totem")));
+				if (stack != ItemStack.EMPTY) {
+					ItemEnsouledAggressionTotem.performEffect(stack, ev.world, player);
+				}
+			}
+		}
+	}*/
 }

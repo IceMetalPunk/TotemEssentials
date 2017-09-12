@@ -28,7 +28,7 @@ public class ItemAggressionTotem extends ItemTotemBase {
 	}
 
 	public static int aggroMobs(ItemStack stack, World world, Entity entity) {
-		if (!(entity instanceof EntityLivingBase)) {
+		if (!(entity instanceof EntityLivingBase) || world.isRemote) {
 			return 0;
 		}
 

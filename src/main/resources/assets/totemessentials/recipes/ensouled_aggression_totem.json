@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group":"totemessentials:ensouled_aggression_totem",
+  "pattern": [
+    "EEE",
+	"ESE",
+	"EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "totemessentials:ensouled_essence_aggro",
+	  "data":0
+    },
+	"S": {
+		"item": "totemessentials:totem_shell",
+		"data": 0
+	}
+  },
+  "result": {
+    "item": "totemessentials:ensouled_aggression_totem",
+	"data": 0
+  }
+}

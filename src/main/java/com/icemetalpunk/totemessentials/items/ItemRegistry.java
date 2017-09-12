@@ -30,6 +30,7 @@ import com.icemetalpunk.totemessentials.items.totems.ItemStorageTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemTotemShell;
 import com.icemetalpunk.totemessentials.items.totems.ItemTravelingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemVampireTotem;
+import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledAggressionTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledAimingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledCuringTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledFeatherfootTotem;
@@ -72,6 +73,7 @@ public class ItemRegistry {
 		registry.put("ensouled_featherfoot_totem", new ItemEnsouledFeatherfootTotem("ensouled_featherfoot_totem"));
 		registry.put("ensouled_fireglaze_totem", new ItemEnsouledFireglazeTotem("ensouled_fireglaze_totem"));
 		registry.put("ensouled_curing_totem", new ItemEnsouledCuringTotem("ensouled_curing_totem"));
+		registry.put("ensouled_aggression_totem", new ItemEnsouledAggressionTotem("ensouled_aggression_totem"));
 
 		// Essences
 		registry.put("essence_reaper", new ItemEssenceReaper("essence_reaper"));

@@ -136,8 +136,8 @@ public class TEEvents {
 			if (mainHand != totem && offHand != totem && mainHand != ensouledTotem && offHand != ensouledTotem) {
 				if (!player.isSpectator()) {
 					player.noClip = false;
+					player.setNoGravity(false);
 				}
-				player.setNoGravity(false);
 			}
 		}
 	}
