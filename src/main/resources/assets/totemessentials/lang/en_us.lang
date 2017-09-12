@@ -28,6 +28,7 @@ item.ensouled_traveling_totem.name=Ensouled Totem of Traveling
 item.ensouled_replication_totem.name=Ensouled Totem of Replication
 item.ensouled_vampire_totem.name=Ensouled Totem of Vampirism
 item.ensouled_storage_totem.name=Ensouled Totem of Storage
+item.ensouled_aiming_totem.name=Ensouled Totem of Aim
 
 # Normal Essence
 
@@ -95,6 +96,7 @@ jei.item.ensouled_traveling_totem=Remember how the normal Totem of Traveling can
 jei.item.ensouled_replication_totem=You can replicate mobs just fine, but they're always a little different... not anymore! The Ensouled Totem of Replication perfectly recreates all the data about the mob you've bound it to. Exact copies every time.
 jei.item.ensouled_vampire_totem=Sucking blood is great for a vampire. You know what's not great? The sun. After healing twice as much as a normal Totem of Vampirism, the ensouled version will inflict your victim with the Sunburn effect, causing them to burn up in the sun, like a zombie.
 jei.item.ensouled_storage_totem=Instead of just swapping your hotbar with the bottom row of your inventory, the Ensouled Totem of Storage lets you cycle through all your inventory rows. Still can't cycle its own column, though; have you tried using it from your offhand?
+jei.item.ensouled_aiming_totem=When you're too far away from your target, even a straight shot can be hard to make. So the Ensouled Totem of Aim also gives the Glowing effect to the mob you're looking at with your bow pulled back! (Within 100 blocks. Depending on render distance. Batteries not included.)
 
 jei.item.essence_reaper=Reaper Essence drops from Vindicators, and can be used to create a Totem of Reaping. You'll need that if you want to collect any other type of Essence!
 jei.item.essence_vexatious=Vexatious Essence can be reaped from Vexes, funnily enough. Totem magic can harness the Vex's phasing abilities for your own use.

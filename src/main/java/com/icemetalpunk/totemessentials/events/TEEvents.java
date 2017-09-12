@@ -442,9 +442,14 @@ public class TEEvents {
 						EntityPlayer shooter = (EntityPlayer) arrow.shootingEntity;
 						ItemStack totem = getStackInPlayerInv(shooter,
 								new ItemStack(TotemEssentials.proxy.items.get("aiming_totem"), 1));
+						ItemStack ensouled = getStackInPlayerInv(shooter,
+								new ItemStack(TotemEssentials.proxy.items.get("ensouled_aiming_totem"), 1));
 						if (totem != ItemStack.EMPTY) {
 							arrow.setNoGravity(true);
 							totem.damageItem(1, shooter);
+						} else if (ensouled != ItemStack.EMPTY) {
+							arrow.setNoGravity(true);
+							ensouled.damageItem(1, shooter);
 						}
 					}
 				}

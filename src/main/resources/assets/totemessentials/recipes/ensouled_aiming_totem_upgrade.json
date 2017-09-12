@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group":"totemessentials:ensouled_aiming_totem",
+  "pattern": [
+    "EEE",
+	"STS",
+	"EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "totemessentials:ensouled_essence_aim",
+	  "data":0
+    },
+	"T": {
+		"item": "totemessentials:aiming_totem",
+		"data": 0
+	},
+	"S": {
+		"item": "totemessentials:reinforced_soul_sand",
+		"data": 0
+	}
+  },
+  "result": {
+    "item": "totemessentials:ensouled_aiming_totem",
+	"data": 0
+  }
+}

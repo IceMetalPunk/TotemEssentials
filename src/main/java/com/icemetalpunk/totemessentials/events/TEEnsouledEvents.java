@@ -15,7 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
@@ -160,8 +160,31 @@ public class TEEnsouledEvents {
 		}
 	}
 
-	// FIXME: Add glowing to entities you aim at with a bow if you have the Ensouled
-	// Totem of Aiming
+	// Ensouled Totem of Aiming: Highlight mobs when looked at with bow pulled
+	public static EntityLivingBase getEntityLookedAt(EntityPlayer player) {
+		World world = player.getEntityWorld();
+
+		EntityLivingBase highlightEnt = null;
+		double nearest = 100;
+
+		for (Entity ent : world.getLoadedEntityList()) {
+			if (ent instanceof EntityLivingBase && ent != player) {
+				Vec3d vec3d = player.getLook(1.0F).normalize();
+				Vec3d vec3d1 = new Vec3d(ent.posX - player.posX, ent.getEntityBoundingBox().minY
+						+ (double) ent.getEyeHeight() - (player.posY + (double) player.getEyeHeight()),
+						ent.posZ - player.posZ);
+				double d0 = vec3d1.lengthVector();
+				vec3d1 = vec3d1.normalize();
+				double d1 = vec3d.dotProduct(vec3d1);
+				if (d0 <= 160 && d0 < nearest && d1 > 1.0D - 0.025D / d0 && player.canEntityBeSeen(ent)) {
+					nearest = d0;
+					highlightEnt = (EntityLivingBase) ent;
+				}
+			}
+		}
+		return highlightEnt;
+	}
+
 	@SubscribeEvent
 	public void onPlayerUsingBow(PlayerTickEvent ev) {
 		if (ev.phase == TickEvent.Phase.END) {
@@ -171,17 +194,9 @@ public class TEEnsouledEvents {
 			ItemStack totem = TEEvents.getStackInPlayerInv(player,
 					new ItemStack(TotemEssentials.proxy.items.get("ensouled_aiming_totem"), 1));
 			if (totem != ItemStack.EMPTY && usingItem.getItem() instanceof ItemBow && isInUse > 0) {
-				// RayTraceResult trace =
-				// Minecraft.getMinecraft().objectMouseOver;
-				RayTraceResult trace = player.rayTrace(80.0d, 1.0f);
-				System.out.println("Type: " + trace.typeOfHit);
-				System.out.println("Entity: " + trace.entityHit);
-				System.out.println("Is Living?: " + (trace.entityHit instanceof EntityLivingBase));
-				if (trace.typeOfHit == RayTraceResult.Type.ENTITY && trace.entityHit != null
-						&& trace.entityHit instanceof EntityLivingBase) {
-					EntityLivingBase livingEnt = (EntityLivingBase) trace.entityHit;
+				EntityLivingBase livingEnt = getEntityLookedAt(player);
+				if (livingEnt != null) {
 					livingEnt.addPotionEffect(new PotionEffect(MobEffects.GLOWING, 20));
-					System.out.println("Added glowing to " + livingEnt);
 				}
 			}
 		}
