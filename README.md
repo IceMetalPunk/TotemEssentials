@@ -128,10 +128,13 @@ Sucking blood is great for a vampire. You know what's not great? The sun. After 
 #### Ensouled Totem of Storage
 The normal Totem of Storage lets you swap between your hotbar and the bottom row of your inventory. LAME! The ensouled version allows you to cycle through all the rows of your inventory, including your hotbar, whenever you want. Super useful.
 
+At least, it's lame compared to the Ensouled Totem of Storage, which lets you cycle among all your inventory rows. It still won't cycle the column your Totem is in, though, so you can keep using it; try using it from your offhand to cycle the entire inventory! :)
+
 #### Ensouled Totem of Aim
 Even with a straight shot from a Totem of Aim, it can be hard to see your target and hit it from far enough away. So the Ensouled Totem of Aim gives the Glowing effect to any mobs you look at while pulling back your bow. Within 100 blocks.
 
-At least, it's lame compared to the Ensouled Totem of Storage, which lets you cycle among all your inventory rows. It still won't cycle the column your Totem is in, though, so you can keep using it; try using it from your offhand to cycle the entire inventory! :)
+### Ensouled Totem of Featherfoot
+Taking no fall damage is good. But taking no fall damage *and* floating to the ground like a chicken? Even better!
 
 #### More to come... 
 ...you'll have to wait and see what they each do :)

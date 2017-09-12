@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group":"totemessentials:ensouled_featherfoot_totem",
+  "group":"totemessentials:ensouled_phasing_totem",
   "pattern": [
     "EEE",
 	"ESE",
@@ -8,7 +8,7 @@
   ],
   "key": {
     "E": {
-      "item": "totemessentials:ensouled_essence_featherfoot",
+      "item": "totemessentials:ensouled_essence_phasing",
 	  "data":0
     },
 	"S": {
@@ -17,7 +17,7 @@
 	}
   },
   "result": {
-    "item": "totemessentials:ensouled_featherfoot_totem",
+    "item": "totemessentials:ensouled_phasing_totem",
 	"data": 0
   }
 }
