@@ -139,5 +139,8 @@ Taking no fall damage is good. But taking no fall damage *and* floating to the g
 ### Ensouled Totem of Fireglaze
 Pour some magma (cream) on me! This Totem saves your items from burning when you die, *and* absorbs all fire damage you would take!
 
+### Ensouled Totem of Curing
+Keep this in your inventory, and it'll cure you of negative potion effects *and* double the duration of your positive potion effects. Plus, it has 30 durability and only takes 1 damage per effect per level. It's like the vitamins to your medicine.
+
 #### More to come... 
 ...you'll have to wait and see what they each do :)
