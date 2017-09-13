@@ -171,5 +171,8 @@ If you're going to kill someone and steal bits of their soul, you may as well ta
 
 Note: Looting doesn't increase the chances of these extra head drops. Sorry-not-sorry.
 
+### Ensouled Totem of Gluttony
+A Totem of Gluttony helps with food-based micromanagement, but if you never want to think about food again, try the ensouled verion! No need for food items, it'll top up your hunger when you're low on its own!
+
 #### More to come... 
 ...you'll have to wait and see what they each do :)
