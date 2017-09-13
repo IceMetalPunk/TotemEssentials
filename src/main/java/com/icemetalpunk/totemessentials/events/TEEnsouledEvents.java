@@ -11,8 +11,14 @@ import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledWisdom
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntityCreeper;
+import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.monster.EntityWitherSkeleton;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,6 +27,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
@@ -39,9 +46,15 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
  */
 public class TEEnsouledEvents {
 	public static final HashMap<Item, ItemStack> ensouledReturns = new HashMap<Item, ItemStack>();
-	public static final HashSet<EntityPlayer> wisdomCloneMarker = new HashSet<EntityPlayer>();
+	private static final HashSet<EntityPlayer> wisdomCloneMarker = new HashSet<EntityPlayer>();
+	private HashMap<Class<? extends EntityLivingBase>, Integer> skullMap = new HashMap<>();
 
 	public TEEnsouledEvents() {
+		skullMap.put(EntitySkeleton.class, 0);
+		skullMap.put(EntityWitherSkeleton.class, 1);
+		skullMap.put(EntityZombie.class, 2);
+		skullMap.put(EntityCreeper.class, 4);
+		skullMap.put(EntityDragon.class, 5);
 	}
 
 	/**
@@ -258,6 +271,34 @@ public class TEEnsouledEvents {
 							SoundEvents.ENTITY_PLAYER_LEVELUP, newPlayer.getSoundCategory(), f * 0.75F, 1.0F);
 				}
 			}
+		}
+	}
+
+	// Ensouled Totem of Reaping head drops
+	@SubscribeEvent
+	public void ensouledReap(LivingDropsEvent ev) {
+		Entity killer = ev.getSource().getTrueSource();
+		EntityLivingBase living = ev.getEntityLiving();
+		World world = killer.getEntityWorld();
+
+		// 33% chance
+		int chance = world.rand.nextInt(100);
+		if (chance > 33) {
+			return;
+		}
+
+		if (skullMap.containsKey(living.getClass()) && killer instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) killer;
+			ItemStack totem = TEEvents.getStackInPlayerInv(player,
+					new ItemStack(TotemEssentials.proxy.items.get("ensouled_reaping_totem")));
+			if (totem != ItemStack.EMPTY) {
+				totem.damageItem(10, player);
+				int type = skullMap.get(living.getClass());
+				ev.getDrops().add(new EntityItem(world, living.posX, living.posY, living.posZ,
+						new ItemStack(Items.SKULL, 1, type)));
+			}
+		} else {
+			System.out.println("Not in map! " + living.getClass());
 		}
 	}
 }

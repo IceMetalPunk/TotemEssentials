@@ -68,8 +68,8 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.WorldTickEvent;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 public class TEEvents {
-	private HashMap<Class<? extends Entity>, HashMap<Item, ItemStack>> dropReplacements = new HashMap<Class<? extends Entity>, HashMap<Item, ItemStack>>();
-	private HashMap<Class<? extends Entity>, Item> essenceMap = new HashMap<Class<? extends Entity>, Item>();
+	private HashMap<Class<? extends Entity>, HashMap<Item, ItemStack>> dropReplacements = new HashMap<>();
+	private static HashMap<Class<? extends Entity>, Item> essenceMap = new HashMap<>();
 
 	public final SpawnListEntry illusionerSpawn = new SpawnListEntry(EntityIllusionIllager.class, 100, 1, 1);
 
@@ -190,10 +190,13 @@ public class TEEvents {
 
 		if (killer instanceof EntityPlayer && essenceMap.containsKey(mob.getClass())) {
 			EntityPlayer player = (EntityPlayer) killer;
-			ItemStack reaper = new ItemStack(TotemEssentials.proxy.items.get("reaping_totem"), 1);
-			ItemStack stack = getStackInPlayerInv(player, reaper);
-			if (stack != ItemStack.EMPTY) {
-				stack.damageItem(1, player);
+			ItemStack totem = getStackInPlayerInv(player,
+					new ItemStack(TotemEssentials.proxy.items.get("reaping_totem"), 1));
+			ItemStack ensouled = getStackInPlayerInv(player,
+					new ItemStack(TotemEssentials.proxy.items.get("ensouled_reaping_totem"), 1));
+			ItemStack toDamage = (totem != ItemStack.EMPTY) ? totem : ensouled;
+			if (toDamage != ItemStack.EMPTY) {
+				toDamage.damageItem(1, player);
 				int looting = ev.getLootingLevel();
 				ItemStack essenceType = new ItemStack(essenceMap.get(mob.getClass()), 1 + looting);
 				EntityItem essenceDrop = new EntityItem(mob.getEntityWorld(), mob.getPosition().getX(),
