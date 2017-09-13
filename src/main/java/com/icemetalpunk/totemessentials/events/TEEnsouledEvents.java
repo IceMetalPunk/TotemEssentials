@@ -19,6 +19,7 @@ import net.minecraft.entity.monster.EntityWitherSkeleton;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -27,6 +28,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
@@ -299,6 +301,42 @@ public class TEEnsouledEvents {
 			}
 		} else {
 			System.out.println("Not in map! " + living.getClass());
+		}
+	}
+
+	// Ensouled Undying Totem
+	@SubscribeEvent
+	public void onLivingDeath(LivingDeathEvent ev) {
+		EntityLivingBase living = ev.getEntityLiving();
+		DamageSource source = ev.getSource();
+		if (!(living instanceof EntityPlayer)) {
+			return;
+		}
+		EntityPlayer player = (EntityPlayer) living;
+		ItemStack totem = TEEvents.getStackInPlayerInv(player,
+				new ItemStack(TotemEssentials.proxy.items.get("ensouled_undying_totem")));
+		if (totem != ItemStack.EMPTY) {
+			player.setHealth(1.0F);
+			player.clearActivePotions();
+			player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 900, 1));
+			player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 100, 1));
+			player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 200, 0));
+
+			if (source.isFireDamage()) {
+				player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 300, 0));
+			}
+			if (source == DamageSource.OUT_OF_WORLD) {
+				BlockPos spawnPos = player.getBedLocation(player.getEntityWorld().provider.getDimension());
+				if (spawnPos == null) {
+					spawnPos = player.getEntityWorld().getSpawnPoint();
+				}
+				player.setPositionAndUpdate(spawnPos.getX(), spawnPos.getY(), spawnPos.getZ());
+			}
+
+			totem.damageItem(1, player);
+
+			player.world.setEntityState(player, (byte) 35);
+			ev.setCanceled(true);
 		}
 	}
 }
