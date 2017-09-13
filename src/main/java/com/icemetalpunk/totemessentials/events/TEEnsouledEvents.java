@@ -309,9 +309,10 @@ public class TEEnsouledEvents {
 	public void onLivingDeath(LivingDeathEvent ev) {
 		EntityLivingBase living = ev.getEntityLiving();
 		DamageSource source = ev.getSource();
-		if (!(living instanceof EntityPlayer)) {
+		if (living.getEntityWorld().isRemote || !(living instanceof EntityPlayer)) {
 			return;
 		}
+
 		EntityPlayer player = (EntityPlayer) living;
 		ItemStack totem = TEEvents.getStackInPlayerInv(player,
 				new ItemStack(TotemEssentials.proxy.items.get("ensouled_undying_totem")));
@@ -320,20 +321,28 @@ public class TEEnsouledEvents {
 			player.clearActivePotions();
 			player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 900, 1));
 			player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 100, 1));
-			player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 200, 0));
+			player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 300, 0));
 
+			player.fallDistance = 0.0f;
 			if (source.isFireDamage()) {
 				player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 300, 0));
 			}
 			if (source == DamageSource.OUT_OF_WORLD) {
-				BlockPos spawnPos = player.getBedLocation(player.getEntityWorld().provider.getDimension());
+				World world = player.getEntityWorld();
+				int dimension = world.provider.getDimension();
+				BlockPos spawnPos = player.getBedLocation(dimension);
 				if (spawnPos == null) {
-					spawnPos = player.getEntityWorld().getSpawnPoint();
+					// spawnPos = world.getSpawnPoint();
+					spawnPos = player.getServer().getWorld(dimension).getSpawnCoordinate();
 				}
-				player.setPositionAndUpdate(spawnPos.getX(), spawnPos.getY(), spawnPos.getZ());
+				player.velocityChanged = true;
+				player.setPositionAndUpdate(spawnPos.getX() + 0.5, spawnPos.getY(), spawnPos.getZ() + 0.5);
 			}
 
 			totem.damageItem(1, player);
+			if (totem.getItemDamage() >= totem.getMaxDamage()) {
+				totem.shrink(1);
+			}
 
 			player.world.setEntityState(player, (byte) 35);
 			ev.setCanceled(true);

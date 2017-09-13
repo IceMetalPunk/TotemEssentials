@@ -174,5 +174,8 @@ Note: Looting doesn't increase the chances of these extra head drops. Sorry-not-
 ### Ensouled Totem of Gluttony
 A Totem of Gluttony helps with food-based micromanagement, but if you never want to think about food again, try the ensouled verion! No need for food items, it'll top up your hunger when you're low on its own!
 
+### Ensouled Totem of Undying
+In addition to the normal Totem of Undying saving effects, having the ensouled version anywhere in your inventory also gives you invisibility, gives you fire resistance if fire killed you, and teleports you to your spawn point if you fell into the void. It also has 10 uses.
+
 #### More to come... 
 ...you'll have to wait and see what they each do :)
