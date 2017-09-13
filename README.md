@@ -161,5 +161,10 @@ In addition to the anger-inducing effects of the normal Totem of Aggression, if 
 ### Ensouled Totem of Wisdom
 What's the point in doubling the amount of XP you earn if you lose it all when you die? So don't lose it! Keep an Ensouled Totem of Wisdom on you, and in addition to double the XP, you'll also keep all your experience when you die! (For a cost of 500 durability...)
 
+### Ensouled Totem of Reaping
+If you're going to kill someone and steal bits of their soul, you may as well take their heads home as trophies, right?  At least, there's a 33% chance of a head dropping from any of the vanilla mobs that have heads. (Wither Skeletons, Creepers, Skeletons, Zombies, and the Ender Dragon.)
+
+Note: Looting doesn't increase the chances of these extra head drops. Sorry-not-sorry.
+
 #### More to come... 
 ...you'll have to wait and see what they each do :)
