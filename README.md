@@ -88,6 +88,11 @@ Elder Guardians are elders, and we should respect our elders because they're wis
 
 Wisdom Essence can craft a Totem of Wisdom. With one of these in your inventory, all XP orbs you collect are doubled in value. The Totem takes 1 damage per extra XP you earn. Mmmm, experience.
 
+### Gluttony Essence / Totem of Gluttony
+Husks are always getting so hungry walking around in the desert. Which means their essence might be delicious! Er, I mean, it might help you manage your hunger... yeah, that... So reap it!
+
+Gluttony Essence can be used to craft a Totem of Gluttony. Keep one in your inventory with some food, and if your hunger drops below 2 haunches, it'll automatically eat the highest-saturation food for you. It takes more damage eating better foods.
+
 #### More to come...
 
 ## Progression Strategy
