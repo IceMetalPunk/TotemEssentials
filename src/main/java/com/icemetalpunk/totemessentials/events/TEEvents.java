@@ -24,6 +24,7 @@ import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.EntityElderGuardian;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityEvoker;
+import net.minecraft.entity.monster.EntityHusk;
 import net.minecraft.entity.monster.EntityIllusionIllager;
 import net.minecraft.entity.monster.EntityMagmaCube;
 import net.minecraft.entity.monster.EntityPigZombie;
@@ -107,6 +108,7 @@ public class TEEvents {
 		essenceMap.put(EntityStray.class, TotemEssentials.proxy.items.get("essence_aim"));
 		essenceMap.put(EntityPigZombie.class, TotemEssentials.proxy.items.get("essence_aggro"));
 		essenceMap.put(EntityElderGuardian.class, TotemEssentials.proxy.items.get("essence_wisdom"));
+		essenceMap.put(EntityHusk.class, TotemEssentials.proxy.items.get("essence_gluttony"));
 	}
 
 	// Phasing if holding the Phasing Totem

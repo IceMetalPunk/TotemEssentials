@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group":"totemessentials:gluttony_totem",
+  "pattern": [
+    "EEE",
+	"ESE",
+	"EEE"
+  ],
+  "key": {
+    "E": {
+      "item": "totemessentials:essence_gluttony",
+	  "data":0
+    },
+	"S": {
+		"item": "totemessentials:totem_shell",
+		"data": 0
+	}
+  },
+  "result": {
+    "item": "totemessentials:gluttony_totem",
+	"data": 0
+  }
+}

@@ -1,0 +1,23 @@
+		{
+  "type": "minecraft:crafting_shaped",
+  "group":"totemessentials:ensouled_essence",
+  "pattern": [
+    "SES",
+	"ESE",
+	"SES"
+  ],
+  "key": {
+    "E": {
+      "item": "totemessentials:essence_gluttony",
+	  "data":0
+    },
+	"S": {
+		"item": "minecraft:soul_sand",
+		"data": 0
+	}
+  },
+  "result": {
+   "item": "totemessentials:ensouled_essence_gluttony",
+	"data": 0
+  }
+}
