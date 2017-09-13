@@ -43,7 +43,6 @@ public class ItemGluttonyTotem extends ItemTotemBase {
 			if (bestFood != ItemStack.EMPTY) {
 				bestFood.getItem().onItemUseFinish(bestFood, worldIn, player);
 				stack.damageItem((int) Math.ceil(highSat * 5), player);
-				// TODO: Play a sound or something.
 			}
 		}
 
