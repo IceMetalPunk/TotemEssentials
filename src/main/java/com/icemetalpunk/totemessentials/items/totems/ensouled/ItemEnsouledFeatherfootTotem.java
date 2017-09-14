@@ -9,7 +9,7 @@ public class ItemEnsouledFeatherfootTotem extends ItemEnsouledTotemBase {
 
 	public ItemEnsouledFeatherfootTotem(String name) {
 		super(name);
-		this.setMaxDamage(200); // Can absorb 100 points of fall damage.
+		this.setMaxDamage(200); // Can absorb 200 points of fall damage.
 	}
 
 	@Override
