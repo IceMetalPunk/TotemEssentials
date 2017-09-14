@@ -23,6 +23,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
@@ -289,18 +290,26 @@ public class TEEnsouledEvents {
 			return;
 		}
 
-		if (skullMap.containsKey(living.getClass()) && killer instanceof EntityPlayer) {
+		if (killer instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) killer;
+
+			ItemStack drop = ItemStack.EMPTY;
+			if (skullMap.containsKey(living.getClass())) {
+				drop = new ItemStack(Items.SKULL, 1, skullMap.get(living.getClass()));
+			} else if (living instanceof EntityPlayer) {
+				drop = new ItemStack(Items.SKULL, 1, 3);
+				NBTTagCompound tag = new NBTTagCompound();
+				tag.setString("SkullOwner", living.getDisplayName().getFormattedText());
+				drop.setTagCompound(tag);
+			} else {
+				return; // Not a player or vanilla mob with head.
+			}
 			ItemStack totem = TEEvents.getStackInPlayerInv(player,
 					new ItemStack(TotemEssentials.proxy.items.get("ensouled_reaping_totem")));
 			if (totem != ItemStack.EMPTY) {
 				totem.damageItem(10, player);
-				int type = skullMap.get(living.getClass());
-				ev.getDrops().add(new EntityItem(world, living.posX, living.posY, living.posZ,
-						new ItemStack(Items.SKULL, 1, type)));
+				ev.getDrops().add(new EntityItem(world, living.posX, living.posY, living.posZ, drop));
 			}
-		} else {
-			System.out.println("Not in map! " + living.getClass());
 		}
 	}
 
