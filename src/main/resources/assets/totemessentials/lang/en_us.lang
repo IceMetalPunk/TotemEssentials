@@ -23,6 +23,7 @@ item.aiming_totem.name=Totem of Aim
 item.aggression_totem.name=Totem of Aggression
 item.wisdom_totem.name=Totem of Wisdom
 item.gluttony_totem.name=Totem of Gluttony
+item.flamebody_totem.name=Totem of Flamebody
 
 # Ensouled Totems
 
@@ -40,6 +41,7 @@ item.ensouled_wisdom_totem.name=Ensouled Totem of Wisdom
 item.ensouled_reaping_totem.name=Ensouled Totem of Reaping
 item.ensouled_gluttony_totem.name=Ensouled Totem of Gluttony
 item.ensouled_undying_totem.name=Ensouled Totem of Undying
+item.ensouled_flamebody_totem.name=Ensouled Totem of Flamebody
 
 # Normal Essence
 
@@ -58,6 +60,7 @@ item.essence_aim.name=Aiming Essence
 item.essence_aggro.name=Aggro Essence
 item.essence_wisdom.name=Wisdom Essence
 item.essence_gluttony.name=Gluttony Essence
+item.essence_flamebody.name=Flamebody Essence
 
 # Ensouled Essence
 
@@ -76,6 +79,7 @@ item.ensouled_essence_aim.name=Ensouled Aiming Essence
 item.ensouled_essence_aggro.name=Ensouled Aggro Essence
 item.ensouled_essence_wisdom.name=Ensouled Wisdom Essence
 item.ensouled_essence_gluttony.name=Ensouled Gluttony Essence
+item.ensouled_essence_flamebody.name=Ensouled Flamebody Essence
 
 # Totem Abilities
 
@@ -111,6 +115,7 @@ jei.item.aiming_totem=Keep this Totem in your inventory, and all your arrows wil
 jei.item.aggression_totem=If you have this Totem in your inventory and a mob gets angry at you, they'll take out their aggression on another mob around instead. Only works within 20 blocks and when there's another mob for them to target. Takes 1 damage per mob "turned".
 jei.item.wisdom_totem=Experience comes with age, and it creates wisdom. It can also come with killing everything in sight. Either way, having a Totem of Wisdom in your inventory will double all XP you earn from orbs, taking 1 damage per extra XP it gives you.
 jei.item.gluttony_totem=Keep this in your inventory with some food, and if your hunger drops below 2 haunches, it'll automatically eat the highest-saturation food for you. It takes more damage eating better foods.
+jei.item.flamebody_totem=Who needs thorns? Whenever a mob hurts you while you have a Totem of Flamebody in your inventory, they'll be set on fire for 7 seconds. Burn, baby, burn!
 
 jei.item.ensouled_phasing_totem=Just like the normal Totem of Phasing, except twice the durability. Oh, yeah, and it gives you creative-style flight when held, too. Did I forget to mention that?
 jei.item.ensouled_traveling_totem=Remember how the normal Totem of Traveling can't teleport you across dimensions? This one can. It takes 10 more damage to transport yourself between different dimensions, but it has twice as much durability anyway. Zoom zoom.
@@ -126,6 +131,7 @@ jei.item.ensouled_wisdom_totem=Totems of Wisdom are great for gaining more XP, b
 jei.item.ensouled_reaping_totem=If you're going to kill someone and steal bits of their soul, you may as well take their heads home as trophies, right?  At least, with this Totem in your inventory, there's a 33% chance of a head dropping from any of the vanilla mobs that have heads. (Wither Skeletons, Creepers, Skeletons, Zombies, and the Ender Dragon.)
 jei.item.ensouled_gluttony_totem=A Totem of Gluttony helps with food-based micromanagement, but if you never want to think about food again, try the ensouled verion! No need for food items, it'll top up your hunger when you're low on its own!
 jei.item.ensouled_undying_totem=In addition to the normal Totem of Undying saving effects, having the ensouled version anywhere in your inventory also gives you invisibility, gives you fire resistance if fire killed you, and teleports you to your spawn point if you fell into the void.
+jei.item.ensouled_flamebody_totem=Is 7 seconds of burning torture not enough revenge on those who've hurt you? Then try an ensouled Totem of Flamebody, which will set mobs on fire for longer the more damage they deal to you!
 
 jei.item.essence_reaper=Reaper Essence drops from Vindicators, and can be used to create a Totem of Reaping. You'll need that if you want to collect any other type of Essence!
 jei.item.essence_vexatious=Vexatious Essence can be reaped from Vexes, funnily enough. Totem magic can harness the Vex's phasing abilities for your own use.
@@ -142,3 +148,4 @@ jei.item.essence_aim=Skeletons carry their bows around so often, you'd think the
 jei.item.essence_aggro=Zombie Pigmen seem nice, until you annoy them; then they get all hyper-aggressive! That sucks, but imagine if their essence could distract other mobs with that kind of aggro...
 jei.item.essence_wisdom=Elder Guardians. They're elders. They've been around long enough that their essence is probably full of experience and wisdom... Maybe you want to reap them?
 jei.item.essence_gluttony=Husks are always getting so hungry walking around in the desert. Which means their essence might be delicious! Er, I mean, it might help you manage your hunger... yeah, that...
+jei.item.essence_flamebody=Blazes are blazing! As in, they're literally made of fire. Maybe their essence can give you that hot body you've always wanted?

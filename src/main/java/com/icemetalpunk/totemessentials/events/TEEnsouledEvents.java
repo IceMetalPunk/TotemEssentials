@@ -282,15 +282,17 @@ public class TEEnsouledEvents {
 	public void ensouledReap(LivingDropsEvent ev) {
 		Entity killer = ev.getSource().getTrueSource();
 		EntityLivingBase living = ev.getEntityLiving();
-		World world = killer.getEntityWorld();
-
-		// 33% chance
-		int chance = world.rand.nextInt(100);
-		if (chance > 33) {
-			return;
-		}
 
 		if (killer instanceof EntityPlayer) {
+
+			World world = killer.getEntityWorld();
+
+			// 33% chance
+			int chance = world.rand.nextInt(100);
+			if (chance > 33) {
+				return;
+			}
+
 			EntityPlayer player = (EntityPlayer) killer;
 
 			ItemStack drop = ItemStack.EMPTY;

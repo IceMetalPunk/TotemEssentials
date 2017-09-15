@@ -9,6 +9,7 @@ import com.icemetalpunk.totemessentials.items.essences.ItemEssenceAim;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceExchange;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceFeatherfoot;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceFireglaze;
+import com.icemetalpunk.totemessentials.items.essences.ItemEssenceFlamebody;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceGluttony;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceLactic;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceReaper;
@@ -25,6 +26,7 @@ import com.icemetalpunk.totemessentials.items.totems.ItemCuringTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemExchangeTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemFeatherfootTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemFireglazeTotem;
+import com.icemetalpunk.totemessentials.items.totems.ItemFlamebodyTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemGluttonyTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemPhasingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ItemReapingTotem;
@@ -72,6 +74,7 @@ public class ItemRegistry {
 		registry.put("aggression_totem", new ItemAggressionTotem("aggression_totem"));
 		registry.put("wisdom_totem", new ItemWisdomTotem("wisdom_totem"));
 		registry.put("gluttony_totem", new ItemGluttonyTotem("gluttony_totem"));
+		registry.put("flamebody_totem", new ItemFlamebodyTotem("flamebody_totem"));
 
 		// Ensouled Totems
 		registry.put("ensouled_phasing_totem", new ItemEnsouledPhasingTotem("ensouled_phasing_totem"));
@@ -105,6 +108,7 @@ public class ItemRegistry {
 		registry.put("essence_aggro", new ItemEssenceAggression("essence_aggro"));
 		registry.put("essence_wisdom", new ItemEssenceWisdom("essence_wisdom"));
 		registry.put("essence_gluttony", new ItemEssenceGluttony("essence_gluttony"));
+		registry.put("essence_flamebody", new ItemEssenceFlamebody("essence_flamebody"));
 	}
 
 	public void put(String name, ModeledObject val) {

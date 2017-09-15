@@ -21,6 +21,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
+import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityElderGuardian;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityEvoker;
@@ -109,6 +110,7 @@ public class TEEvents {
 		essenceMap.put(EntityPigZombie.class, TotemEssentials.proxy.items.get("essence_aggro"));
 		essenceMap.put(EntityElderGuardian.class, TotemEssentials.proxy.items.get("essence_wisdom"));
 		essenceMap.put(EntityHusk.class, TotemEssentials.proxy.items.get("essence_gluttony"));
+		essenceMap.put(EntityBlaze.class, TotemEssentials.proxy.items.get("essence_flamebody"));
 	}
 
 	// Phasing if holding the Phasing Totem
@@ -469,6 +471,32 @@ public class TEEvents {
 			orb.xpValue += amount;
 			totem.damageItem(amount, player);
 		}
+	}
+
+	// Totem of Flamebody: set things on fire when they hit you
+	@SubscribeEvent
+	public void onFlameBody(LivingHurtEvent ev) {
+		EntityLivingBase living = ev.getEntityLiving();
+		Entity source = ev.getSource().getTrueSource();
+
+		if (!(living instanceof EntityPlayer) || source == null) {
+			return;
+		}
+		EntityPlayer player = (EntityPlayer) living;
+		ItemStack totem = getStackInPlayerInv(player,
+				new ItemStack(TotemEssentials.proxy.items.get("flamebody_totem")));
+		if (totem != ItemStack.EMPTY) {
+			source.setFire(7);
+			totem.damageItem(1, player);
+
+			// Vanilla checks >, not >=, so it allows 0-durability tools! FTFY.
+			if (totem.getItemDamage() >= totem.getMaxDamage()) {
+				player.renderBrokenItemStack(totem);
+				totem.shrink(1);
+			}
+
+		}
+
 	}
 
 }
