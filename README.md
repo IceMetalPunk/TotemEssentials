@@ -93,6 +93,11 @@ Husks are always getting so hungry walking around in the desert. Which means the
 
 Gluttony Essence can be used to craft a Totem of Gluttony. Keep one in your inventory with some food, and if your hunger drops below 2 haunches, it'll automatically eat the highest-saturation food for you. It takes more damage eating better foods.
 
+### Flamebody Essence / Totem of Flamebody
+Blazes, being fire elementals, are kind of hot. Literally, their bodies are on fire. And if you reap their essence, yours could be, too!
+
+When a mob or player damages you while you have a Totem of Flamebody in your inventory, the Totem will take damage, and your attacker will catch on fire for 7 seconds. If they keep hitting you, they keep burning! It's like thorns, but with more charring.
+
 #### More to come...
 
 ## Progression Strategy
