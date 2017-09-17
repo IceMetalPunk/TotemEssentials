@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = TotemEssentials.MODID, version = TotemEssentials.VERSION)
+@Mod(modid = TotemEssentials.MODID, version = TotemEssentials.VERSION, dependencies = "after:jei")
 public class TotemEssentials {
 	public static final String MODID = "totemessentials";
 	public static final String VERSION = "0.1";

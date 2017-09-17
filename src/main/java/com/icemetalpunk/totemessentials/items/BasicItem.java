@@ -11,7 +11,7 @@ public class BasicItem extends Item implements ModeledObject {
 
 	public BasicItem(String modID, String name, CreativeTabs tab) {
 		super();
-		this.setRegistryName(modID, name).setUnlocalizedName(name).setCreativeTab(tab);
+		this.setRegistryName(modID, name).setUnlocalizedName(modID + "." + name).setCreativeTab(tab);
 	}
 
 	@Override

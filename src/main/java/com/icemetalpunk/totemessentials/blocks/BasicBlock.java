@@ -15,12 +15,12 @@ public class BasicBlock extends Block implements IBasicBlock {
 
 	public BasicBlock(String modID, String name, Material mat, MapColor col, CreativeTabs tab) {
 		super(mat, col);
-		this.setRegistryName(modID, name).setUnlocalizedName(name).setCreativeTab(tab);
+		this.setRegistryName(modID, name).setUnlocalizedName(modID + "." + name).setCreativeTab(tab);
 	}
 
 	public BasicBlock(String modID, String name, Material mat, CreativeTabs tab) {
 		super(mat);
-		this.setRegistryName(modID, name).setUnlocalizedName(name).setCreativeTab(tab);
+		this.setRegistryName(modID, name).setUnlocalizedName(modID + "." + name).setCreativeTab(tab);
 	}
 
 	@Override
