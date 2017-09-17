@@ -16,7 +16,7 @@ public class TEPotion extends Potion {
 	public TEPotion(String name, boolean isBad, int color) {
 		super(isBad, color);
 		this.setRegistryName(new ResourceLocation(TotemEssentials.MODID, name));
-		this.setPotionName("effect." + name);
+		this.setPotionName("effect." + TotemEssentials.MODID + "." + name);
 		this.setIconIndex(0, 0);
 		this.icon = new ResourceLocation(TotemEssentials.MODID, "textures/potions/" + name + ".png");
 	}

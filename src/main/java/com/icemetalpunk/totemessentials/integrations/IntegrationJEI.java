@@ -35,17 +35,18 @@ public class IntegrationJEI implements IModPlugin {
 			Item item = TotemEssentials.proxy.items.get(itemName);
 
 			String name = item.getUnlocalizedName();
-			if (name.startsWith("item.ensouled_essence_")) {
-				String plainName = name.replaceFirst("item.ensouled_", "item.");
+			if (name.startsWith("item." + TotemEssentials.MODID + ".ensouled_essence_")) {
+				String plainName = name.replaceFirst("item." + TotemEssentials.MODID + ".ensouled_",
+						"item." + TotemEssentials.MODID + ".");
 				registry.addDescription(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE),
-						I18n.format("jei.item_category.ensouled",
+						I18n.format("jei." + TotemEssentials.MODID + ".item_category.ensouled",
 								new Object[] { I18n.format(plainName + ".name", new Object[0]) }));
 			} else {
 				registry.addDescription(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE), "jei." + name);
 			}
 		}
 		for (ItemStack stack : vanillaDescriptions.keySet()) {
-			registry.addDescription(stack, "jei." + vanillaDescriptions.get(stack));
+			registry.addDescription(stack, "jei." + TotemEssentials.MODID + "." + vanillaDescriptions.get(stack));
 		}
 	}
 }
