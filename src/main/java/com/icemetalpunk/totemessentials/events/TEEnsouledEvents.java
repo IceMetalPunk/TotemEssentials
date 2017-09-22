@@ -27,6 +27,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -144,7 +145,7 @@ public class TEEnsouledEvents {
 
 		float damagedAmount = ev.getAmount();
 		damagedAmount = Math.min(damagedAmount, victim.getHealth());
-		int intAmount = (int) Math.ceil(damagedAmount);
+		int intAmount = MathHelper.ceil(damagedAmount);
 
 		float healAmount = damagedAmount;
 		if (hitter instanceof EntityPlayer) {
@@ -164,9 +165,9 @@ public class TEEnsouledEvents {
 				victim.addPotionEffect(new PotionEffect(TotemEssentials.proxy.potions.get("potion_solar"), 160));
 
 				if (currentHealth + healAmount > maxHealth) {
-					match.damageItem((int) Math.ceil(maxHealth - currentHealth), player);
+					match.damageItem(MathHelper.ceil(maxHealth - currentHealth), player);
 				} else {
-					match.damageItem((int) Math.ceil(healAmount), player);
+					match.damageItem(MathHelper.ceil(healAmount), player);
 				}
 
 			}
@@ -196,7 +197,7 @@ public class TEEnsouledEvents {
 					new ItemStack(TotemEssentials.proxy.items.get("ensouled_fireglaze_totem"), 1));
 			if (totem != null) {
 				float amount = ev.getAmount();
-				int intAmt = (int) Math.ceil(amount);
+				int intAmt = MathHelper.ceil(amount);
 				int durabilityLeft = totem.getMaxDamage() - totem.getItemDamage();
 				int damage = Math.min(durabilityLeft, intAmt);
 				totem.damageItem(damage, player);
@@ -359,4 +360,30 @@ public class TEEnsouledEvents {
 			ev.setCanceled(true);
 		}
 	}
+
+	// Ensouled Totem of Flamebody: set things on fire when they hit you
+	@SubscribeEvent
+	public void onFlameBody(LivingHurtEvent ev) {
+		EntityLivingBase living = ev.getEntityLiving();
+		Entity source = ev.getSource().getTrueSource();
+
+		if (!(living instanceof EntityPlayer) || source == null) {
+			return;
+		}
+		EntityPlayer player = (EntityPlayer) living;
+		ItemStack totem = TEEvents.getStackInPlayerInv(player,
+				new ItemStack(TotemEssentials.proxy.items.get("ensouled_flamebody_totem")));
+		if (totem != ItemStack.EMPTY) {
+			source.setFire(MathHelper.ceil(ev.getAmount() * 4));
+			totem.damageItem(1, player);
+
+			// Vanilla checks >, not >=, so it allows 0-durability tools! FTFY.
+			if (totem.getItemDamage() >= totem.getMaxDamage()) {
+				player.renderBrokenItemStack(totem);
+				totem.shrink(1);
+			}
+		}
+
+	}
+
 }

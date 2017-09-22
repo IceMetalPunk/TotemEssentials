@@ -46,6 +46,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome.SpawnListEntry;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -305,7 +306,7 @@ public class TEEvents {
 	public void onFallDamage(LivingHurtEvent ev) {
 		DamageSource source = ev.getSource();
 		EntityLivingBase ent = ev.getEntityLiving();
-		int intAmount = (int) Math.ceil(ev.getAmount());
+		int intAmount = MathHelper.ceil(ev.getAmount());
 		if (source.damageType == "fall" && ent instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) ent;
 			ItemStack totem = getStackInPlayerInv(player,
@@ -337,7 +338,7 @@ public class TEEvents {
 
 		float damagedAmount = ev.getAmount();
 		damagedAmount = Math.min(damagedAmount, victim.getHealth());
-		int intAmount = (int) Math.ceil(damagedAmount);
+		int intAmount = MathHelper.ceil(damagedAmount);
 
 		float healAmount = damagedAmount;
 		if (hitter instanceof EntityPlayer) {
@@ -356,9 +357,9 @@ public class TEEvents {
 				player.heal(healAmount);
 
 				if (currentHealth + healAmount > maxHealth) {
-					match.damageItem((int) Math.ceil(maxHealth - currentHealth), player);
+					match.damageItem(MathHelper.ceil(maxHealth - currentHealth), player);
 				} else {
-					match.damageItem((int) Math.ceil(healAmount), player);
+					match.damageItem(MathHelper.ceil(healAmount), player);
 				}
 
 			}
