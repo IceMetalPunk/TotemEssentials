@@ -182,5 +182,8 @@ A Totem of Gluttony helps with food-based micromanagement, but if you never want
 ### Ensouled Totem of Undying
 In addition to the normal Totem of Undying saving effects, having the ensouled version anywhere in your inventory also gives you invisibility, gives you fire resistance if fire killed you, and teleports you to your spawn point if you fell into the void. It also has 10 uses.
 
+### Ensouled Totem of Flamebody
+In case 7 seconds of burning isn't enough revenge for you, having the Ensouled Totem of Undying in your inventory will set any mobs or players you touch on fire for 5 seconds, if they can burn. If anyone attacks you, they'll be set on fire longer the more damage they dealt. Ultimate Burning Revenge (TM).
+
 #### More to come... 
 ...you'll have to wait and see what they each do :)
