@@ -24,6 +24,7 @@ item.totemessentials.aggression_totem.name=Totem of Aggression
 item.totemessentials.wisdom_totem.name=Totem of Wisdom
 item.totemessentials.gluttony_totem.name=Totem of Gluttony
 item.totemessentials.flamebody_totem.name=Totem of Flamebody
+item.totemessentials.daunting_totem.name=Totem of Daunting
 
 # Ensouled Totems
 
@@ -61,6 +62,7 @@ item.totemessentials.essence_aggro.name=Aggro Essence
 item.totemessentials.essence_wisdom.name=Wisdom Essence
 item.totemessentials.essence_gluttony.name=Gluttony Essence
 item.totemessentials.essence_flamebody.name=Flamebody Essence
+item.totemessentials.essence_daunting.name=Daunting Essence
 
 # Ensouled Essence
 
@@ -80,6 +82,7 @@ item.totemessentials.ensouled_essence_aggro.name=Ensouled Aggro Essence
 item.totemessentials.ensouled_essence_wisdom.name=Ensouled Wisdom Essence
 item.totemessentials.ensouled_essence_gluttony.name=Ensouled Gluttony Essence
 item.totemessentials.ensouled_essence_flamebody.name=Ensouled Flamebody Essence
+item.totemessentials.ensouled_essence_daunting.name=Ensouled Daunting Essence
 
 # Totem Abilities
 
@@ -116,6 +119,7 @@ jei.item.totemessentials.aggression_totem=If you have this Totem in your invento
 jei.item.totemessentials.wisdom_totem=Experience comes with age, and it creates wisdom. It can also come with killing everything in sight. Either way, having a Totem of Wisdom in your inventory will double all XP you earn from orbs, taking 1 damage per extra XP it gives you.
 jei.item.totemessentials.gluttony_totem=Keep this in your inventory with some food, and if your hunger drops below 2 haunches, it'll automatically eat the highest-saturation food for you. It takes more damage eating better foods.
 jei.item.totemessentials.flamebody_totem=Who needs thorns? Whenever a mob hurts you while you have a Totem of Flamebody in your inventory, they'll be set on fire for 7 seconds. Burn, baby, burn!
+jei.item.totemessentials.daunting_totem=When you hear a creeper, doesn't that make you want to run? Just like that, using a Totem of Daunting will push nearby mobs away from you, giving you a clean escape. Especially useful against large mobs of mobs.
 
 jei.item.totemessentials.ensouled_phasing_totem=Just like the normal Totem of Phasing, except twice the durability. Oh, yeah, and it gives you creative-style flight when held, too. Did I forget to mention that?
 jei.item.totemessentials.ensouled_traveling_totem=Remember how the normal Totem of Traveling can't teleport you across dimensions? This one can. It takes 10 more damage to transport yourself between different dimensions, but it has twice as much durability anyway. Zoom zoom.
@@ -149,3 +153,4 @@ jei.item.totemessentials.essence_aggro=Zombie Pigmen seem nice, until you annoy 
 jei.item.totemessentials.essence_wisdom=Elder Guardians. They're elders. They've been around long enough that their essence is probably full of experience and wisdom... Maybe you want to reap them?
 jei.item.totemessentials.essence_gluttony=Husks are always getting so hungry walking around in the desert. Which means their essence might be delicious! Er, I mean, it might help you manage your hunger... yeah, that...
 jei.item.totemessentials.essence_flamebody=Blazes are blazing! As in, they're literally made of fire. Maybe their essence can give you that hot body you've always wanted?
+jei.item.totemessentials.essence_daunting=Creepers are quite daunting, aren't they? They creep up on you and scare you... then they explode... could be useful?

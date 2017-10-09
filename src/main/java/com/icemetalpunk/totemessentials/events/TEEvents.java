@@ -22,6 +22,7 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.EntityBlaze;
+import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityElderGuardian;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityEvoker;
@@ -112,6 +113,7 @@ public class TEEvents {
 		essenceMap.put(EntityElderGuardian.class, TotemEssentials.proxy.items.get("essence_wisdom"));
 		essenceMap.put(EntityHusk.class, TotemEssentials.proxy.items.get("essence_gluttony"));
 		essenceMap.put(EntityBlaze.class, TotemEssentials.proxy.items.get("essence_flamebody"));
+		essenceMap.put(EntityCreeper.class, TotemEssentials.proxy.items.get("essence_daunting"));
 	}
 
 	// Phasing if holding the Phasing Totem
