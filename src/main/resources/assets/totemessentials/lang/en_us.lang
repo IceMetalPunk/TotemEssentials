@@ -43,6 +43,7 @@ item.totemessentials.ensouled_reaping_totem.name=Ensouled Totem of Reaping
 item.totemessentials.ensouled_gluttony_totem.name=Ensouled Totem of Gluttony
 item.totemessentials.ensouled_undying_totem.name=Ensouled Totem of Undying
 item.totemessentials.ensouled_flamebody_totem.name=Ensouled Totem of Flamebody
+item.totemessentials.ensouled_daunting_totem.name=Ensouled Totem of Daunting
 
 # Normal Essence
 
@@ -136,6 +137,7 @@ jei.item.totemessentials.ensouled_reaping_totem=If you're going to kill someone 
 jei.item.totemessentials.ensouled_gluttony_totem=A Totem of Gluttony helps with food-based micromanagement, but if you never want to think about food again, try the ensouled verion! No need for food items, it'll top up your hunger when you're low on its own!
 jei.item.totemessentials.ensouled_undying_totem=In addition to the normal Totem of Undying saving effects, having the ensouled version anywhere in your inventory also gives you invisibility, gives you fire resistance if fire killed you, and teleports you to your spawn point if you fell into the void.
 jei.item.totemessentials.ensouled_flamebody_totem=Is 7 seconds of burning torture not enough revenge on those who've hurt you? Then try an ensouled Totem of Flamebody, which will set mobs on fire for longer the more damage they deal to you! You'll also set burnable mobs on fire for 5 seconds just by bumping into them. Note: other players are very burnable.
+jei.item.totemessentials.ensouled_daunting_totem=Creepers aren't just scary. They're also combustible! Use the Ensouled Totem of Daunting while sneaking, and you'll unleash an explosion that doesn't hurt living things, but cleanly cuts out a 5x5x5 cube around you. Cleaner than TNT, safer than creepers!
 
 jei.item.totemessentials.essence_reaper=Reaper Essence drops from Vindicators, and can be used to create a Totem of Reaping. You'll need that if you want to collect any other type of Essence!
 jei.item.totemessentials.essence_vexatious=Vexatious Essence can be reaped from Vexes, funnily enough. Totem magic can harness the Vex's phasing abilities for your own use.

@@ -41,6 +41,7 @@ import com.icemetalpunk.totemessentials.items.totems.ItemWisdomTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledAggressionTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledAimingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledCuringTotem;
+import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledDauntingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledFeatherfootTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledFireglazeTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledFlamebodyTotem;
@@ -96,6 +97,7 @@ public class ItemRegistry {
 		registry.put("ensouled_gluttony_totem", new ItemEnsouledGluttonyTotem("ensouled_gluttony_totem"));
 		registry.put("ensouled_undying_totem", new ItemEnsouledUndyingTotem("ensouled_undying_totem"));
 		registry.put("ensouled_flamebody_totem", new ItemEnsouledFlamebodyTotem("ensouled_flamebody_totem"));
+		registry.put("ensouled_daunting_totem", new ItemEnsouledDauntingTotem("ensouled_daunting_totem"));
 
 		// Essences
 		registry.put("essence_reaper", new ItemEssenceReaper("essence_reaper"));

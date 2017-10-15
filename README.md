@@ -98,6 +98,11 @@ Blazes, being fire elementals, are kind of hot. Literally, their bodies are on f
 
 When a mob or player damages you while you have a Totem of Flamebody in your inventory, the Totem will take damage, and your attacker will catch on fire for 7 seconds. If they keep hitting you, they keep burning! It's like thorns, but with more charring.
 
+### Daunting Essence / Totem of Daunting
+Just hearing a creeper's hiss can make the bravest warrior turn and run. Therefore, essence reaped from a creeper should have the same effect, right?
+
+Using a Totem of Reaping will push away all mobs in range, using a bit of durability for each mob it pushes. This includes other players, too! Great for getting out of a crowded pinch.
+
 #### More to come...
 
 ## Progression Strategy
@@ -184,6 +189,9 @@ In addition to the normal Totem of Undying saving effects, having the ensouled v
 
 ### Ensouled Totem of Flamebody
 In case 7 seconds of burning isn't enough revenge for you, having the Ensouled Totem of Undying in your inventory will set any mobs or players you touch on fire for 5 seconds, if they can burn. If anyone attacks you, they'll be set on fire longer the more damage they dealt. Ultimate Burning Revenge (TM).
+
+### Ensouled Totem of Daunting
+Creepers aren't just scary; they also explode. Duh. If you sneak + use an Ensouled Totem of Daunting, it will create an explosion that cleanly clears out a 5x5x5 cube around it but deals no damage to any living things. Cleaner than TNT, safer than creepers!
 
 #### More to come... 
 ...you'll have to wait and see what they each do :)
