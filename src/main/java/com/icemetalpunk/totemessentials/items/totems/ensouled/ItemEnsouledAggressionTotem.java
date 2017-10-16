@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 
 public class ItemEnsouledAggressionTotem extends ItemEnsouledTotemBase {
 
@@ -26,6 +27,10 @@ public class ItemEnsouledAggressionTotem extends ItemEnsouledTotemBase {
 	public static void performEffect(ItemStack stack, World world, Entity entity) {
 		if (!(entity instanceof EntityLivingBase) || world.isRemote) {
 			return;
+		}
+		WorldServer server = null;
+		if (world instanceof WorldServer) {
+			server = (WorldServer) world;
 		}
 
 		int turned = ItemAggressionTotem.aggroMobs(stack, world, entity);
@@ -58,10 +63,12 @@ public class ItemEnsouledAggressionTotem extends ItemEnsouledTotemBase {
 				}
 				stack.damageItem(1, living);
 
-				// TODO: Add sound effect
-				for (int i = 0; i < 50; ++i) {
-					world.spawnParticle(EnumParticleTypes.CRIT_MAGIC, target.posX, target.posY, target.posZ,
-							world.rand.nextInt(2) + 1, 2, world.rand.nextInt(2) + 1);
+				// TODO: Add calming sound effect
+				if (server != null) {
+					for (int i = 0; i < 50; ++i) {
+						server.spawnParticle(EnumParticleTypes.CRIT_MAGIC, target.posX, target.posY, target.posZ,
+								world.rand.nextInt(2) + 1, 2, world.rand.nextInt(2) + 1);
+					}
 				}
 			}
 		}

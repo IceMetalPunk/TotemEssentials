@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 
 public class ItemAggressionTotem extends ItemTotemBase {
 
@@ -22,14 +23,17 @@ public class ItemAggressionTotem extends ItemTotemBase {
 
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if (aggroMobs(stack, worldIn, entityIn) > 0) {
-			// TODO: Add sound effect
-		}
+		aggroMobs(stack, worldIn, entityIn);
 	}
 
 	public static int aggroMobs(ItemStack stack, World world, Entity entity) {
 		if (!(entity instanceof EntityLivingBase) || world.isRemote) {
 			return 0;
+		}
+
+		WorldServer server = null;
+		if (world instanceof WorldServer) {
+			server = (WorldServer) world;
 		}
 
 		int turned = 0;
@@ -70,14 +74,19 @@ public class ItemAggressionTotem extends ItemTotemBase {
 			target.setRevengeTarget(newTarget);
 			target.setAttackTarget(newTarget);
 			stack.damageItem(1, living);
+			++turned;
 
-			// TODO: Add sound effect
-			for (int i = 0; i < 50; ++i) {
-				world.spawnParticle(EnumParticleTypes.CRIT_MAGIC, target.posX, target.posY, target.posZ,
-						world.rand.nextInt(2) + 1, 2, world.rand.nextInt(2) + 1);
+			if (server != null) {
+				for (int i = 0; i < 50; ++i) {
+					server.spawnParticle(EnumParticleTypes.CRIT_MAGIC, target.posX, target.posY, target.posZ,
+							world.rand.nextInt(2) + 1, 2, world.rand.nextInt(2) + 1);
+				}
 			}
 		}
 
+		if (turned > 0) {
+			// TODO: Add aggro sound effect.
+		}
 		return turned;
 	}
 }

@@ -23,7 +23,7 @@ public class ItemCuringTotem extends ItemTotemBase {
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if (clearNegativeEffects(stack, entityIn) > 0) {
-			// TODO: Add sound effect
+			// TODO: Add curing sound effect
 		}
 	}
 
