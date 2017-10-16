@@ -72,14 +72,7 @@ public class TEEnsouledEvents {
 		Item item = stack.getItem();
 		if (ensouledReturns.containsKey(item)) {
 			ItemStack give = ensouledReturns.get(item).copy();
-			for (int i = 0; i < stack.getCount(); ++i) {
-				if (!player.addItemStackToInventory(give)) {
-					EntityItem entity = player.dropItem(give, false);
-					if (entity != null) {
-						entity.setNoPickupDelay();
-					}
-				}
-			}
+			TotemEssentials.giveItems(give, player);
 		}
 	}
 

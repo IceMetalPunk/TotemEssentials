@@ -55,10 +55,10 @@ public class ItemTravelingTotem extends ItemTotemBase {
 					dimensionName = " - " + dimensionNames.get(Integer.valueOf(destTag[3]));
 				}
 			}
-			tooltip.add(I18n.format("item.traveling_totem.bound",
+			tooltip.add(I18n.format("item.totemessentials.traveling_totem.bound",
 					new Object[] { destTag[0], destTag[1], destTag[2], dimensionName }));
 		} else {
-			tooltip.add(I18n.format("item.traveling_totem.unbound", new Object[0]));
+			tooltip.add(I18n.format("item.totemessentials.traveling_totem.unbound", new Object[0]));
 		}
 	}
 
@@ -98,7 +98,7 @@ public class ItemTravelingTotem extends ItemTotemBase {
 					new int[] { pos.getX(), pos.getY(), pos.getZ(), worldIn.provider.getDimension() });
 			stack.setTagCompound(nbt);
 
-			String msg = I18n.format("item.traveling_totem.set", new Object[0]);
+			String msg = I18n.format("item.totemessentials.traveling_totem.set", new Object[0]);
 			Minecraft.getMinecraft().ingameGUI.displayTitle(msg, null, 10, 10, 10);
 			Minecraft.getMinecraft().ingameGUI.displayTitle(null,
 					"(" + pos.getX() + ", " + pos.getY() + ", " + pos.getZ() + ")" + dimensionName, 10, 10, 10);
@@ -109,7 +109,7 @@ public class ItemTravelingTotem extends ItemTotemBase {
 			if (destTag.length > 3 && destTag[3] != worldIn.provider.getDimension()) {
 				String dim1 = dimensionNames.get(destTag[3]);
 				String dim2 = dimensionNames.get(worldIn.provider.getDimension());
-				playerIn.sendMessage(new TextComponentTranslation("item.traveling_totem.wrong_dimension",
+				playerIn.sendMessage(new TextComponentTranslation("item.totemessentials.traveling_totem.wrong_dimension",
 						new Object[] { dim1, dim2 }));
 				return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
 			}
@@ -148,7 +148,7 @@ public class ItemTravelingTotem extends ItemTotemBase {
 					SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS, 1.0F, 1.0F);
 			playerIn.playSound(SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, 1.0F, 1.0F);
 		} else {
-			playerIn.sendMessage(new TextComponentTranslation("item.traveling_totem.unset", new Object[0]));
+			playerIn.sendMessage(new TextComponentTranslation("item.totemessentials.traveling_totem.unset", new Object[0]));
 		}
 
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);

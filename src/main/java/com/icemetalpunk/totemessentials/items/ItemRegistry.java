@@ -42,6 +42,7 @@ import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledAggres
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledAimingTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledCuringTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledDauntingTotem;
+import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledExchangeTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledFeatherfootTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledFireglazeTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledFlamebodyTotem;
@@ -62,6 +63,9 @@ public class ItemRegistry {
 	public static HashMap<String, ModeledObject> registry = new HashMap<String, ModeledObject>();
 
 	static {
+
+		registry.put("exchange_packet", new ItemExchangePacket("exchange_packet"));
+
 		// Totems
 		registry.put("totem_shell", new ItemTotemShell("totem_shell"));
 		registry.put("phasing_totem", new ItemPhasingTotem("phasing_totem"));
@@ -98,6 +102,7 @@ public class ItemRegistry {
 		registry.put("ensouled_undying_totem", new ItemEnsouledUndyingTotem("ensouled_undying_totem"));
 		registry.put("ensouled_flamebody_totem", new ItemEnsouledFlamebodyTotem("ensouled_flamebody_totem"));
 		registry.put("ensouled_daunting_totem", new ItemEnsouledDauntingTotem("ensouled_daunting_totem"));
+		registry.put("ensouled_exchange_totem", new ItemEnsouledExchangeTotem("ensouled_exchange_totem"));
 
 		// Essences
 		registry.put("essence_reaper", new ItemEssenceReaper("essence_reaper"));

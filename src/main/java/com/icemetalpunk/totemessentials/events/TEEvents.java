@@ -8,6 +8,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+import org.apache.commons.lang3.tuple.Pair;
+
 import com.google.common.base.Predicate;
 import com.icemetalpunk.totemessentials.TotemEssentials;
 import com.icemetalpunk.totemessentials.items.EntityItemFireproof;
@@ -43,8 +45,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Items;
+import net.minecraft.inventory.ContainerRepair;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -58,10 +65,12 @@ import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.StructureComponent;
 import net.minecraft.world.gen.structure.StructureStart;
 import net.minecraft.world.gen.structure.WoodlandMansion;
+import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.AnvilRepairEvent;
 import net.minecraftforge.event.entity.player.PlayerDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
 import net.minecraftforge.event.world.WorldEvent;
@@ -69,6 +78,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.WorldTickEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 public class TEEvents {
@@ -500,6 +510,90 @@ public class TEEvents {
 
 		}
 
+	}
+
+	// Totem of Exchange v2 anvil stuff
+	@SubscribeEvent
+	public void onAnvilUpdate(AnvilUpdateEvent ev) {
+		ItemStack left = ev.getLeft();
+		ItemStack actual = ev.getRight();
+		Item normalTotem = TotemEssentials.proxy.items.get("exchange_totem");
+		Item ensouledTotem = TotemEssentials.proxy.items.get("ensouled_exchange_totem");
+		if (!left.getItem().equals(normalTotem) && !left.getItem().equals(ensouledTotem)) {
+			return;
+		}
+
+		ItemStack packet = new ItemStack(TotemEssentials.proxy.items.get("exchange_packet"));
+		NBTTagCompound tags = new NBTTagCompound();
+		NBTTagList list = new NBTTagList();
+		List<IRecipe> recipes = GameRegistry.findRegistry(IRecipe.class).getValues();
+		int neededCount = 1;
+		for (IRecipe recipe : recipes) {
+			ItemStack output = recipe.getRecipeOutput();
+			if (actual.isItemEqualIgnoreDurability(output) && actual.getCount() >= output.getCount()) {
+				neededCount = output.getCount();
+				for (Ingredient input : recipe.getIngredients()) {
+					ItemStack[] matches = input.getMatchingStacks();
+					if (matches.length > 0) {
+						NBTTagCompound component = new NBTTagCompound();
+						matches[0].writeToNBT(component);
+						list.appendTag(component);
+					}
+				}
+				break;
+			}
+		}
+		if (list.tagCount() > 0) {
+			tags.setTag("Components", list);
+			packet.setTagCompound(tags);
+			ev.setOutput(packet);
+			int cost = 10;
+			if (left.getItem().equals(ensouledTotem)) {
+				cost = 5;
+			}
+			ev.setCost(cost);
+			ev.setMaterialCost(neededCount);
+		}
+
+	}
+
+	@SubscribeEvent
+	public void onRepair(AnvilRepairEvent ev) {
+		ItemStack input = ev.getItemInput();
+		ItemStack result = ev.getItemResult();
+		EntityPlayer player = ev.getEntityPlayer();
+
+		Item normalTotem = TotemEssentials.proxy.items.get("exchange_totem");
+		Item ensouledTotem = TotemEssentials.proxy.items.get("ensouled_exchange_totem");
+		if (input.getItem().equals(normalTotem) || input.getItem().equals(ensouledTotem)) {
+			ItemStack give = input.copy();
+
+			if (!player.isCreative()) {
+				give.damageItem(1, player);
+			}
+			if (give.getItemDamage() < give.getMaxDamage()) {
+
+				if (player.openContainer instanceof ContainerRepair) {
+					ContainerRepair cont = (ContainerRepair) player.openContainer;
+					anvilRefreshers.put(player, Pair.of(cont, give));
+				} else {
+					TotemEssentials.giveItems(give, player);
+				}
+			}
+		}
+	}
+
+	// FIXME: Stupid, hacky workaround for there being no way to stop the left
+	// anvil slot from clearing!
+	public static HashMap<EntityPlayer, Pair<ContainerRepair, ItemStack>> anvilRefreshers = new HashMap<>();
+
+	@SubscribeEvent
+	public void onTick(PlayerTickEvent ev) {
+		if (anvilRefreshers.containsKey(ev.player)) {
+			Pair<ContainerRepair, ItemStack> pair = anvilRefreshers.get(ev.player);
+			pair.getLeft().putStackInSlot(0, pair.getRight());
+			anvilRefreshers.remove(ev.player);
+		}
 	}
 
 }

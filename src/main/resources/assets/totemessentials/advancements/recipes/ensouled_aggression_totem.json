@@ -1,0 +1,41 @@
+{
+  "parent": "totemessentials:recipes/root",
+  "rewards": {
+    "recipes": [
+	  "totemessentials:ensouled_aggression_totem",
+	  "totemessentials:ensouled_aggression_totem_upgrade"
+    ]
+  },
+  "criteria": {
+    "has_shell": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "totemessentials:totem_shell",
+            "data": 0
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "totemessentials:ensouled_aggression_totem"
+      }
+    },
+	"has_the_upgrade": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "totemessentials:ensouled_aggression_totem_upgrade"
+	  }
+	}
+  },
+  "requirements": [
+    [
+      "has_shell",
+      "has_the_recipe",
+	  "has_the_upgrade"
+    ]
+  ]
+}

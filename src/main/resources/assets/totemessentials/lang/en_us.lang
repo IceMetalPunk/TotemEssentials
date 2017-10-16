@@ -44,6 +44,7 @@ item.totemessentials.ensouled_gluttony_totem.name=Ensouled Totem of Gluttony
 item.totemessentials.ensouled_undying_totem.name=Ensouled Totem of Undying
 item.totemessentials.ensouled_flamebody_totem.name=Ensouled Totem of Flamebody
 item.totemessentials.ensouled_daunting_totem.name=Ensouled Totem of Daunting
+item.totemessentials.ensouled_exchange_totem.name=Ensouled Totem of Exchange
 
 # Normal Essence
 
@@ -87,7 +88,6 @@ item.totemessentials.ensouled_essence_daunting.name=Ensouled Daunting Essence
 
 # Totem Abilities
 
-# item.totemessentials.traveling_totem.set=Set destination to (%s, %s, %s)%s
 item.totemessentials.traveling_totem.set=Set Destination
 item.totemessentials.traveling_totem.unset=You can't teleport until you set a destination first. Sneak + Use to set the destination.
 item.totemessentials.traveling_totem.bound=Bound to (%s, %s, %s)%s
@@ -98,10 +98,15 @@ item.totemessentials.replication_totem.boundTo=Bound to %s
 item.totemessentials.replication_totem.set=Totem of Replication is now bound to %s
 item.totemessentials.replication_totem.unset=You must bind the Totem of Replication to a mob first!
 
+item.totemessentials.exchange_packet.name=Exchange Packet
+item.totemessentials.exchange_packet.instructions=Use this item to unpack the contents!
+
 # JEI Integration
 jei.totemessentials.item_category.ensouled=The Ensouled version of %s. I wonder what other properties it might have?
 
 jei.tile.totemessentials.reinforced_soul_sand=This decorative block gives you all the lovely Soul Sand-inspired design you want with none of the slowness.
+
+jei.item.totemessentials.exchange_packet=Obtained by using a Totem of Exchange in an anvil with any item. Contains the item's crafting ingredients, which you'll get when you use the packet.
 
 jei.item.totemessentials.totem_shell=The blank slate of totems, a Totem Shell drops from Evokers in Woodland Mansions and can be crafted into many useful types of totems with Essence.
 jei.item.totemessentials.phasing_totem=While holding this, you are no longer affected by gravity and you can phase through blocks. The longer you're in a solid block, the more damage this takes; careful you don't lose it while inside a block or you'll suffocate!
@@ -112,7 +117,7 @@ jei.item.totemessentials.featherfoot_totem=Who needs fall damage? Not you, if yo
 jei.item.totemessentials.vampire_totem=No need to suck any blood, as long as you shed it. With a Totem of Vampirism in your inventory, all damage you deal to mobs and players will heal you if needed. Every half-heart healed deals 1 damage to the Totem.
 jei.item.totemessentials.traveling_totem=Sneak + Use to set the destination coordinates. Use normally to teleport there. Takes 1 damage for every 10 blocks you travel; if it breaks in the middle of teleporting, you'll get stuck partway through! Hope you don't teleport into lava...
 jei.item.totemessentials.replication_totem=Hit a mob with this Totem to bind it to that mob type. Then use the Totem on a block to spawn that mob type. Takes 1 damage per spawn.
-jei.item.totemessentials.exchange_totem=Use this Totem on any ore block, and it'll change into a random ore! Sometimes you might get the same ore back (such is the nature of randomness), but other times, you may trade up or down!
+jei.item.totemessentials.exchange_totem=Put this in the left slot of an anvil, and it'll decraft whatever's in the right slot into its crafting ingredients. (Right-click an Exchange Packet to get the ingredients back.) DIY made simple.
 jei.item.totemessentials.fireglaze_totem=If this drops from your inventory upon your death, it will take 1 damage, and all your dropped items will become fireproof until collected! It only gets two uses, though, and you may have to go hunting for the items with fire resistance potions...
 jei.item.totemessentials.storage_totem=When you use this Totem, you'll swap between your bottom-most main inventory row and your hotbar. Except for the slot this Totem is in, of course.
 jei.item.totemessentials.aiming_totem=Keep this Totem in your inventory, and all your arrows will fly true! That is, they won't be affected by gravity. Takes 1 damage per arrow enhanced.
@@ -138,6 +143,7 @@ jei.item.totemessentials.ensouled_gluttony_totem=A Totem of Gluttony helps with 
 jei.item.totemessentials.ensouled_undying_totem=In addition to the normal Totem of Undying saving effects, having the ensouled version anywhere in your inventory also gives you invisibility, gives you fire resistance if fire killed you, and teleports you to your spawn point if you fell into the void.
 jei.item.totemessentials.ensouled_flamebody_totem=Is 7 seconds of burning torture not enough revenge on those who've hurt you? Then try an ensouled Totem of Flamebody, which will set mobs on fire for longer the more damage they deal to you! You'll also set burnable mobs on fire for 5 seconds just by bumping into them. Note: other players are very burnable.
 jei.item.totemessentials.ensouled_daunting_totem=Creepers aren't just scary. They're also combustible! Use the Ensouled Totem of Daunting while sneaking, and you'll unleash an explosion that doesn't hurt living things, but cleanly cuts out a 5x5x5 cube around you. Cleaner than TNT, safer than creepers!
+jei.item.totemessentials.ensouled_exchange_totem=Works the same as the normal Totem of Exchange, except it has more uses and a cheaper XP cost for decrafting exchanges.
 
 jei.item.totemessentials.essence_reaper=Reaper Essence drops from Vindicators, and can be used to create a Totem of Reaping. You'll need that if you want to collect any other type of Essence!
 jei.item.totemessentials.essence_vexatious=Vexatious Essence can be reaped from Vexes, funnily enough. Totem magic can harness the Vex's phasing abilities for your own use.
@@ -147,7 +153,7 @@ jei.item.totemessentials.essence_featherfoot=Featherfoot Essence, reaped from ch
 jei.item.totemessentials.essence_vampiric=Bats are useless, right? No! They're secretly vampires, so they can be reaped for their Vampiric Essence.
 jei.item.totemessentials.essence_traveling=Ender Pearls are so limited. Try some Endermen Essence -- er, Traveling Essence -- to make a Totem of Traveling. This Totem better -- MUCH better!
 jei.item.totemessentials.essence_replication=Illusioners like to hide out in Woodland Mansions these days. Maybe a bit of reaping them for their Replication Essence can help you unlock the magicians' secrets?
-jei.item.totemessentials.essence_exchange=Villagers exchange emeralds for other things, right? Well, why shouldn't you be able to reap that essence and use it to trade ores in the world for different ones? Capitalism FTW.
+jei.item.totemessentials.essence_exchange=Villagers sometimes buy materials and give you back crafted items, right? So why not reap their essence to reverse that process? DIY, here you come.
 jei.item.totemessentials.essence_fireglaze=If Magma Cubes can drop magma cream, which can make you fireproof, what if you reaped that essence and applied it to a Totem? Maybe it could make your items fireproof, too? Hmm, now there's a thought!
 jei.item.totemessentials.essence_storage=Shulker shells can make useful shulker boxes. I wonder what their Storage Essence can make if you reap them?
 jei.item.totemessentials.essence_aim=Skeletons carry their bows around so often, you'd think they'd know how to aim! Maybe their essence can help you aim, too?

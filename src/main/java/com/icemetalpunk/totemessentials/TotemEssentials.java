@@ -6,6 +6,8 @@ import com.icemetalpunk.totemessentials.events.TERegistryEvents;
 import com.icemetalpunk.totemessentials.proxies.TECommonProxy;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -36,6 +38,17 @@ public class TotemEssentials {
 		}
 
 	};
+
+	public static void giveItems(ItemStack give, EntityPlayer player) {
+		for (int i = 0; i < give.getCount(); ++i) {
+			if (!player.addItemStackToInventory(give)) {
+				EntityItem entity = player.dropItem(give, false);
+				if (entity != null) {
+					entity.setNoPickupDelay();
+				}
+			}
+		}
+	}
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {

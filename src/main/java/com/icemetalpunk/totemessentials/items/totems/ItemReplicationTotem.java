@@ -42,10 +42,10 @@ public class ItemReplicationTotem extends ItemTotemBase {
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Binding")) {
 			String name = getNameFromId(stack.getTagCompound().getString("Binding"));
-			tooltip.add(I18n.format("item.replication_totem.boundTo", new Object[] { name }));
+			tooltip.add(I18n.format("item.totemessentials.replication_totem.boundTo", new Object[] { name }));
 			Item p;
 		} else {
-			tooltip.add(I18n.format("item.replication_totem.unbound", new Object[0]));
+			tooltip.add(I18n.format("item.totemessentials.replication_totem.unbound", new Object[0]));
 		}
 	}
 
@@ -69,7 +69,7 @@ public class ItemReplicationTotem extends ItemTotemBase {
 		stack.setTagCompound(tag);
 
 		String name = getNameFromId(id);
-		player.sendMessage(new TextComponentTranslation("item.replication_totem.set", new Object[] { name }));
+		player.sendMessage(new TextComponentTranslation("item.totemessentials.replication_totem.set", new Object[] { name }));
 
 		return false;
 	}
@@ -98,7 +98,7 @@ public class ItemReplicationTotem extends ItemTotemBase {
 			stack.damageItem(1, playerIn);
 
 		} else {
-			playerIn.sendMessage(new TextComponentTranslation("item.replication_totem.unset", new Object[0]));
+			playerIn.sendMessage(new TextComponentTranslation("item.totemessentials.replication_totem.unset", new Object[0]));
 			return EnumActionResult.FAIL;
 		}
 
