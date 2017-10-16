@@ -55,7 +55,7 @@ Hit any mob with a Totem of Replication to bind it to that mob type. Then you ca
 
 Killing villagers is bad for trading. But how else will you reap their wonderful Exchange Essence?
 
-A Totem of Exchange can be used on any ore blocks in the world to convert them to another random ore. It should even work with modded ores, using the Ore Dictionary! Whether the new ore is better or worse than the old one is up to you to decide, but regardless, it'll take 1 damage for each exchange it makes. You get 50 swaps by default; better sharpen your bartering skills!
+A Totem of Exchange can be put in the left slot of an anvil to "decraft" any item in the right slot. That is, it'll give you an Exchange Packet which can be used to obtain all the crafting ingredients of the item you've decrafted. The opposite of trading a villager supplies for an item, but ideal if you're a DIY kind of person.
 
 ### Fireglaze Essence / Totem of Fireglaze
 
@@ -102,8 +102,6 @@ When a mob or player damages you while you have a Totem of Flamebody in your inv
 Just hearing a creeper's hiss can make the bravest warrior turn and run. Therefore, essence reaped from a creeper should have the same effect, right?
 
 Using a Totem of Reaping will push away all mobs in range, using a bit of durability for each mob it pushes. This includes other players, too! Great for getting out of a crowded pinch.
-
-#### More to come...
 
 ## Progression Strategy
 Hey, don't let me tell you how to play the game. It's your game, you have fun with it your own way!
@@ -161,6 +159,9 @@ Even with a straight shot from a Totem of Aim, it can be hard to see your target
 ### Ensouled Totem of Featherfoot
 Taking no fall damage is good. But taking no fall damage *and* floating to the ground like a chicken? Even better!
 
+### Ensouled Totem of Exchange
+DIY just got cheaper. This allows you to decraft more items than the normal Totem of Exchange, and it costs half as much XP per item.
+
 ### Ensouled Totem of Fireglaze
 Pour some magma (cream) on me! This Totem saves your items from burning when you die, *and* absorbs all fire damage you would take!
 
@@ -192,6 +193,3 @@ In case 7 seconds of burning isn't enough revenge for you, having the Ensouled T
 
 ### Ensouled Totem of Daunting
 Creepers aren't just scary; they also explode. Duh. If you sneak + use an Ensouled Totem of Daunting, it will create an explosion that cleanly clears out a 5x5x5 cube around it but deals no damage to any living things. Cleaner than TNT, safer than creepers!
-
-#### More to come... 
-...you'll have to wait and see what they each do :)
