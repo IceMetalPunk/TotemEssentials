@@ -9,6 +9,8 @@ public class SoundRegistry {
 	public static final HashMap<String, TESound> registry = new HashMap<String, TESound>();
 
 	static {
+		registry.put("sfx_curing", new SoundEventCuring());
+		registry.put("sfx_boost_effect", new SoundEventBoostEffect());
 	}
 
 	public SoundRegistry() {

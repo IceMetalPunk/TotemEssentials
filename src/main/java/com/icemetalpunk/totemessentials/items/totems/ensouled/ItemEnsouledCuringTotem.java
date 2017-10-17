@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import com.google.common.primitives.Ints;
+import com.icemetalpunk.totemessentials.TotemEssentials;
 import com.icemetalpunk.totemessentials.items.totems.ItemCuringTotem;
 
 import net.minecraft.entity.Entity;
@@ -14,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 public class ItemEnsouledCuringTotem extends ItemEnsouledTotemBase {
@@ -88,8 +90,13 @@ public class ItemEnsouledCuringTotem extends ItemEnsouledTotemBase {
 			stack.setTagCompound(tag);
 		}
 
+		if (cured > 0) {
+			worldIn.playSound(null, living.getPosition(), TotemEssentials.proxy.sounds.get("sfx_curing"), SoundCategory.AMBIENT, 1.0f, 1.0f);
+		}
+		if (boosted > 0) {
+			worldIn.playSound(null, living.getPosition(), TotemEssentials.proxy.sounds.get("sfx_boost_effect"), SoundCategory.AMBIENT, 1.0f, 1.0f);
+		}
+		
 	}
-
-	// TODO: Add sound effect based on cured & boosted vars
 
 }

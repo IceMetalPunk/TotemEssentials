@@ -5,12 +5,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
+import com.icemetalpunk.totemessentials.TotemEssentials;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 public class ItemCuringTotem extends ItemTotemBase {
@@ -22,8 +25,9 @@ public class ItemCuringTotem extends ItemTotemBase {
 
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if (clearNegativeEffects(stack, entityIn) > 0) {
-			// TODO: Add curing sound effect
+		if (clearNegativeEffects(stack, entityIn) > 0 && entityIn instanceof EntityPlayer) {
+			worldIn.playSound(null, entityIn.getPosition(), TotemEssentials.proxy.sounds.get("sfx_curing"),
+					SoundCategory.AMBIENT, 1.0f, 1.0f);
 		}
 	}
 

@@ -1,0 +1,12 @@
+{
+	"totemessentials.totem.curing": {
+		"sounds": [
+			"totemessentials:totems/curing/cure"
+		]
+	},
+	"totemessentials.totem.boost_effect": {
+		"sounds": [
+			"totemessentials:totems/curing/boost_effect"
+		]
+	}
+}
