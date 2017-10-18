@@ -3,6 +3,7 @@ package com.icemetalpunk.totemessentials.items.totems;
 import java.util.List;
 
 import com.google.common.base.Predicate;
+import com.icemetalpunk.totemessentials.TotemEssentials;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -10,6 +11,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -85,7 +87,8 @@ public class ItemAggressionTotem extends ItemTotemBase {
 		}
 
 		if (turned > 0) {
-			// TODO: Add aggro sound effect.
+			world.playSound(null, entity.getPosition(), TotemEssentials.proxy.sounds.get("sfx_aggro"),
+					SoundCategory.AMBIENT, 1.0f, 1.0f);
 		}
 		return turned;
 	}

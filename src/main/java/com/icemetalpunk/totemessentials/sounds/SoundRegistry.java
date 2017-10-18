@@ -11,6 +11,8 @@ public class SoundRegistry {
 	static {
 		registry.put("sfx_curing", new SoundEventCuring());
 		registry.put("sfx_boost_effect", new SoundEventBoostEffect());
+		registry.put("sfx_calming", new SoundEventCalming());
+		registry.put("sfx_aggro", new SoundEventAggro());
 	}
 
 	public SoundRegistry() {

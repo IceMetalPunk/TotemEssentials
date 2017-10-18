@@ -583,7 +583,7 @@ public class TEEvents {
 		}
 	}
 
-	// FIXME: Stupid, hacky workaround for there being no way to stop the left
+	// FIXME: Hacky workaround for there being no way to stop the left
 	// anvil slot from clearing!
 	public static HashMap<EntityPlayer, Pair<ContainerRepair, ItemStack>> anvilRefreshers = new HashMap<>();
 

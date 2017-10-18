@@ -8,5 +8,15 @@
 		"sounds": [
 			"totemessentials:totems/curing/boost_effect"
 		]
+	},
+	"totemessentials.totem.calming": {
+		"sounds": [
+			"totemessentials:totems/calming"
+		]
+	},
+	"totemessentials.totem.aggro": {
+		"sounds": [
+			"totemessentials:totems/aggro"
+		]
 	}
 }

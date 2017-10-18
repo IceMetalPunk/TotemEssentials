@@ -3,6 +3,7 @@ package com.icemetalpunk.totemessentials.items.totems.ensouled;
 import java.util.List;
 
 import com.google.common.base.Predicate;
+import com.icemetalpunk.totemessentials.TotemEssentials;
 import com.icemetalpunk.totemessentials.items.totems.ItemAggressionTotem;
 
 import net.minecraft.entity.Entity;
@@ -12,6 +13,7 @@ import net.minecraft.entity.monster.AbstractSkeleton;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -63,7 +65,8 @@ public class ItemEnsouledAggressionTotem extends ItemEnsouledTotemBase {
 				}
 				stack.damageItem(1, living);
 
-				// TODO: Add calming sound effect
+				world.playSound(null, entity.getPosition(), TotemEssentials.proxy.sounds.get("sfx_calming"),
+						SoundCategory.AMBIENT, 1.0f, 1.0f);
 				if (server != null) {
 					for (int i = 0; i < 50; ++i) {
 						server.spawnParticle(EnumParticleTypes.CRIT_MAGIC, target.posX, target.posY, target.posZ,
