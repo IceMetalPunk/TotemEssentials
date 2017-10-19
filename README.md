@@ -17,7 +17,9 @@ Instead of dropping a Totem of Undying, the Woodland Mansion's Evoker ("Evocatio
 ### Reaper Essence / Totem of Reaping
 Vindicators ("Vindication Illagers") will naturally drop Reaper Essence 40% of the time. All other Essences must be "reaped"; that is, they must be obtained by killing certain mobs with a Totem of Reaping in your inventory.
 
-A Totem of Reaping is crafted by surrounding a Totem Shell with 8 Reaper Essence. It has 8 durability; whenever you kill a mob that can drop Essence with a Totem of Reaping in your inventory, you've "reaped" that mob. It will drop its Essence and the Totem will take 1 damage. This means each Totem of Reaping lets you reap up to 8 mobs (although it can be enchanted with Unbreaking and Mending to extend its use).
+![Totem of Reaping recipe](./images/totem_crafting.png)
+
+A Totem of Reaping is crafted by surrounding a Totem Shell with 8 Reaper Essence. (This is the basic crafting pattern for all totems, by the way.) It has 8 durability; whenever you kill a mob that can drop Essence with a Totem of Reaping in your inventory, you've "reaped" that mob. It will drop its Essence and the Totem will take 1 damage. This means each Totem of Reaping lets you reap up to 8 mobs (although it can be enchanted with Unbreaking and Mending to extend its use).
 
 Reaped mobs will drop 1 Essence, plus 1 extra Essence for each level of Looting your weapon has. No matter your level of looting or the number of Essence dropped, the Totem will always take only 1 damage per mob reaped.
 
@@ -128,11 +130,19 @@ Suggestion: You may want to replicate some Vindicators, too, so you don't lose y
 Did you know that creating these Totems from Essence is a form of magic called Totemancy? And like all good types of magic, Totemancy has a scientific hierarchy of progress. That's a fancy way of saying, "there are Tier II Totems".
 
 ### Ensouled Essence
+
+![Ensouled Essence crafting](./images/ensouled_essence_crafting.png)
+
 Craft 4 of any Essence with 5 Soul Sand (make an X with the Soul Sand and fill the side gaps with Essence) to craft Ensouled Essence. Use 8 Ensouled Essence in a Totem's recipe instead of normal Essence, and you'll make the Ensouled Totem of its type.
+
+![Ensouled Totem upgrading](./images/ensouled_upgrading.png)
 
 You can also upgrade an existing Totem by placing it in the middle of your crafting grid, filling the top and bottom rows with the appropriate Ensouled Essence, and filling the left and right of the Totem with Reinforced Soul Sand.
 
 ### Reinforced Soul Sand
+
+![Reinforced Soul Sand crafting](./images/reinforced_soul_sand_crafting.png)
+
 Oh, "what's reinforced soul sand?" you ask? Simple! Just craft 5 soul sand in an X shape and you'll get one piece of Reinforced Soul Sand. It looks similar to normal soul sand, but it has some special properties: it doesn't slow you down, it fills a full block space, and one second after you walk on it, it falls like sand! Placing blocks near it won't make it fall; something has to walk on it.
 
 More importantly for a Totemancer like you, reinforced soul sand can be used to Ensoul an already-crafted totem rather than starting from scratch with a new Totem Shell :)
