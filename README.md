@@ -156,40 +156,40 @@ At least, it's lame compared to the Ensouled Totem of Storage, which lets you cy
 #### Ensouled Totem of Aim
 Even with a straight shot from a Totem of Aim, it can be hard to see your target and hit it from far enough away. So the Ensouled Totem of Aim gives the Glowing effect to any mobs you look at while pulling back your bow. Within 100 blocks.
 
-### Ensouled Totem of Featherfoot
+#### Ensouled Totem of Featherfoot
 Taking no fall damage is good. But taking no fall damage *and* floating to the ground like a chicken? Even better!
 
-### Ensouled Totem of Exchange
+#### Ensouled Totem of Exchange
 DIY just got cheaper. This allows you to decraft more items than the normal Totem of Exchange, and it costs half as much XP per item.
 
-### Ensouled Totem of Fireglaze
+#### Ensouled Totem of Fireglaze
 Pour some magma (cream) on me! This Totem saves your items from burning when you die, *and* absorbs all fire damage you would take!
 
-### Ensouled Totem of Curing
+#### Ensouled Totem of Curing
 Keep this in your inventory, and it'll cure you of negative potion effects *and* double the duration of your positive potion effects. Plus, it has 30 durability and only takes 1 damage per effect per level. It's like the vitamins to your medicine.
 
-### Ensouled Totem of Aggression
+#### Ensouled Totem of Aggression
 
 With the normal Totem of Aggression, mobs will attack each other, but there will be one winner. And that winner? It'll be mad at you. Enter the Ensouled Totem of Aggression!
 
 In addition to the anger-inducing effects of the normal Totem of Aggression, if there's only one mob around, the Ensouled Totem of Aggression will calm it down so it won't attack you. Keeping it calm takes a lot of durability, though, so don't hang around too long!
 
-### Ensouled Totem of Wisdom
+#### Ensouled Totem of Wisdom
 What's the point in doubling the amount of XP you earn if you lose it all when you die? So don't lose it! Keep an Ensouled Totem of Wisdom on you, and in addition to double the XP, you'll also keep all your experience when you die! (For a cost of 500 durability...)
 
-### Ensouled Totem of Reaping
+#### Ensouled Totem of Reaping
 If you're going to kill someone and steal bits of their soul, you may as well take their heads home as trophies, right?  At least, with this Totem in your inventory, there's a 33% chance of a head dropping from any of the vanilla mobs that have heads. (Wither Skeletons, Creepers, Skeletons, Zombies, and the Ender Dragon.)
 
 Note: Looting doesn't increase the chances of these extra head drops. Sorry-not-sorry.
 
-### Ensouled Totem of Gluttony
+#### Ensouled Totem of Gluttony
 A Totem of Gluttony helps with food-based micromanagement, but if you never want to think about food again, try the ensouled verion! No need for food items, it'll top up your hunger when you're low on its own!
 
-### Ensouled Totem of Undying
+#### Ensouled Totem of Undying
 In addition to the normal Totem of Undying saving effects, having the ensouled version anywhere in your inventory also gives you invisibility, gives you fire resistance if fire killed you, and teleports you to your spawn point if you fell into the void. It also has 10 uses.
 
-### Ensouled Totem of Flamebody
+#### Ensouled Totem of Flamebody
 In case 7 seconds of burning isn't enough revenge for you, having the Ensouled Totem of Undying in your inventory will set any mobs or players you touch on fire for 5 seconds, if they can burn. If anyone attacks you, they'll be set on fire longer the more damage they dealt. Ultimate Burning Revenge (TM).
 
-### Ensouled Totem of Daunting
+#### Ensouled Totem of Daunting
 Creepers aren't just scary; they also explode. Duh. If you sneak + use an Ensouled Totem of Daunting, it will create an explosion that cleanly clears out a 5x5x5 cube around it but deals no damage to any living things. Cleaner than TNT, safer than creepers!
