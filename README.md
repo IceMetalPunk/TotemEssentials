@@ -10,6 +10,9 @@ When using the Forge client for 1.12.1 or 1.12.2, simply download [the mod from 
 
 As mentioned, I also recommend using JEI as well; you can find the downloads for that mod [here](https://minecraft.curseforge.com/projects/just-enough-items-jei/files). JEI is not necessary to play with Totem Essentials, but it's very useful!
 
+## Videos
+[Official Walkthrough](https://youtu.be/j3OsvvUPfrM)
+
 ## Totem Shell
 Instead of dropping a Totem of Undying, the Woodland Mansion's Evoker ("Evocation Illager") will now drop a Totem Shell. This is the blank slate, the basis of Totem Essentials, the crafting ingredient you will combine with various Essences to craft your new Totems.
 
