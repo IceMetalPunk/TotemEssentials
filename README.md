@@ -1,4 +1,5 @@
 # _Totem Essentials_
+### For Minecraft 1.12.1 and 1.12.2
 
 Totem Essentials is a Minecraft mod that expands on vanilla's "Totem of Undying" with an entire totem crafting system. You reap mobs for their Essence, then use those to craft different types of Totems with different properties.
 
