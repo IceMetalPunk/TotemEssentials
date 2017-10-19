@@ -5,6 +5,11 @@ Totem Essentials is a Minecraft mod that expands on vanilla's "Totem of Undying"
 
 All recipes are unlocked in your recipe book when you obtain your first Totem Shell. There's also JEI integration, so I suggest you use JEI to get info about mob drops in the game :)
 
+## Installation
+When using the Forge client for 1.12.1 or 1.12.2, simply download [the mod from here](https://github.com/IceMetalPunk/TotemEssentials/raw/master/lib/totemessentials-1.0.jar) and put it in your .minecraft/mods folder. That's all :)
+
+As mentioned, I also recommend using JEI as well; you can find the downloads for that mod [here](https://minecraft.curseforge.com/projects/just-enough-items-jei/files). JEI is not necessary to play with Totem Essentials, but it's very useful!
+
 ## Totem Shell
 Instead of dropping a Totem of Undying, the Woodland Mansion's Evoker ("Evocation Illager") will now drop a Totem Shell. This is the blank slate, the basis of Totem Essentials, the crafting ingredient you will combine with various Essences to craft your new Totems.
 
