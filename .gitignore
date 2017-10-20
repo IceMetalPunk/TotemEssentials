@@ -5,6 +5,7 @@
 !/gradle/
 !/LICENSE.txt
 !/README.md
+!/ContactInfo.md
 !build.gradle
 !.travis.yml
 !/textures/
