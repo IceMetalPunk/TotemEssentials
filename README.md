@@ -1,6 +1,6 @@
 # ![Totem Shell](./images/totem_shell.png) _Totem Essentials_ ![Totem Shell](./images/totem_shell.png)
 ### For Minecraft 1.12.1 and 1.12.2
-
+#### For contact information, please see [this file](https://github.com/IceMetalPunk/TotemEssentials/blob/master/ContactInfo.md).
 Totem Essentials is a Minecraft mod that expands on vanilla's "Totem of Undying" with an entire totem crafting system. You reap mobs for their Essence, then use those to craft different types of Totems with different properties.
 
 All recipes are unlocked in your recipe book when you obtain your first Totem Shell. There's also JEI integration, so I suggest you use JEI to get info about mob drops in the game :)
