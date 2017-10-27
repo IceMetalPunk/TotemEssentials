@@ -174,25 +174,18 @@ public class TEEvents {
 	public static ItemStack getStackInPlayerInv(EntityPlayer player, ItemStack compareTo) {
 		InventoryPlayer inv = player.inventory;
 		ItemStack stack = ItemStack.EMPTY;
-		int slotID = inv.getSlotFor(compareTo); // Doesn't include offhand!
-		if (slotID < 0) {
-			ItemStack inOffhand = player.getHeldItemOffhand();
-			if (inOffhand.getItem() == compareTo.getItem()
-					&& (!inOffhand.getHasSubtypes() || inOffhand.getMetadata() == compareTo.getMetadata())
-					&& ItemStack.areItemStackTagsEqual(inOffhand, compareTo)) {
-				stack = inOffhand;
-			} else {
-				for (ItemStack armorStack : player.getArmorInventoryList()) {
-					if (armorStack.getItem() == compareTo.getItem()
-							&& (!armorStack.getHasSubtypes() || armorStack.getMetadata() == compareTo.getMetadata())
-							&& ItemStack.areItemStackTagsEqual(armorStack, compareTo)) {
-						stack = armorStack;
-						break;
-					}
-				}
+
+		ItemStack test = ItemStack.EMPTY;
+		for (int i = 0; i < inv.getSizeInventory(); ++i) {
+			test = inv.getStackInSlot(i);
+			if (!test.isEmpty() && test.getItem().equals(compareTo.getItem())) {
+				stack = test;
+				break;
 			}
-		} else {
-			stack = inv.getStackInSlot(slotID);
+		}
+		if (stack == ItemStack.EMPTY && !player.getHeldItemOffhand().isEmpty()
+				&& player.getHeldItemOffhand().getItem().equals(compareTo.getItem())) {
+			stack = player.getHeldItemOffhand();
 		}
 		return stack;
 	}

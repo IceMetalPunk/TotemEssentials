@@ -2,8 +2,8 @@
 {
   "modid": "totemessentials",
   "name": "Totem Essentials",
-  "description": "Create various magical totems using the essences of various mobs.",
-  "version": "0.1",
+  "description": "Create various magical Totems using the essences of various mobs.",
+  "version": "1.0.1",
   "mcversion": "1.12.1",
   "url": "",
   "updateUrl": "",
