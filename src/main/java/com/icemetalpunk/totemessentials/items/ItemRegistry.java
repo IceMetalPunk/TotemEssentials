@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import com.icemetalpunk.totemessentials.IOreDicted;
 import com.icemetalpunk.totemessentials.ModeledObject;
+import com.icemetalpunk.totemessentials.config.TEConfig;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceAggression;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceAim;
 import com.icemetalpunk.totemessentials.items.essences.ItemEssenceDaunting;
@@ -140,6 +141,10 @@ public class ItemRegistry {
 				oreDict.registerOreDict();
 			}
 		}
+
+		// Load durabilities from configuration
+		TEConfig.UpdateDurabilities();
+
 	}
 
 	public void registerModels() {

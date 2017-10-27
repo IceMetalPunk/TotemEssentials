@@ -1,5 +1,10 @@
 itemGroup.totemessentials=Totem Essentials
 
+#config
+totemessentials.config.recipes.tooltip=Enable or disable Totem recipes
+totemessentials.config.durabilityOne.tooltip=Edit the default durabilities of each Tier I totem.
+totemessentials.config.durabilityTwo.tooltip=Edit the default durabilities of each Ensouled / Tier II totem
+
 # Effects
 effect.totemessentials.potion_solar=Sunburn
 
