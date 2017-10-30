@@ -33,7 +33,6 @@ import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
@@ -76,29 +75,8 @@ public class TEEnsouledEvents {
 		}
 	}
 
-	// Phasing if holding the Ensouled Phasing Totem
-	@SubscribeEvent
-	public void onLivingUpdate(LivingUpdateEvent ev) {
-		if (ev.getEntityLiving() instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) ev.getEntityLiving();
-			Item mainHand = player.getHeldItemMainhand().getItem();
-			Item offHand = player.getHeldItemOffhand().getItem();
-			Item totem = TotemEssentials.proxy.items.get("ensouled_phasing_totem");
-			if (mainHand == totem || offHand == totem) {
-				player.capabilities.allowFlying = true;
-				player.capabilities.isFlying = true;
-				player.setNoGravity(true);
-				player.onGround = false;
-				player.noClip = false;
-				if (player.isEntityInsideOpaqueBlock()) {
-					player.getHeldItemMainhand().damageItem(1, player);
-				}
-				player.noClip = true;
-			}
-		}
-	}
-
-	// Reset phasing status at end of tick
+	// Reset phasing status at end of tick if just unequipped the ensouled
+	// phasing totem
 	@SubscribeEvent
 	public void onPlayerPostTick(PlayerTickEvent ev) {
 		if (ev.phase == TickEvent.Phase.END) {
@@ -116,13 +94,17 @@ public class TEEnsouledEvents {
 			boolean noNormal = (mainHand != normalTotem && offHand != normalTotem);
 			if (noEnsouled) {
 				if (!player.isSpectator()) {
-					if (!player.isCreative()) {
-						player.capabilities.allowFlying = false;
-						player.capabilities.isFlying = false;
-					}
-					if (noNormal) {
-						player.setNoGravity(false);
-						player.noClip = false;
+					if (player.getEntityData().hasKey("isPhaseFlying")
+							&& player.getEntityData().getBoolean("isPhaseFlying")) {
+						player.getEntityData().setBoolean("isPhaseFlying", false);
+						if (!player.isCreative()) {
+							player.capabilities.allowFlying = player.getEntityData().getBoolean("canOtherFlying");
+							player.capabilities.isFlying = player.getEntityData().getBoolean("wasOtherFlying");
+						}
+						if (noNormal) {
+							player.setNoGravity(player.getEntityData().getBoolean("hadOtherNoGravity"));
+							player.noClip = player.getEntityData().getBoolean("hadOtherNoClip");
+						}
 					}
 				}
 			}
