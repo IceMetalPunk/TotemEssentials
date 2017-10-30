@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "totemessentials:configrecipe",
+	  "name": "curing_totem"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "group":"totemessentials:curing_totem",
   "pattern": [

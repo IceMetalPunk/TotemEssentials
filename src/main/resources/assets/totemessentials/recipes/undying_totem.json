@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "totemessentials:configrecipe",
+	  "name": "undying_totem"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "group":"minecraft:totem_of_undying",
   "pattern": [

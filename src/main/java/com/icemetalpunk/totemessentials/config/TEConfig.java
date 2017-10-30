@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Config(modid = TotemEssentials.MODID)
 @Config.LangKey("totemessentials.config.title")
 public class TEConfig {
+
 	@Config.Name("Recipes")
 	@Config.LangKey("totemessentials.config.recipes")
 	public static HashMap<String, Boolean> recipeList = new HashMap<>();
@@ -27,6 +28,7 @@ public class TEConfig {
 	public static HashMap<String, Integer> durabilityEnsouledList = new HashMap<>();
 
 	static {
+		// TODO: Add info to readme saying recipe toggling requires a restart.
 		recipeList.put("Aggression Totem", true);
 		recipeList.put("Aiming Totem", true);
 		recipeList.put("Curing Totem", true);
@@ -76,6 +78,7 @@ public class TEConfig {
 		durabilityEnsouledList.put("Ensouled Undying Totem", 10);
 		durabilityEnsouledList.put("Ensouled Vampire Totem", 40);
 		durabilityEnsouledList.put("Ensouled Wisdom Totem", 1500);
+
 	}
 
 	@Mod.EventBusSubscriber(modid = TotemEssentials.MODID)

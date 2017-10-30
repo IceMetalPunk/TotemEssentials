@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "totemessentials:configrecipe",
+	  "name": "ensouled_wisdom_totem"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "group":"totemessentials:ensouled_wisdom_totem",
   "pattern": [

@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "totemessentials:configrecipe",
+	  "name": "reaping_totem"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "group":"totemessentials:reaping_totem",
   "pattern": [

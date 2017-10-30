@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "totemessentials:configrecipe",
+	  "name": "ensouled_aggression_totem_upgrade"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "group":"totemessentials:ensouled_aggression_totem",
   "pattern": [

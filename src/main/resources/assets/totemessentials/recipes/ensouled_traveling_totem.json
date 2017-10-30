@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "totemessentials:configrecipe",
+	  "name": "ensouled_traveling_totem"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "group":"totemessentials:ensouled_traveling_totem",
   "pattern": [

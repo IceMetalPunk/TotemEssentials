@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "totemessentials:configrecipe",
+	  "name": "daunting_totem"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "group":"totemessentials:daunting_totem",
   "pattern": [

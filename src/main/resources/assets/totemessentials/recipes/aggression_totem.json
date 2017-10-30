@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "totemessentials:configrecipe",
+	  "name": "aggression_totem"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "group":"totemessentials:aggression_totem",
   "pattern": [

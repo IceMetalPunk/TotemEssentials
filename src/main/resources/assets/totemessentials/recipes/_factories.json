@@ -1,0 +1,5 @@
+{
+    "conditions": {
+        "configrecipe": "com.icemetalpunk.totemessentials.factories.ConfigurableRecipeFactory"
+    }
+}

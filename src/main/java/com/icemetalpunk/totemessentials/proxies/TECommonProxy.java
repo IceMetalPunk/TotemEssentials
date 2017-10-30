@@ -2,6 +2,7 @@ package com.icemetalpunk.totemessentials.proxies;
 
 import com.icemetalpunk.totemessentials.TotemEssentials;
 import com.icemetalpunk.totemessentials.blocks.BlockRegistry;
+import com.icemetalpunk.totemessentials.config.TEConfig;
 import com.icemetalpunk.totemessentials.items.ItemRegistry;
 import com.icemetalpunk.totemessentials.potions.PotionRegistry;
 import com.icemetalpunk.totemessentials.sounds.SoundRegistry;
@@ -28,7 +29,7 @@ public class TECommonProxy {
 	}
 
 	public void init(FMLInitializationEvent e) {
-
+		loadConfig();
 	}
 
 	public void postInit(FMLPostInitializationEvent e) {
@@ -36,6 +37,10 @@ public class TECommonProxy {
 
 	protected void loadLootTables() {
 		LootTableList.register(new ResourceLocation(TotemEssentials.MODID, "injected_loot/vindicator"));
+	}
+
+	protected void loadConfig() {
+		TEConfig.UpdateDurabilities();
 	}
 
 }

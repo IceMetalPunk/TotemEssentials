@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "totemessentials:configrecipe",
+	  "name": "replication_totem"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "group":"totemessentials:replication_totem",
   "pattern": [

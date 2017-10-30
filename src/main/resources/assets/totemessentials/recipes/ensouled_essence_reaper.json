@@ -1,4 +1,10 @@
-		{
+{
+  "conditions": [
+    {
+      "type": "totemessentials:configrecipe",
+	  "name": "ensouled_essence_reaper"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "group":"totemessentials:ensouled_essence",
   "pattern": [

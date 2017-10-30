@@ -1,4 +1,10 @@
-		{
+{
+  "conditions": [
+    {
+      "type": "totemessentials:configrecipe",
+	  "name": "reinforced_soul_sand"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "group":"totemessentials:reinforced_soul_sand",
   "pattern": [

@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type": "totemessentials:configrecipe",
+	  "name": "ensouled_phasing_totem"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "group":"totemessentials:ensouled_phasing_totem",
   "pattern": [
