@@ -16,7 +16,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class TEConfig {
 
 	@Config.Name("Recipes")
-	@Config.LangKey("totemessentials.config.recipes")
+	@Config.RequiresMcRestart
+	@Config.Comment("Enable or disable totem recipes")
 	public static HashMap<String, Boolean> recipeList = new HashMap<>();
 
 	@Config.Name("Normal Durabilities")
@@ -27,7 +28,7 @@ public class TEConfig {
 	@Config.LangKey("totemessentials.config.durabilityTwo")
 	public static HashMap<String, Integer> durabilityEnsouledList = new HashMap<>();
 
-	static {
+	static {		
 		// TODO: Add info to readme saying recipe toggling requires a restart.
 		recipeList.put("Aggression Totem", true);
 		recipeList.put("Aiming Totem", true);
@@ -43,6 +44,7 @@ public class TEConfig {
 		recipeList.put("Replication Totem", true);
 		recipeList.put("Storage Totem", true);
 		recipeList.put("Traveling Totem", true);
+		recipeList.put("Undying Totem", true);
 		recipeList.put("Vampire Totem", true);
 		recipeList.put("Wisdom Totem", true);
 

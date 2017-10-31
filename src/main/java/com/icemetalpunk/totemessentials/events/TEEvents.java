@@ -12,6 +12,7 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import com.google.common.base.Predicate;
 import com.icemetalpunk.totemessentials.TotemEssentials;
+import com.icemetalpunk.totemessentials.config.TEConfig;
 import com.icemetalpunk.totemessentials.items.EntityItemFireproof;
 import com.icemetalpunk.totemessentials.items.totems.ItemFireglazeTotem;
 import com.icemetalpunk.totemessentials.items.totems.ensouled.ItemEnsouledFireglazeTotem;
@@ -107,23 +108,55 @@ public class TEEvents {
 		dropReplacements.put(EntityEvoker.class, tempMap);
 
 		// Populate essence drop map
-		essenceMap.put(EntityVex.class, TotemEssentials.proxy.items.get("essence_vexatious"));
-		essenceMap.put(EntityZombie.class, TotemEssentials.proxy.items.get("essence_undying"));
-		essenceMap.put(EntityCow.class, TotemEssentials.proxy.items.get("essence_lactic"));
-		essenceMap.put(EntityChicken.class, TotemEssentials.proxy.items.get("essence_featherfoot"));
-		essenceMap.put(EntityBat.class, TotemEssentials.proxy.items.get("essence_vampiric"));
-		essenceMap.put(EntityEnderman.class, TotemEssentials.proxy.items.get("essence_traveling"));
-		essenceMap.put(EntityIllusionIllager.class, TotemEssentials.proxy.items.get("essence_replication"));
-		essenceMap.put(EntityVillager.class, TotemEssentials.proxy.items.get("essence_exchange"));
-		essenceMap.put(EntityMagmaCube.class, TotemEssentials.proxy.items.get("essence_fireglaze"));
-		essenceMap.put(EntityShulker.class, TotemEssentials.proxy.items.get("essence_storage"));
-		essenceMap.put(EntitySkeleton.class, TotemEssentials.proxy.items.get("essence_aim"));
-		essenceMap.put(EntityStray.class, TotemEssentials.proxy.items.get("essence_aim"));
-		essenceMap.put(EntityPigZombie.class, TotemEssentials.proxy.items.get("essence_aggro"));
-		essenceMap.put(EntityElderGuardian.class, TotemEssentials.proxy.items.get("essence_wisdom"));
-		essenceMap.put(EntityHusk.class, TotemEssentials.proxy.items.get("essence_gluttony"));
-		essenceMap.put(EntityBlaze.class, TotemEssentials.proxy.items.get("essence_flamebody"));
-		essenceMap.put(EntityCreeper.class, TotemEssentials.proxy.items.get("essence_daunting"));
+		if (TEConfig.recipeList.containsKey("Phasing Totem") && TEConfig.recipeList.get("Phasing Totem")) {
+			essenceMap.put(EntityVex.class, TotemEssentials.proxy.items.get("essence_vexatious"));
+		}
+		if (TEConfig.recipeList.containsKey("Undying Totem") && TEConfig.recipeList.get("Undying Totem")) {
+			essenceMap.put(EntityZombie.class, TotemEssentials.proxy.items.get("essence_undying"));
+		}
+		if (TEConfig.recipeList.containsKey("Curing Totem") && TEConfig.recipeList.get("Curing Totem")) {
+			essenceMap.put(EntityCow.class, TotemEssentials.proxy.items.get("essence_lactic"));
+		}
+		if (TEConfig.recipeList.containsKey("Featherfoot Totem") && TEConfig.recipeList.get("Featherfoot Totem")) {
+			essenceMap.put(EntityChicken.class, TotemEssentials.proxy.items.get("essence_featherfoot"));
+		}
+		if (TEConfig.recipeList.containsKey("Vampire Totem") && TEConfig.recipeList.get("Vampire Totem")) {
+			essenceMap.put(EntityBat.class, TotemEssentials.proxy.items.get("essence_vampiric"));
+		}
+		if (TEConfig.recipeList.containsKey("Traveling Totem") && TEConfig.recipeList.get("Traveling Totem")) {
+			essenceMap.put(EntityEnderman.class, TotemEssentials.proxy.items.get("essence_traveling"));
+		}
+		if (TEConfig.recipeList.containsKey("Replication Totem") && TEConfig.recipeList.get("Replication Totem")) {
+			essenceMap.put(EntityIllusionIllager.class, TotemEssentials.proxy.items.get("essence_replication"));
+		}
+		if (TEConfig.recipeList.containsKey("Exchange Totem") && TEConfig.recipeList.get("Exchange Totem")) {
+			essenceMap.put(EntityVillager.class, TotemEssentials.proxy.items.get("essence_exchange"));
+		}
+		if (TEConfig.recipeList.containsKey("Fireglaze Totem") && TEConfig.recipeList.get("Fireglaze Totem")) {
+			essenceMap.put(EntityMagmaCube.class, TotemEssentials.proxy.items.get("essence_fireglaze"));
+		}
+		if (TEConfig.recipeList.containsKey("Storage Totem") && TEConfig.recipeList.get("Storage Totem")) {
+			essenceMap.put(EntityShulker.class, TotemEssentials.proxy.items.get("essence_storage"));
+		}
+		if (TEConfig.recipeList.containsKey("Aiming Totem") && TEConfig.recipeList.get("Aiming Totem")) {
+			essenceMap.put(EntitySkeleton.class, TotemEssentials.proxy.items.get("essence_aim"));
+			essenceMap.put(EntityStray.class, TotemEssentials.proxy.items.get("essence_aim"));
+		}
+		if (TEConfig.recipeList.containsKey("Aggression Totem") && TEConfig.recipeList.get("Aggression Totem")) {
+			essenceMap.put(EntityPigZombie.class, TotemEssentials.proxy.items.get("essence_aggro"));
+		}
+		if (TEConfig.recipeList.containsKey("Wisdom Totem") && TEConfig.recipeList.get("Wisdom Totem")) {
+			essenceMap.put(EntityElderGuardian.class, TotemEssentials.proxy.items.get("essence_wisdom"));
+		}
+		if (TEConfig.recipeList.containsKey("Gluttony Totem") && TEConfig.recipeList.get("Gluttony Totem")) {
+			essenceMap.put(EntityHusk.class, TotemEssentials.proxy.items.get("essence_gluttony"));
+		}
+		if (TEConfig.recipeList.containsKey("Flamebody Totem") && TEConfig.recipeList.get("Flamebody Totem")) {
+			essenceMap.put(EntityBlaze.class, TotemEssentials.proxy.items.get("essence_flamebody"));
+		}
+		if (TEConfig.recipeList.containsKey("Daunting Totem") && TEConfig.recipeList.get("Daunting Totem")) {
+			essenceMap.put(EntityCreeper.class, TotemEssentials.proxy.items.get("essence_daunting"));
+		}
 	}
 
 	// Phasing if holding the Phasing Totem

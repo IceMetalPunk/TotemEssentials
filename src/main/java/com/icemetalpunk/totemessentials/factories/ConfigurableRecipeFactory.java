@@ -19,6 +19,7 @@ public class ConfigurableRecipeFactory implements IConditionFactory {
 			@Override
 			public boolean getAsBoolean() {
 				String name = json.get("name").getAsString();
+				name = name.replace("ensouled_", "").replace("_upgrade", "");
 				name = WordUtils.capitalizeFully(name.replaceAll("_", " "));
 				if (TEConfig.recipeList.containsKey(name)) {
 					return TEConfig.recipeList.get(name);
