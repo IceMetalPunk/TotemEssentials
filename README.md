@@ -10,6 +10,9 @@ When using the Forge client for 1.12.1 or 1.12.2, simply download [the mod from 
 
 As mentioned, I also recommend using JEI as well; you can find the downloads for that mod [here](https://minecraft.curseforge.com/projects/just-enough-items-jei/files). JEI is not necessary to play with Totem Essentials, but it's very useful!
 
+## Configuration
+As of version 1.1.0, Totem Essentials has a few configuration options. You can change the default durability of every totem which has durability. You can also enable or disable any totem recipes, and the essence for any disabled totems won't drop anymore, either. **(Note: Changing a recipe configuration will require you to restart Minecraft before the changes take effect.)**
+
 ## Videos
 [Official Walkthrough](https://youtu.be/j3OsvvUPfrM)
 

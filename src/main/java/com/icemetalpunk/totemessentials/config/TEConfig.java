@@ -29,7 +29,6 @@ public class TEConfig {
 	public static HashMap<String, Integer> durabilityEnsouledList = new HashMap<>();
 
 	static {		
-		// TODO: Add info to readme saying recipe toggling requires a restart.
 		recipeList.put("Aggression Totem", true);
 		recipeList.put("Aiming Totem", true);
 		recipeList.put("Curing Totem", true);
